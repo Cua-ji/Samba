@@ -1,0 +1,20 @@
+{
+  "name": "samba-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Motor simbolico y pipeline RAG neuro-simbolico para Samba con PostgreSQL",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:seed": "node src/db/seed.js",
+    "test": "node --test src/symbolic/engine.test.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.1",
+    "samba-wellness-platform": "file:.."
+  }
+}

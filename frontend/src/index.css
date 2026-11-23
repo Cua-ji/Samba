@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.samba-mesh-bg {
+  background-color: #d5f7e8;
+  background-image:
+    radial-gradient(circle at 10% 12%, rgba(200, 245, 235, 0.92) 0%, transparent 45%),
+    radial-gradient(circle at 88% 18%, rgba(188, 247, 222, 0.75) 0%, transparent 40%),
+    radial-gradient(circle at 50% 55%, rgba(215, 248, 237, 0.95) 0%, transparent 60%),
+    radial-gradient(circle at 90% 90%, rgba(180, 240, 220, 0.85) 0%, transparent 50%),
+    linear-gradient(180deg, #e2f8f0 0%, #d5f7e8 58%, #c6ecdc 100%);
+}
+
+.samba-app-bg {
+  background: linear-gradient(180deg, #d5f7e8 0%, #cbf4e2 50%, #bcefd8 100%);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0.75rem);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 1.25rem);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

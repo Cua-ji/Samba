@@ -1,0 +1,258 @@
+[
+  {
+    "id": "rut_funcional_bajo_impacto",
+    "groupId": "torso_core",
+    "groupName": "Torso, Brazos & Core",
+    "title": "Rutina Funcional & Peso Corporal",
+    "durationMin": 25,
+    "equipment": "Sin equipo - En casa",
+    "caloriesBurned": 280,
+    "intensity": "Intensidad Moderada",
+    "impactLevel": "bajo",
+    "contraindications": [],
+    "targetGoals": ["perder_grasa", "recomposicion", "salud_vitalidad"],
+    "mainBenefit": "Tonificacion muscular, movilidad articular y resistencia base.",
+    "exercises": [
+      "Plancha frontal controlada 3x40s",
+      "Flexiones inclinadas o de rodillas 3x12",
+      "Remo invertido con toalla o mesa 3x10",
+      "Bird-dog isometrico para estabilidad lumbar 3x10 por lado"
+    ],
+    "recommended": false,
+    "technicalSheet": "Ficha tecnica: 25 min, impacto articular bajo (280 kcal estimadas). Segura para rodilla, tobillo, lumbar y hombro al ejecutarse con rango controlado y sin saltos."
+  },
+  {
+    "id": "rut_hipertrofia_torso",
+    "groupId": "torso_core",
+    "groupName": "Torso, Brazos & Core",
+    "title": "Fuerza Hipertrofia: Torso & Core",
+    "durationMin": 38,
+    "equipment": "Mancuernas",
+    "caloriesBurned": 360,
+    "intensity": "Equilibrada & Hipertrofia",
+    "impactLevel": "bajo",
+    "contraindications": [],
+    "targetGoals": ["ganar_masa", "perder_grasa", "recomposicion"],
+    "mainBenefit": "Aumento de masa muscular magra, fuerza de empuje y estabilidad lumbar.",
+    "exercises": [
+      "Press en suelo con mancuernas 4x10",
+      "Remo unilateral apoyado en banco 4x12",
+      "Curl de biceps + extension de triceps controlado 3x12",
+      "Dead bug con mancuerna ligera 3x12"
+    ],
+    "recommended": true,
+    "technicalSheet": "Ficha tecnica: 38 min, impacto articular bajo (360 kcal estimadas). Prioriza tension mecanica sin compresion axial ni impacto en rodillas o tobillos."
+  },
+  {
+    "id": "rut_metabolica_express",
+    "groupId": "torso_core",
+    "groupName": "Torso, Brazos & Core",
+    "title": "Metabolica Express & Definicion",
+    "durationMin": 45,
+    "equipment": "Alta Intensidad - Potencia",
+    "caloriesBurned": 430,
+    "intensity": "Quema calorica acelerada",
+    "impactLevel": "alto",
+    "contraindications": ["rodilla", "tobillo"],
+    "targetGoals": ["perder_grasa", "recomposicion"],
+    "mainBenefit": "Maxima quema calorica post-entreno (EPOC), resistencia cardiovascular y potencia.",
+    "exercises": [
+      "Burpees explosivos 4x12",
+      "Saltos al cajon o sentadilla con salto 4x15",
+      "Mountain climbers de alta velocidad 4x40s",
+      "Sprints estacionarios en intervalo 20/10"
+    ],
+    "recommended": false,
+    "technicalSheet": "Ficha tecnica: 45 min, ALTO IMPACTO (430 kcal estimadas). Incluye burpees y saltos repetidos; contraindicada ante lesiones de rodilla o tobillo."
+  },
+  {
+    "id": "rut_correr_hiit",
+    "groupId": "cardio_resistencia",
+    "groupName": "Cardio & Capacidad Aerobica",
+    "title": "Correr / HIIT de Alto Impacto",
+    "durationMin": 35,
+    "equipment": "Exterior o banda",
+    "caloriesBurned": 410,
+    "intensity": "Alta Intensidad",
+    "impactLevel": "alto",
+    "contraindications": ["rodilla", "tobillo", "lumbar"],
+    "targetGoals": ["perder_grasa", "salud_vitalidad"],
+    "mainBenefit": "Elevacion rapida del VO2max y alto gasto energetico en sesion corta.",
+    "exercises": [
+      "Trote progresivo de calentamiento 8 min",
+      "8 series de carrera rapida 400m con zancada reactiva",
+      "Cambios de ritmo en pendiente suave"
+    ],
+    "recommended": false,
+    "technicalSheet": "Ficha tecnica: 35 min, ALTO IMPACTO (410 kcal estimadas). Cada zancada al correr genera fuerzas de reaccion de 2.5x a 3x el peso corporal; contraindicado si hay lesion de rodilla, tobillo o zona lumbar."
+  },
+  {
+    "id": "rut_ciclismo_zona2",
+    "groupId": "cardio_resistencia",
+    "groupName": "Cardio & Capacidad Aerobica",
+    "title": "Ciclismo Estatico & Zona 2 Controlada",
+    "durationMin": 36,
+    "equipment": "Bicicleta estatica",
+    "caloriesBurned": 340,
+    "intensity": "Moderada Continua",
+    "impactLevel": "bajo",
+    "contraindications": [],
+    "targetGoals": ["perder_grasa", "recomposicion", "salud_vitalidad"],
+    "mainBenefit": "Oxidacion eficiente de grasas y mejora cardiovascular sin impacto articular.",
+    "exercises": [
+      "Ajuste ergonomico de sillin para extension segura de rodilla",
+      "Pedaleo fluido a 75-85 RPM en Zona 2 cardiaca durante 26 min",
+      "4 intervalos suaves de cadencia moderada 60s"
+    ],
+    "recommended": true,
+    "technicalSheet": "Ficha tecnica: 36 min, impacto articular nulo/bajo (340 kcal estimadas). Sustituto directo de correr para proteger rodillas, tobillos y columna lumbar manteniendo alto gasto calorico."
+  },
+  {
+    "id": "rut_remo_sin_impacto",
+    "groupId": "cardio_resistencia",
+    "groupName": "Cardio & Capacidad Aerobica",
+    "title": "Remo Ergometro & Resistencia Segura",
+    "durationMin": 30,
+    "equipment": "Maquina de remo",
+    "caloriesBurned": 325,
+    "intensity": "Equilibrada Global",
+    "impactLevel": "bajo",
+    "contraindications": ["lumbar"],
+    "targetGoals": ["perder_grasa", "ganar_masa", "salud_vitalidad"],
+    "mainBenefit": "Trabajo simultaneo del 80% de grupos musculares sin choque contra el suelo.",
+    "exercises": [
+      "Tecnica controlada sin saltos: secuencia piernas-espalda-brazos",
+      "Bloques aerobicos de 4x5 min a ritmo sostenido",
+      "Enfriamiento y movilidad toracica 5 min"
+    ],
+    "recommended": false,
+    "technicalSheet": "Ficha tecnica: 30 min, bajo impacto articular (325 kcal estimadas). Ideal sin lesiones lumbares; evita impactos de tobillo y rodilla."
+  },
+  {
+    "id": "rut_pliometria_potencia",
+    "groupId": "tren_inferior",
+    "groupName": "Tren Inferior & Estabilidad",
+    "title": "Pliometria y Saltos de Potencia",
+    "durationMin": 32,
+    "equipment": "Cajon pliometrico",
+    "caloriesBurned": 390,
+    "intensity": "Alta Intensidad",
+    "impactLevel": "alto",
+    "contraindications": ["rodilla", "tobillo"],
+    "targetGoals": ["ganar_masa", "perder_grasa"],
+    "mainBenefit": "Potencia explosiva de fibras rapidas y capacidad reactiva.",
+    "exercises": [
+      "Saltos profundos con recepcion reactiva 4x8",
+      "Zancadas con salto alterno 3x16",
+      "Saltos laterales de velocidad 3x20s"
+    ],
+    "recommended": false,
+    "technicalSheet": "Ficha tecnica: 32 min, ALTO IMPACTO (390 kcal estimadas). Exige aterrizajes explosivos; descartado ante lesiones de rodilla o tobillo."
+  },
+  {
+    "id": "rut_gluteo_sin_impacto",
+    "groupId": "tren_inferior",
+    "groupName": "Tren Inferior & Estabilidad",
+    "title": "Fuerza de Gluteo y Pierna Sin Impacto",
+    "durationMin": 35,
+    "equipment": "Mancuernas y banda",
+    "caloriesBurned": 330,
+    "intensity": "Moderada Controlada",
+    "impactLevel": "bajo",
+    "contraindications": [],
+    "targetGoals": ["ganar_masa", "recomposicion", "perder_grasa"],
+    "mainBenefit": "Fortalecimiento de gluteo medio e isquiotibiales descargando la articulacion de la rodilla.",
+    "exercises": [
+      "Puente de gluteo en suelo con pausa isometrica 4x15",
+      "Abduccion lateral con banda elastica 3x18",
+      "Peso muerto rumano ligero con mancuernas en rango comodo 3x12",
+      "Elevacion controlada de talones sentado 3x15"
+    ],
+    "recommended": true,
+    "technicalSheet": "Ficha tecnica: 35 min, impacto bajo (330 kcal estimadas). Disenada para fortalecer la cadena posterior sin estres de cizalla ni aterrizajes."
+  },
+  {
+    "id": "rut_movilidad_estabilidad",
+    "groupId": "tren_inferior",
+    "groupName": "Tren Inferior & Estabilidad",
+    "title": "Movilidad Articular & Estabilidad Segura",
+    "durationMin": 24,
+    "equipment": "Tapete - En casa",
+    "caloriesBurned": 195,
+    "intensity": "Suave Restaurativa",
+    "impactLevel": "bajo",
+    "contraindications": [],
+    "targetGoals": ["salud_vitalidad", "perder_grasa", "recomposicion"],
+    "mainBenefit": "Mejora del rango de movimiento, activacion neuromuscular y recuperacion articular.",
+    "exercises": [
+      "Isometrico de cuadriceps en pared (angulo alto seguro) 3x35s",
+      "Puente de cadera unilateral lento 3x10",
+      "Movilidad de cadera 90/90 y tobillo sin carga 3x8"
+    ],
+    "recommended": false,
+    "technicalSheet": "Ficha tecnica: 24 min, impacto minimo (195 kcal estimadas). Apta para cualquier perfil articular y recuperacion activa."
+  },
+  {
+    "id": "rut_carga_axial",
+    "groupId": "full_body",
+    "groupName": "Cuerpo Completo Adaptado",
+    "title": "Sentadilla Pesada & Peso Muerto Axial",
+    "durationMin": 42,
+    "equipment": "Barra olimpica",
+    "caloriesBurned": 400,
+    "intensity": "Alta Carga",
+    "impactLevel": "alto",
+    "contraindications": ["lumbar", "rodilla"],
+    "targetGoals": ["ganar_masa"],
+    "mainBenefit": "Estimulo maximo de fuerza base en tren inferior y espalda baja.",
+    "exercises": [
+      "Sentadilla trasera con barra 5x5",
+      "Peso muerto convencional pesado 4x5",
+      "Remo Pendlay explosivo 3x8"
+    ],
+    "recommended": false,
+    "technicalSheet": "Ficha tecnica: 42 min, ALTO IMPACTO / CARGA AXIAL (400 kcal estimadas). Genera alta compresion espinal y torque en rodilla; descartado con lesion lumbar o de rodilla."
+  },
+  {
+    "id": "rut_empuje_explosivo",
+    "groupId": "full_body",
+    "groupName": "Cuerpo Completo Adaptado",
+    "title": "Press Militar & Fondos Explosivos",
+    "durationMin": 36,
+    "equipment": "Mancuernas y paralelas",
+    "caloriesBurned": 350,
+    "intensity": "Alta Intensidad",
+    "impactLevel": "alto",
+    "contraindications": ["hombro"],
+    "targetGoals": ["ganar_masa", "recomposicion"],
+    "mainBenefit": "Desarrollo de deltoides, pecho superior y triceps con rango profundo.",
+    "exercises": [
+      "Press militar estricto sobre la cabeza 4x8",
+      "Fondos en paralelas profundos 4x10",
+      "Elevaciones laterales explosivas 3x15"
+    ],
+    "recommended": false,
+    "technicalSheet": "Ficha tecnica: 36 min, ALTO IMPACTO EN MANGUITO ROTADOR (350 kcal estimadas). Descartado ante molestias o lesion de hombro."
+  },
+  {
+    "id": "rut_full_body_seguro",
+    "groupId": "full_body",
+    "groupName": "Cuerpo Completo Adaptado",
+    "title": "Full Body Controlado con Bandas y Mancuernas",
+    "durationMin": 34,
+    "equipment": "Bandas y mancuernas ligeras",
+    "caloriesBurned": 320,
+    "intensity": "Moderada Sostenida",
+    "impactLevel": "bajo",
+    "contraindications": [],
+    "targetGoals": ["perder_grasa", "ganar_masa", "recomposicion", "salud_vitalidad"],
+    "mainBenefit": "Estimulo metabolico completo protegiendo articulaciones vulnerables.",
+    "exercises": [
+      "Press en suelo con agarre neutro 3x12",
+      "Remo con banda elastica a la cintura 3x15",
+      "Puente de gluteo + pallof press de core 3x12"
+    ],
+    "recommended": true,
+    "technicalSheet": "Ficha tecnica: 34 min, bajo impacto articular (320 kcal estimadas). Totalmente compatible con proteccion articular completa."
+  }
+]
