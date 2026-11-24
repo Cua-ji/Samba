@@ -16,17 +16,32 @@ const BUDGET_BADGES = {
   alto: 'PRESUPUESTO ALTO',
 };
 
+function cleanMealTitle(title = '') {
+  return String(title)
+    .replace(/\s*\(\s*(?:(?:bajo|medio|alto)\s+presupuesto|presupuesto\s+(?:bajo|medio|alto))\s*\)\s*/gi, ' ')
+    .replace(/\s*[-–:]?\s*(?:(?:bajo|medio|alto)\s+presupuesto|presupuesto\s+(?:bajo|medio|alto))\s*$/gi, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+function cleanMealDescription(description = '') {
+  return String(description)
+    .replace(/\s*\(\s*(?:(?:bajo|medio|alto)\s+presupuesto|presupuesto\s+(?:bajo|medio|alto|limitado|moderado|elevado))\s*\)\s*/gi, ' ')
+    .replace(/\s*(?:,?\s*(?:ideal|perfect[ao]|pensad[ao]|diseñad[ao]|adaptad[ao])?\s*(?:para|con|de|en)\s+(?:un\s+)?(?:(?:bajo|medio|alto)\s+presupuesto|presupuesto\s+(?:bajo|medio|alto|limitado|moderado|elevado)))/gi, '')
+    .replace(/\s*(?:(?:bajo|medio|alto)\s+presupuesto|presupuesto\s+(?:bajo|medio|alto|limitado|moderado|elevado))/gi, '')
+    .replace(/\s+([.,;:])/g, '$1')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
 export function MealsPage({ refreshTrigger }) {
   const { user, setUser, setTodayLog } = useSamba();
   const [mealTime, setMealTime] = useState('almuerzo');
   const [data, setData] = useState(null);
-  const [baseIndex, setBaseIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [generatingAi, setGeneratingAi] = useState(false);
   const [actionId, setActionId] = useState(null);
   const [feedback, setFeedback] = useState('');
-  const [openWhyId, setOpenWhyId] = useState(null);
-  const [showDiscarded, setShowDiscarded] = useState(false);
 
   const loadMeals = useCallback(async () => {
     if (!user?.id) return;
@@ -34,7 +49,6 @@ export function MealsPage({ refreshTrigger }) {
     try {
       const res = await api.getMeals(user.id, mealTime);
       setData(res);
-      setBaseIndex(0);
     } catch (err) {
       setFeedback(err.message);
     } finally {
@@ -46,34 +60,27 @@ export function MealsPage({ refreshTrigger }) {
     loadMeals();
   }, [loadMeals, refreshTrigger]);
 
+  useEffect(() => {
+    if (!feedback) return undefined;
+    const timer = setTimeout(() => setFeedback(''), 3500);
+    return () => clearTimeout(timer);
+  }, [feedback]);
+
   if (!user) return null;
 
   const baseDishes = data?.baseDishes || [];
-  const activeBase = baseDishes[baseIndex] || null;
+  const activeBase = baseDishes[0] || null;
   const mealGoal = data?.mealGoal || { min: 520, max: 650 };
-  const discardedMeals = data?.discardedMeals || [];
 
-  async function handleAffinity(mealId, action) {
-    setActionId(`${mealId}_${action}`);
+  async function handleChooseMeal(mealId) {
+    setActionId(mealId);
     setFeedback('');
     try {
-      const res = await api.setMealAffinity(user.id, mealId, action);
+      const res = await api.setMealAffinity(user.id, mealId, 'choose');
       setUser(res.user);
       setTodayLog(res.todayLog);
       setData({ mealTime, ...res.evaluation });
-      if (action === 'choose') {
-        setFeedback(
-          res.affinityRecord.isFavorite
-            ? 'Platillo elegido (+2 pts) y marcado como Favorito. Balance diario actualizado.'
-            : 'Platillo elegido (+2 pts). Balance diario actualizado.'
-        );
-      } else {
-        setFeedback(
-          res.affinityRecord.lowPriority
-            ? 'Platillo ignorado (-1 pt). Prioridad reducida tras >= 2 descartes.'
-            : 'Platillo ignorado (-1 pt). Preferencia registrada.'
-        );
-      }
+      setFeedback('Platillo elegido. Balance diario actualizado.');
     } catch (err) {
       setFeedback(err.message);
     } finally {
@@ -89,10 +96,7 @@ export function MealsPage({ refreshTrigger }) {
       const res = await api.generateAiMeal(user.id, mealTime);
       setUser(res.user);
       setData({ mealTime, ...res.evaluation });
-      setBaseIndex(0);
-      setFeedback(
-        `Menú IA (${res.generated.modelUsed} + USDA FoodData Central) validado por el Motor Simbólico y guardado en PostgreSQL.`
-      );
+      setFeedback('Platillo actualizado con 3 nuevas opciones.');
     } catch (err) {
       setFeedback(err.message);
     } finally {
@@ -157,71 +161,73 @@ export function MealsPage({ refreshTrigger }) {
           </div>
         </div>
 
-        {/* Tag platillo base + Cambiar platillo + Generar con IA */}
+        {/* Tag platillo base */}
         {activeBase && (
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-white shadow-sm border border-outline-variant/30">
-              <span className="material-symbols-outlined text-primary text-[20px] shrink-0">
-                lunch_dining
-              </span>
-              <span className="font-label-md text-label-md font-bold text-on-surface tracking-tight truncate">
-                {activeBase.baseName}
-              </span>
-            </div>
-
-            <div className="flex items-center justify-between gap-2 flex-wrap">
-              <span className="font-label-sm text-label-sm font-medium text-on-surface-variant">
-                Opción {baseIndex + 1} de {baseDishes.length}
-              </span>
-              <div className="flex items-center gap-1.5">
-                <button
-                  type="button"
-                  disabled={generatingAi}
-                  onClick={handleGenerateAiMeal}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#181A20] hover:bg-[#232332] text-white font-label-md text-[12px] font-semibold transition-all active:scale-95 shadow-sm shrink-0 disabled:opacity-60"
-                >
-                  <span
-                    className={`material-symbols-outlined text-[16px] text-[#6ffbbe] ${
-                      generatingAi ? 'animate-spin' : ''
-                    }`}
-                  >
-                    {generatingAi ? 'progress_activity' : 'neurology'}
-                  </span>
-                  <span>{generatingAi ? 'USDA + Ollama...' : 'Generar con IA'}</span>
-                </button>
-                {baseDishes.length > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => setBaseIndex((i) => (i + 1) % baseDishes.length)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-primary hover:bg-surface-container font-label-md text-[12px] font-semibold transition-all active:scale-95 shadow-sm border border-outline-variant/30 shrink-0"
-                  >
-                    <span className="material-symbols-outlined text-[17px]">shuffle</span>
-                    <span>Cambiar platillo</span>
-                  </button>
-                )}
-              </div>
-            </div>
+          <div className="flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-white shadow-sm border border-outline-variant/30">
+            <span className="material-symbols-outlined text-primary text-[20px] shrink-0">
+              lunch_dining
+            </span>
+            <span className="font-label-md text-label-md font-bold text-on-surface tracking-tight truncate">
+              {activeBase.baseName.replace(/^Base(\s+IA)?:\s*/i, '')}
+            </span>
           </div>
         )}
 
         {feedback && (
-          <div className="rounded-2xl bg-[#CBF3DB] px-4 py-2.5 text-[12.5px] font-semibold text-[#005236] border border-[#00B87C]/30">
-            {feedback}
+          <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[390px] rounded-2xl bg-[#181A20] text-white px-4 py-3 text-[12.5px] font-semibold shadow-lg border border-white/10 flex items-center justify-between gap-2.5">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="material-symbols-outlined text-[18px] text-[#6ffbbe] shrink-0">
+                check_circle
+              </span>
+              <span className="truncate">{feedback}</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setFeedback('')}
+              aria-label="Cerrar notificación"
+              className="text-white/70 hover:text-white shrink-0 flex items-center"
+            >
+              <span className="material-symbols-outlined text-[16px]">close</span>
+            </button>
           </div>
         )}
 
         {loading ? (
           <div className="bg-white rounded-3xl p-6 text-center text-[13px] text-on-surface-variant">
-            Evaluando reglas simbólicas y consistencia de precio...
+            Cargando opciones del día...
           </div>
         ) : !activeBase ? (
-          <div className="bg-white rounded-3xl p-6 text-center text-[13px] text-on-surface-variant">
-            No hay opciones compatibles para este tiempo de comida con tus alergias actuales.
+          <div className="bg-white rounded-3xl p-6 text-center space-y-3 border border-outline-variant/20 shadow-sm">
+            <div className="w-11 h-11 rounded-full bg-[#E8F9EF] text-[#006c49] flex items-center justify-center mx-auto">
+              <span className="material-symbols-outlined text-[24px]">restaurant_menu</span>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[14px] font-bold text-[#151D24]">
+                Aún no tienes opciones para tu {mealTime}
+              </p>
+              <p className="text-[12.5px] text-on-surface-variant">
+                Toca el botón para preparar 3 opciones personalizadas (bajo, medio y alto presupuesto) para ti.
+              </p>
+            </div>
+            <button
+              type="button"
+              disabled={generatingAi}
+              onClick={handleGenerateAiMeal}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#181A20] hover:bg-[#232332] text-white text-[12.5px] font-semibold transition-all active:scale-95 disabled:opacity-60"
+            >
+              <span
+                className={`material-symbols-outlined text-[17px] text-[#6ffbbe] ${
+                  generatingAi ? 'animate-spin' : ''
+                }`}
+              >
+                {generatingAi ? 'progress_activity' : 'restaurant_menu'}
+              </span>
+              <span>{generatingAi ? 'Preparando opciones...' : `Ver opciones de ${mealTime}`}</span>
+            </button>
           </div>
         ) : (
           <div className="flex flex-col gap-4">
             {activeBase.options.map((opt) => {
-              const isWhyOpen = openWhyId === opt.id;
               const isMedium = opt.budgetTier === 'medio';
               return (
                 <article
@@ -247,11 +253,6 @@ export function MealsPage({ refreshTrigger }) {
                     </span>
 
                     <div className="flex items-center gap-1.5">
-                      {opt.source === 'ollama_usda_ai' && (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#E8F9EF] text-[#006c49] border border-[#CBF3DB] text-[10.5px] font-bold">
-                          IA Local • USDA
-                        </span>
-                      )}
                       {opt.affinity.isFavorite && (
                         <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-100 text-[#006c49] text-[10.5px] font-bold">
                           <span className="material-symbols-outlined text-[13px]">grade</span>
@@ -266,35 +267,33 @@ export function MealsPage({ refreshTrigger }) {
                     </div>
                   </div>
 
-                  <DishVisual
-                    theme={opt.visualTheme}
-                    prepMinutes={opt.prepMinutes}
-                    estimatedCostUsd={opt.estimatedCostUsd}
-                    badges={opt.badges}
-                  />
+                  <DishVisual theme={opt.visualTheme} />
 
                   <h3 className="font-headline-sm text-headline-sm text-on-surface leading-tight mb-1">
-                    {opt.title}
+                    {cleanMealTitle(opt.title)}
                   </h3>
                   <p className="font-body-sm text-body-sm text-on-surface-variant mb-2.5">
-                    {opt.description}
+                    {cleanMealDescription(opt.description)}
                   </p>
 
-                  {/* Ingrediente principal y validacion precio_consistente */}
-                  <div className="rounded-2xl bg-[#F4FBF7] border border-[#E1EFE7] px-3 py-2 mb-3 flex items-center justify-between gap-2">
-                    <div className="min-w-0">
-                      <span className="block text-[10px] font-bold uppercase tracking-wider text-[#4A7265]">
-                        Ingrediente principal ({opt.mainIngredient.priceTier})
+                  {/* Lista unificada de ingredientes */}
+                  {Array.isArray(opt.ingredients) && opt.ingredients.length > 0 && (
+                    <div className="rounded-2xl bg-[#F4FBF7] border border-[#E1EFE7] px-3 py-2.5 mb-3">
+                      <span className="block text-[10px] font-bold uppercase tracking-wider text-[#4A7265] mb-1.5">
+                        Ingredientes
                       </span>
-                      <span className="text-[12px] font-semibold text-[#151D24] truncate block">
-                        {opt.mainIngredient.name}
-                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {opt.ingredients.map((ing, idx) => (
+                          <span
+                            key={`${opt.id}_ing_${idx}`}
+                            className="inline-flex items-center px-2 py-0.5 rounded-full bg-white text-[11px] font-medium text-[#151D24] border border-[#CBF3DB]"
+                          >
+                            {ing}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white text-[#006c49] text-[10px] font-bold border border-[#CBF3DB] shrink-0 whitespace-nowrap">
-                      <span className="material-symbols-outlined text-[12px]">verified</span>
-                      Precio OK
-                    </span>
-                  </div>
+                  )}
 
                   {/* Macros */}
                   <div className="flex items-center gap-1.5 flex-wrap mb-3 tabular-nums">
@@ -310,107 +309,43 @@ export function MealsPage({ refreshTrigger }) {
                     <span className="px-2.5 py-0.5 rounded-md bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
                       {opt.fat}g G
                     </span>
-                    <span className="ml-auto text-[11px] font-bold text-[#4A7265]">
-                      Afinidad: {opt.affinity.score >= 0 ? `+${opt.affinity.score}` : opt.affinity.score}
-                    </span>
                   </div>
 
-                  {/* Acciones de afinidad + ¿Por qué? */}
+                  {/* Acción: Elegir */}
                   <div className="flex items-center gap-2 pt-2 border-t border-slate-100">
                     <button
                       type="button"
                       disabled={Boolean(actionId)}
-                      onClick={() => handleAffinity(opt.id, 'choose')}
-                      className="flex-1 h-10 rounded-full bg-[#181A20] hover:bg-[#232332] text-white text-[12.5px] font-bold flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all disabled:opacity-60"
+                      onClick={() => handleChooseMeal(opt.id)}
+                      className="w-full h-10 rounded-full bg-[#181A20] hover:bg-[#232332] text-white text-[12.5px] font-bold flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all disabled:opacity-60"
                     >
                       <span className="material-symbols-outlined text-[16px] text-[#6ffbbe]">
                         check_circle
                       </span>
-                      <span>Elegir (+2)</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      disabled={Boolean(actionId)}
-                      onClick={() => handleAffinity(opt.id, 'ignore')}
-                      className="px-3.5 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-[#3c4a42] text-[12px] font-semibold flex items-center justify-center gap-1 active:scale-[0.98] transition-all disabled:opacity-60"
-                    >
-                      <span className="material-symbols-outlined text-[16px]">thumb_down</span>
-                      <span>Ignorar (-1)</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setOpenWhyId(isWhyOpen ? null : opt.id)}
-                      className="px-3 h-10 rounded-full bg-[#E8F9EF] text-[#006c49] text-[12px] font-bold flex items-center justify-center gap-1 shrink-0"
-                    >
-                      <span>¿Por qué?</span>
+                      <span>Elegir</span>
                     </button>
                   </div>
-
-                  {isWhyOpen && (
-                    <div className="mt-3 p-3 rounded-2xl bg-[#F4FBF7] border border-[#CBF3DB] text-[11.5px] text-[#3c4a42] space-y-1.5">
-                      <p className="font-semibold text-[#151D24]">{opt.whyRecommended}</p>
-                      <p className="font-mono text-[10.5px] text-[#006c49]">
-                        Reglas: {opt.rulesApplied.join(' | ')}
-                      </p>
-                      {Array.isArray(opt.dataSources) && opt.dataSources.length > 0 && (
-                        <p className="text-[10.5px] text-[#4A7265]">
-                          Fuentes USDA:{' '}
-                          {opt.dataSources
-                            .map((s) => `${s.description} (FDC ${s.fdcId})`)
-                            .join(', ')}
-                        </p>
-                      )}
-                    </div>
-                  )}
                 </article>
               );
             })}
+
+            <button
+              type="button"
+              disabled={generatingAi}
+              onClick={handleGenerateAiMeal}
+              className="w-full h-11 rounded-full bg-white hover:bg-surface-container text-primary font-label-md text-[13px] font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.99] shadow-sm border border-outline-variant/40 disabled:opacity-60"
+            >
+              <span
+                className={`material-symbols-outlined text-[18px] ${
+                  generatingAi ? 'animate-spin' : ''
+                }`}
+              >
+                {generatingAi ? 'progress_activity' : 'shuffle'}
+              </span>
+              <span>{generatingAi ? 'Generando nuevo platillo...' : 'Cambiar platillo'}</span>
+            </button>
           </div>
         )}
-
-        {/* Opciones descartadas por el Motor Simbolico */}
-        <section className="bg-white/90 rounded-3xl p-4 border border-[#E1EFE7]">
-          <button
-            type="button"
-            onClick={() => setShowDiscarded((v) => !v)}
-            className="w-full flex items-center justify-between text-left"
-          >
-            <div>
-              <p className="text-[13px] font-bold text-[#151D24]">
-                Opciones descartadas ({discardedMeals.length})
-              </p>
-              <p className="text-[11px] text-[#52525B]">
-                Trazas exactas del Motor Simbólico por alergias o consistencia
-              </p>
-            </div>
-            <span className="material-symbols-outlined text-[20px] text-[#4A7265]">
-              {showDiscarded ? 'expand_less' : 'expand_more'}
-            </span>
-          </button>
-
-          {showDiscarded && (
-            <div className="mt-3 space-y-2">
-              {discardedMeals.length === 0 ? (
-                <p className="text-[12px] text-[#52525B]">
-                  Ningún platillo de {mealTime} fue descartado con tus restricciones actuales.
-                </p>
-              ) : (
-                discardedMeals.map((d) => (
-                  <div
-                    key={d.id}
-                    className="p-3 rounded-2xl bg-error-container/40 border border-error/20 text-[11.5px]"
-                  >
-                    <p className="font-bold text-[#151D24]">{d.title}</p>
-                    <p className="font-mono text-[10.5px] text-error mt-0.5">{d.rule}</p>
-                    <p className="text-[#3c4a42] mt-0.5">{d.discardReason}</p>
-                  </div>
-                ))
-              )}
-            </div>
-          )}
-        </section>
       </div>
     </div>
   );

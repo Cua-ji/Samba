@@ -79,10 +79,13 @@ function mapUserRow(row) {
   };
 }
 
-export async function getMealsCatalog(mealTime = null, userId = null) {
+export async function getMealsCatalog(mealTime = null, userId = null, { onlyAi = false } = {}) {
   const conditions = ['is_active = TRUE'];
   const params = [];
 
+  if (onlyAi) {
+    conditions.push(`source = 'ollama_usda_ai'`);
+  }
   if (mealTime) {
     params.push(mealTime);
     conditions.push(`meal_time = $${params.length}`);
@@ -106,6 +109,18 @@ export async function getMealsCatalog(mealTime = null, userId = null) {
 export async function getMealById(mealId) {
   const res = await pool.query('SELECT * FROM meals WHERE id = $1 AND is_active = TRUE', [mealId]);
   return res.rows[0] ? mapMealRow(res.rows[0]) : null;
+}
+
+export async function deactivateUserAiMeals(userId, mealTime) {
+  await pool.query(
+    `UPDATE meals
+     SET is_active = FALSE
+     WHERE generated_for_user_id = $1
+       AND meal_time = $2
+       AND source = 'ollama_usda_ai'
+       AND is_active = TRUE`,
+    [userId, mealTime]
+  );
 }
 
 export async function createCatalogMeal(meal) {

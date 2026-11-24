@@ -15,6 +15,7 @@ import {
   addUserHistoryEvent,
   createCatalogMeal,
   createCatalogWorkout,
+  deactivateUserAiMeals,
   getMealsCatalog,
   getWorkoutsCatalog,
   saveLogicalTraces,
@@ -44,7 +45,6 @@ const MEAL_RESPONSE_SCHEMA = {
           'carbs',
           'fat',
           'nutritionalSheet',
-          'usedUsdaFdcIds',
         ],
         properties: {
           budgetTier: { type: 'string', enum: ['bajo', 'medio', 'alto'] },
@@ -59,7 +59,6 @@ const MEAL_RESPONSE_SCHEMA = {
           carbs: { type: 'integer' },
           fat: { type: 'integer' },
           nutritionalSheet: { type: 'string' },
-          usedUsdaFdcIds: { type: 'array', items: { type: 'integer' } },
         },
       },
     },
@@ -118,7 +117,7 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
   const userAllergies = Array.isArray(user.allergies) ? user.allergies : [];
   const usdaFoods = await fetchAndCacheUsdaFoods({ allergies: userAllergies, mealTime });
 
-  const allMeals = await getMealsCatalog(null, user.id);
+  const allMeals = await getMealsCatalog(null, user.id, { onlyAi: true });
   const favoriteMeals = allMeals
     .filter((m) => (user.affinity?.meals?.[m.id]?.chosenCount || 0) >= 2)
     .map((m) => m.title);
@@ -138,7 +137,8 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
     `1. El usuario tiene alergias/intolerancias: [${allergyDescriptions}]. PROHIBIDO incluir cualquier alimento o derivado de esas alergias en titulos, descripciones o ingredientes.`,
     `2. Crea UN platillo base coherente para '${mealTime}' con exactamente 3 variantes de presupuesto: 'bajo', 'medio' y 'alto', variando el ingrediente principal segun el presupuesto.`,
     `3. Cada variante debe estar entre ${mealBand.min} y ${mealBand.max} kcal (meta ideal ${mealBand.target} kcal).`,
-    '4. Basate en los alimentos verificados de USDA FoodData Central proporcionados abajo y cita sus fdcId en usedUsdaFdcIds.',
+    '4. Basate en los alimentos verificados de USDA FoodData Central proporcionados abajo.',
+    '5. NO incluyas el nivel de presupuesto (como "bajo presupuesto", "presupuesto medio", "alto presupuesto", "economico" o "premium") en el campo title ni en description. Incluye en ingredients la lista completa de ingredientes en espanol con cantidades aproximadas.',
   ].join('\n');
 
   const baseUserPrompt = JSON.stringify(
@@ -154,7 +154,6 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
         platillosIgnorados: ignoredMeals,
       },
       fuentesUsdaDisponibles: usdaFoods.slice(0, 10).map((f) => ({
-        fdcId: f.fdcId,
         alimento: f.description,
         por100g: { kcal: f.calories, prot: f.protein, carb: f.carbs, grasa: f.fat },
       })),
@@ -225,22 +224,10 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
       const defaultCost = expectedTier === 'bajo' ? 2.9 : expectedTier === 'medio' ? 5.1 : 8.6;
       const cost = Number(v.estimatedCostUsd) || defaultCost;
 
-      const usedIds = Array.isArray(v.usedUsdaFdcIds) ? v.usedUsdaFdcIds : [];
-      const citedSources = usdaFoods
-        .filter((f) => usedIds.includes(f.fdcId))
-        .slice(0, 4)
-        .map((f) => ({
-          provider: 'USDA FoodData Central',
-          fdcId: f.fdcId,
-          description: f.description,
-        }));
-      if (citedSources.length === 0 && usdaFoods[0]) {
-        citedSources.push({
-          provider: 'USDA FoodData Central',
-          fdcId: usdaFoods[0].fdcId,
-          description: usdaFoods[0].description,
-        });
-      }
+      const citedSources = usdaFoods.slice(0, 3).map((f) => ({
+        provider: 'USDA FoodData Central',
+        description: f.description,
+      }));
 
       const candidate = {
         mealTime,
@@ -330,6 +317,8 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
       `El Motor Simbolico rechazo la propuesta de IA tras validar reglas: ${lastError}`
     );
   }
+
+  await deactivateUserAiMeals(user.id, mealTime);
 
   const baseId = `base_ai_${mealTime}_${Date.now().toString(36)}`;
   const savedMeals = [];

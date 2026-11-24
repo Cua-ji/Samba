@@ -30,7 +30,7 @@ const THEME_MAP = {
   soup_gourmet: { gradient: 'from-[#c1e8d8] via-[#a7dcc6] to-[#8ccfb3]', icon: 'restaurant_menu' },
 };
 
-export function DishVisual({ theme, prepMinutes, estimatedCostUsd, badges = [] }) {
+export function DishVisual({ theme, prepMinutes, estimatedCostUsd, badges = [], showMeta = false }) {
   const style = THEME_MAP[theme] || THEME_MAP.chicken_balanced;
 
   return (
@@ -45,22 +45,24 @@ export function DishVisual({ theme, prepMinutes, estimatedCostUsd, badges = [] }
         <span className="material-symbols-outlined text-[26px]">{style.icon}</span>
       </div>
 
-      <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2 text-[#151D24]">
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/85 backdrop-blur-sm text-[11px] font-bold shadow-sm whitespace-nowrap">
-          <span className="material-symbols-outlined text-[13px] text-[#00B87C]">timer</span>
-          {prepMinutes} min
-        </span>
-        <div className="flex items-center gap-1.5 min-w-0">
-          {badges[1] && (
-            <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-white/85 backdrop-blur-sm text-[11px] font-semibold text-[#3c4a42] shadow-sm truncate">
-              {badges[1]}
-            </span>
-          )}
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#181A20] text-white text-[11px] font-bold shadow-sm whitespace-nowrap tabular-nums">
-            ${Number(estimatedCostUsd).toFixed(2)}
+      {showMeta && (
+        <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between gap-2 text-[#151D24]">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/85 backdrop-blur-sm text-[11px] font-bold shadow-sm whitespace-nowrap">
+            <span className="material-symbols-outlined text-[13px] text-[#00B87C]">timer</span>
+            {prepMinutes} min
           </span>
+          <div className="flex items-center gap-1.5 min-w-0">
+            {badges[1] && (
+              <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-white/85 backdrop-blur-sm text-[11px] font-semibold text-[#3c4a42] shadow-sm truncate">
+                {badges[1]}
+              </span>
+            )}
+            <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#181A20] text-white text-[11px] font-bold shadow-sm whitespace-nowrap tabular-nums">
+              ${Number(estimatedCostUsd).toFixed(2)}
+            </span>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

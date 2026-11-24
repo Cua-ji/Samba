@@ -12,6 +12,12 @@ import { generatePersonalizedMealWithAI } from '../services/aiRecommender.js';
 
 const router = express.Router();
 
+function filterLatestBase(catalog) {
+  if (!Array.isArray(catalog) || catalog.length === 0) return [];
+  const latestBaseId = catalog[0].baseId;
+  return catalog.filter((m) => m.baseId === latestBaseId);
+}
+
 router.post('/:userId/generate-ai', async (req, res, next) => {
   try {
     const user = await getHydratedUser(req.params.userId);
@@ -22,7 +28,7 @@ router.post('/:userId/generate-ai', async (req, res, next) => {
       : 'almuerzo';
 
     const generated = await generatePersonalizedMealWithAI(user, mealTime);
-    const catalog = await getMealsCatalog(mealTime, user.id);
+    const catalog = filterLatestBase(await getMealsCatalog(mealTime, user.id, { onlyAi: true }));
     const updatedUser = await getHydratedUser(user.id);
     const evaluation = evaluateMealsForUser(updatedUser, catalog, { mealTime });
 
@@ -79,7 +85,7 @@ router.get('/:userId', async (req, res, next) => {
     if (!user) return res.status(404).json({ error: 'Usuario no encontrado.' });
 
     const mealTime = req.query.mealTime || 'almuerzo';
-    const catalog = await getMealsCatalog(mealTime, user.id);
+    const catalog = filterLatestBase(await getMealsCatalog(mealTime, user.id, { onlyAi: true }));
     const evaluation = evaluateMealsForUser(user, catalog, { mealTime });
 
     await saveLogicalTraces(
@@ -110,7 +116,7 @@ router.post('/:userId/affinity', async (req, res, next) => {
     if (!meal) return res.status(404).json({ error: 'Platillo no encontrado en PostgreSQL.' });
 
     const { user, affinityRecord } = await recordMealAffinity(existingUser.id, meal, action);
-    const catalog = await getMealsCatalog(meal.mealTime, user.id);
+    const catalog = filterLatestBase(await getMealsCatalog(meal.mealTime, user.id, { onlyAi: true }));
     const evaluation = evaluateMealsForUser(user, catalog, { mealTime: meal.mealTime });
 
     return res.json({

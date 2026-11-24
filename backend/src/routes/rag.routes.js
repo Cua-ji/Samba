@@ -23,7 +23,7 @@ router.post('/ask', async (req, res, next) => {
     }
 
     const [mealsCatalog, workoutsCatalog] = await Promise.all([
-      getMealsCatalog(null, user.id),
+      getMealsCatalog(null, user.id, { onlyAi: true }),
       getWorkoutsCatalog(user.id),
     ]);
 
