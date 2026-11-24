@@ -1,0 +1,20 @@
+{
+  "name": "Samba - Whixte & Co.",
+  "short_name": "Samba",
+  "description": "Sistema experto neuro-simbolico para nutricion y entrenamiento personalizado.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#D5F7E8",
+  "theme_color": "#D5F7E8",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

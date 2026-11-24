@@ -12,13 +12,23 @@ import { generatePersonalizedWorkoutsWithAI } from '../services/aiRecommender.js
 
 const router = express.Router();
 
+function filterLatestGroup(catalog) {
+  if (!Array.isArray(catalog) || catalog.length === 0) return [];
+  const latestGroupId = catalog[0].groupId;
+  return catalog.filter((w) => w.groupId === latestGroupId);
+}
+
 router.post('/:userId/generate-ai', async (req, res, next) => {
   try {
     const user = await getHydratedUser(req.params.userId);
     if (!user) return res.status(404).json({ error: 'Usuario no encontrado.' });
 
-    const generated = await generatePersonalizedWorkoutsWithAI(user);
-    const catalog = await getWorkoutsCatalog(user.id);
+    const excludeRoutines = Array.isArray(req.body?.excludeRoutines)
+      ? req.body.excludeRoutines.filter((x) => typeof x === 'string' && x.trim().length > 0)
+      : [];
+
+    const generated = await generatePersonalizedWorkoutsWithAI(user, { excludeRoutines });
+    const catalog = filterLatestGroup(await getWorkoutsCatalog(user.id, { onlyAi: true }));
     const updatedUser = await getHydratedUser(user.id);
     const evaluation = evaluateWorkoutsForUser(updatedUser, catalog);
 
@@ -66,7 +76,7 @@ router.get('/:userId', async (req, res, next) => {
     const user = await getHydratedUser(req.params.userId);
     if (!user) return res.status(404).json({ error: 'Usuario no encontrado.' });
 
-    const catalog = await getWorkoutsCatalog(user.id);
+    const catalog = filterLatestGroup(await getWorkoutsCatalog(user.id, { onlyAi: true }));
     const evaluation = evaluateWorkoutsForUser(user, catalog);
 
     await saveLogicalTraces(
@@ -101,7 +111,7 @@ router.post('/:userId/affinity', async (req, res, next) => {
       delta > 0 && completed
     );
 
-    const catalog = await getWorkoutsCatalog(user.id);
+    const catalog = filterLatestGroup(await getWorkoutsCatalog(user.id, { onlyAi: true }));
     const evaluation = evaluateWorkoutsForUser(user, catalog);
 
     return res.json({

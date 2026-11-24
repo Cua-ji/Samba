@@ -6,6 +6,7 @@ import {
   checkPriceConsistency,
   checkWorkoutDiscard,
 } from '../symbolic/engine.js';
+import { detectAllergensFromText } from '../symbolic/keywords.js';
 import {
   fetchAndCacheUsdaFoods,
   fetchAndCacheWgerExercises,
@@ -16,7 +17,9 @@ import {
   createCatalogMeal,
   createCatalogWorkout,
   deactivateUserAiMeals,
+  deactivateUserAiWorkouts,
   getMealsCatalog,
+  getRecentUserAiMeals,
   getWorkoutsCatalog,
   saveLogicalTraces,
 } from '../db/repository.js';
@@ -105,19 +108,274 @@ const WORKOUT_RESPONSE_SCHEMA = {
   },
 };
 
-function sanitizeVisualTheme(mealTime, budgetTier) {
+const CULINARY_ARCHETYPES = {
+  desayuno: [
+    { name: 'Bowl Energetico de Avena o Quinoa', style: 'bowl tibio con proteina y toppings naturales' },
+    { name: 'Tostadas o Arepas Proteicas', style: 'base crocante salada con proteina y vegetales frescos' },
+    { name: 'Revuelto o Cazuela Mananera', style: 'salteado caliente al sarten con vegetales y proteina' },
+    { name: 'Tacos o Burrito de Desayuno', style: 'tortillas de maiz rellenas con proteina y salsa fresca' },
+    { name: 'Hash de Camote y Vegetales', style: 'cubos de camote dorados al sarten con proteina y hierbas' },
+    { name: 'Hotcakes o Crepas Saludables', style: 'preparacion esponjosa de avena con acompanamiento proteico' },
+    { name: 'Plato Rustico con Legumbres y Aguacate', style: 'desayuno salado saciante estilo latino' },
+  ],
+  almuerzo: [
+    { name: 'Tacos o Fajitas Saludables', style: 'estilo mexicano con tortillas de maiz, pimientos y salsa fresca' },
+    { name: 'Bowl Mediterraneo o Asiatico', style: 'base de grano integral con vegetales asados y aderezo ligero' },
+    { name: 'Salteado Wok con Vegetales', style: 'coccion rapida a fuego alto con jengibre, ajo y vegetales crujientes' },
+    { name: 'Arroz Salteado Proteico', style: 'arroz integral salteado con especias, vegetales y proteina' },
+    { name: 'Proteina a la Plancha con Pure de Camote', style: 'corte a la plancha con guarnicion cremosa de camote y verduras' },
+    { name: 'Estofado o Curry Suave Casero', style: 'guiso aromatico con especias suaves, vegetales y grano' },
+    { name: 'Brochetas al Grill con Ensalada Tibia', style: 'proteina asada en brochetas con vegetales a la parrilla' },
+    { name: 'Cazuela Horneada de Vegetales y Proteina', style: 'horneado con hierbas aromaticas y guarnicion integral' },
+    { name: 'Pasta Integral Proteica', style: 'pasta con salsa natural de tomate o hierbas y proteina', requiresNoAllergy: 'gluten' },
+    { name: 'Tostadas o Wraps Artesanales', style: 'armado fresco con vegetales crujientes y proteina marinada' },
+  ],
+  cena: [
+    { name: 'Crema o Sopa Proteica Reconfortante', style: 'caldo o crema ligera de vegetales con proteina y guarnicion' },
+    { name: 'Tacos de Lechuga o Tostadas Ligeras', style: 'envueltos frescos y ligeros con proteina sazonada' },
+    { name: 'Salteado Ligero al Sarten', style: 'vegetales salteados con ajo y proteina magra de facil digestion' },
+    { name: 'Proteina al Horno con Vegetales Rostizados', style: 'horneado con calabacin, pimientos o esparragos y hierbas' },
+    { name: 'Bowl Tibio Ligero de Quinoa', style: 'cena balanceada de facil digestion con quinoa y vegetales' },
+    { name: 'Brochetas al Grill con Guarnicion Fresca', style: 'asado ligero con ensalada fresca de pepino y limon' },
+    { name: 'Calabacines o Pimientos Rellenos', style: 'vegetales rellenos horneados con proteina y especias' },
+    { name: 'Ceviche o Plato Frio Proteico', style: 'preparacion fresca citrica con aguacate y cilantro', requiresNoAllergy: 'pescados_mariscos' },
+  ],
+};
+
+const PROTEIN_SUGGESTIONS_BY_TIER = {
+  bajo: [
+    'Lentejas guisadas',
+    'Frijoles negros',
+    'Garbanzos sazonados',
+    'Huevos revueltos o cocidos',
+    'Atun en agua',
+    'Tofu firme dorado',
+    'Muslo de pollo sin piel',
+  ],
+  medio: [
+    'Pechuga de pollo a la plancha',
+    'Pechuga de pavo asada',
+    'Carne molida magra de res',
+    'Lomo de cerdo magro',
+    'Filete de tilapia',
+  ],
+  alto: [
+    'Filete de salmon a la plancha',
+    'Camarones salteados al ajillo',
+    'Corte magro de res (sirloin)',
+    'Lomo fino de res a la parrilla',
+    'Pechuga de pavo organica con portobello y esparragos',
+  ],
+};
+
+const SPANISH_STOPWORDS = new Set([
+  'de', 'del', 'la', 'el', 'los', 'las', 'un', 'una', 'unos', 'unas',
+  'con', 'sin', 'y', 'e', 'o', 'en', 'al', 'a', 'para', 'por', 'sobre',
+  'base', 'ia', 'presupuesto', 'bajo', 'medio', 'alto', 'opcion', 'platillo',
+  'estilo', 'saludable', 'saludables', 'ligero', 'ligera', 'fresco', 'fresca',
+  'g', 'gr', 'kg', 'ml', 'l', 'taza', 'tazas', 'cucharada', 'cucharadas',
+  'cucharadita', 'cucharaditas', 'pizca', 'al', 'gusto', 'pieza', 'piezas',
+  'cortado', 'cortada', 'en', 'cubos', 'picado', 'picada', 'rebanado', 'rebanada',
+  'cocido', 'cocida', 'crudo', 'cruda', 'rallado', 'rallada',
+]);
+
+export function normalizeDishTokens(text) {
+  return String(text || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\b\d+(?:[.,]\d+)?\s*(?:g|gr|kg|ml|l|oz|cup)?\b/g, ' ')
+    .replace(/[^a-z\s]/g, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length >= 3 && !SPANISH_STOPWORDS.has(w));
+}
+
+export function jaccardSimilarity(tokensA, tokensB) {
+  const setA = new Set(tokensA);
+  const setB = new Set(tokensB);
+  if (setA.size === 0 || setB.size === 0) return 0;
+  let intersection = 0;
+  for (const item of setA) {
+    if (setB.has(item)) intersection++;
+  }
+  const union = setA.size + setB.size - intersection;
+  return union === 0 ? 0 : intersection / union;
+}
+
+export function deduplicateIngredients(ingredients) {
+  const seenKeys = new Set();
+  const result = [];
+  for (const raw of ingredients) {
+    const cleaned = stripEmojis(raw);
+    if (!cleaned) continue;
+    const tokens = normalizeDishTokens(cleaned);
+    const key = tokens.length > 0 ? tokens.slice(0, 3).sort().join('|') : cleaned.toLowerCase();
+    if (seenKeys.has(key)) continue;
+    seenKeys.add(key);
+    result.push(cleaned);
+  }
+  return result;
+}
+
+export function checkMealNovelty(baseName, variants, recentNames = []) {
+  const cleanRecent = recentNames
+    .map((n) => String(n || '').replace(/^Base(\s+IA)?:\s*/i, '').trim())
+    .filter(Boolean);
+  if (cleanRecent.length === 0) {
+    return { novel: true, reason: null };
+  }
+
+  const baseTokens = normalizeDishTokens(String(baseName || '').replace(/^Base(\s+IA)?:\s*/i, ''));
+  for (const prev of cleanRecent) {
+    const prevTokens = normalizeDishTokens(prev);
+    const sim = jaccardSimilarity(baseTokens, prevTokens);
+    if (sim >= 0.6) {
+      return {
+        novel: false,
+        reason: `El platillo base '${baseName}' es demasiado parecido al platillo reciente '${prev}'. Genera un concepto culinario completamente diferente.`,
+      };
+    }
+  }
+
+  let repeatedVariants = 0;
+  const repeatedTitles = [];
+  for (const v of variants) {
+    const vTokens = normalizeDishTokens(v.title);
+    const matchesRecent = cleanRecent.some((prev) => jaccardSimilarity(vTokens, normalizeDishTokens(prev)) >= 0.65);
+    if (matchesRecent) {
+      repeatedVariants++;
+      repeatedTitles.push(v.title);
+    }
+  }
+
+  if (repeatedVariants >= 2) {
+    return {
+      novel: false,
+      reason: `Varias opciones (${repeatedTitles.join(', ')}) repiten platillos ya mostrados recientemente. Cambia el tipo de preparacion e ingredientes.`,
+    };
+  }
+
+  return { novel: true, reason: null };
+}
+
+export function checkVariantsDiversity(variants) {
+  if (!Array.isArray(variants) || variants.length < 3) {
+    return { diverse: false, reason: 'Se requieren exactamente 3 variantes distintas.' };
+  }
+
+  for (let i = 0; i < variants.length; i++) {
+    for (let j = i + 1; j < variants.length; j++) {
+      const a = variants[i];
+      const b = variants[j];
+
+      const titleSim = jaccardSimilarity(normalizeDishTokens(a.title), normalizeDishTokens(b.title));
+      if (titleSim >= 0.7) {
+        return {
+          diverse: false,
+          reason: `Las opciones '${a.title}' (${a.budgetTier}) y '${b.title}' (${b.budgetTier}) tienen titulos demasiado similares. Cada presupuesto debe ofrecer una variante claramente distinta.`,
+        };
+      }
+
+      const mainA = normalizeDishTokens(a.mainIngredient?.name || a.mainIngredientName || '');
+      const mainB = normalizeDishTokens(b.mainIngredient?.name || b.mainIngredientName || '');
+      const mainSim = jaccardSimilarity(mainA, mainB);
+      if (mainSim >= 0.75) {
+        return {
+          diverse: false,
+          reason: `Las opciones '${a.budgetTier}' y '${b.budgetTier}' usan practicamente el mismo ingrediente principal ('${a.mainIngredient?.name || a.mainIngredientName}' vs '${b.mainIngredient?.name || b.mainIngredientName}'). Usa una proteina o ingrediente principal distinto en cada nivel de presupuesto.`,
+        };
+      }
+
+      const ingA = normalizeDishTokens((a.ingredients || []).join(' '));
+      const ingB = normalizeDishTokens((b.ingredients || []).join(' '));
+      const ingSim = jaccardSimilarity(ingA, ingB);
+      if (ingSim >= 0.72) {
+        return {
+          diverse: false,
+          reason: `Las opciones '${a.budgetTier}' y '${b.budgetTier}' comparten casi los mismos ingredientes (${Math.round(ingSim * 100)}% similitud). Diferencia tambien las guarniciones, vegetales y preparacion.`,
+        };
+      }
+    }
+  }
+
+  return { diverse: true, reason: null };
+}
+
+function pickRandom(list) {
+  if (!Array.isArray(list) || list.length === 0) return null;
+  return list[Math.floor(Math.random() * list.length)];
+}
+
+function pickDiverseArchetype(mealTime, userAllergies, recentNames) {
+  const pool = (CULINARY_ARCHETYPES[mealTime] || CULINARY_ARCHETYPES.almuerzo).filter(
+    (arch) => !arch.requiresNoAllergy || !userAllergies.includes(arch.requiresNoAllergy)
+  );
+  const recentTokensList = recentNames.map((n) => normalizeDishTokens(n));
+  const freshPool = pool.filter((arch) => {
+    const archTokens = normalizeDishTokens(arch.name);
+    return !recentTokensList.some((rt) => jaccardSimilarity(archTokens, rt) >= 0.35);
+  });
+  return pickRandom(freshPool.length > 0 ? freshPool : pool) || pool[0];
+}
+
+function pickSafeProteinsByTier(userAllergies, recentMainIngredients = []) {
+  const recentNorm = recentMainIngredients.map((x) => normalizeDishTokens(x));
+  const result = {};
+
+  for (const tier of ['bajo', 'medio', 'alto']) {
+    const safe = PROTEIN_SUGGESTIONS_BY_TIER[tier].filter((p) => {
+      const detected = detectAllergensFromText(p);
+      return !detected.some((a) => userAllergies.includes(a));
+    });
+    const fresh = safe.filter((p) => {
+      const pTokens = normalizeDishTokens(p);
+      return !recentNorm.some((rt) => jaccardSimilarity(pTokens, rt) >= 0.5);
+    });
+    const candidates = fresh.length > 0 ? fresh : safe;
+    result[tier] = pickRandom(candidates) || safe[0] || 'Proteina segura segun perfil';
+  }
+
+  return result;
+}
+
+function sanitizeVisualTheme(mealTime, budgetTier, title = '') {
   const suffix = budgetTier === 'bajo' ? 'classic' : budgetTier === 'medio' ? 'balanced' : 'gourmet';
-  const prefix = mealTime === 'desayuno' ? 'bowl' : mealTime === 'cena' ? 'dinner' : 'chicken';
+  const norm = String(title || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+
+  let prefix = mealTime === 'desayuno' ? 'bowl' : mealTime === 'cena' ? 'dinner' : 'chicken';
+  if (/\b(taco|tacos|fajita|fajitas|burrito|tostada|tostadas|wrap|wraps)\b/.test(norm)) {
+    prefix = 'tacos';
+  } else if (/\b(salmon|atun|tilapia|pescado|camaron|camarones|ceviche|marisco)\b/.test(norm)) {
+    prefix = 'fish';
+  } else if (/\b(pasta|fideo|fideos|espagueti|penne)\b/.test(norm)) {
+    prefix = 'pasta';
+  } else if (/\b(sopa|crema|caldo|estofado|guiso|curry)\b/.test(norm)) {
+    prefix = 'soup';
+  } else if (/\b(huevo|huevos|omelette|revuelto)\b/.test(norm)) {
+    prefix = 'eggs';
+  } else if (/\b(avena|hotcake|crepa)\b/.test(norm)) {
+    prefix = 'oatmeal';
+  } else if (/\b(bowl|quinoa|arroz|ensalada)\b/.test(norm)) {
+    prefix = 'bowl';
+  }
+
   return `${prefix}_${suffix}`;
 }
 
-export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo') {
+export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo', options = {}) {
   const metabolism = calculateMifflinStJeor(user);
   const mealBand = metabolism.mealBands[mealTime] || metabolism.mealBands.almuerzo;
   const userAllergies = Array.isArray(user.allergies) ? user.allergies : [];
   const usdaFoods = await fetchAndCacheUsdaFoods({ allergies: userAllergies, mealTime });
 
-  const allMeals = await getMealsCatalog(null, user.id, { onlyAi: true });
+  const [allMeals, recentAiMeals] = await Promise.all([
+    getMealsCatalog(null, user.id, { onlyAi: true }),
+    getRecentUserAiMeals(user.id, mealTime, 18),
+  ]);
+
   const favoriteMeals = allMeals
     .filter((m) => (user.affinity?.meals?.[m.id]?.chosenCount || 0) >= 2)
     .map((m) => m.title);
@@ -125,24 +383,61 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
     .filter((m) => (user.affinity?.meals?.[m.id]?.ignoredCount || 0) >= 2)
     .map((m) => m.title);
 
+  const extraExcluded = Array.isArray(options.excludeDishes) ? options.excludeDishes : [];
+  const recentBaseNames = Array.from(
+    new Set(
+      [
+        ...recentAiMeals.map((m) => String(m.baseName || '').replace(/^Base(\s+IA)?:\s*/i, '').trim()),
+        ...extraExcluded.map((n) => String(n || '').replace(/^Base(\s+IA)?:\s*/i, '').trim()),
+      ].filter(Boolean)
+    )
+  ).slice(0, 8);
+
+  const recentVariantTitles = Array.from(
+    new Set([...recentAiMeals.map((m) => m.title), ...extraExcluded].filter(Boolean))
+  ).slice(0, 12);
+
+  const recentMainIngredients = Array.from(
+    new Set(recentAiMeals.slice(0, 6).map((m) => m.mainIngredientName).filter(Boolean))
+  );
+
+  const chosenArchetype = pickDiverseArchetype(mealTime, userAllergies, [
+    ...recentBaseNames,
+    ...recentVariantTitles,
+  ]);
+  const suggestedProteins = pickSafeProteinsByTier(userAllergies, recentMainIngredients);
+  const variationSeed = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
+
   const allergyDescriptions =
     userAllergies.length > 0
       ? userAllergies.map((a) => `${a} (${ALLERGY_LABELS[a] || a})`).join(', ')
       : 'Ninguna';
 
   const systemPrompt = [
-    'Eres un nutricionista clinico para Samba (Whixte & Co.).',
+    'Eres un nutricionista clinico y chef creativo para Samba (Whixte & Co.).',
     'Responde UNICAMENTE en JSON valido siguiendo el esquema requerido, completamente en espanol y SIN emojis.',
     'REGLAS ESTRICTAS:',
     `1. El usuario tiene alergias/intolerancias: [${allergyDescriptions}]. PROHIBIDO incluir cualquier alimento o derivado de esas alergias en titulos, descripciones o ingredientes.`,
-    `2. Crea UN platillo base coherente para '${mealTime}' con exactamente 3 variantes de presupuesto: 'bajo', 'medio' y 'alto', variando el ingrediente principal segun el presupuesto.`,
-    `3. Cada variante debe estar entre ${mealBand.min} y ${mealBand.max} kcal (meta ideal ${mealBand.target} kcal).`,
-    '4. Basate en los alimentos verificados de USDA FoodData Central proporcionados abajo.',
-    '5. NO incluyas el nivel de presupuesto (como "bajo presupuesto", "presupuesto medio", "alto presupuesto", "economico" o "premium") en el campo title ni en description. Incluye en ingredients la lista completa de ingredientes en espanol con cantidades aproximadas.',
+    `2. Crea UN concepto culinario NUEVO para '${mealTime}' inspirado en el 'enfoqueCulinarioObligatorio' proporcionado, con exactamente 3 opciones de presupuesto ('bajo', 'medio', 'alto').`,
+    '3. NOVEDAD OBLIGATORIA: ESTA ESTRICTAMENTE PROHIBIDO repetir o reciclar cualquiera de los platillos listados en "platillosRecientesProhibidos". No repitas la misma receta ni cambies solo un adjetivo.',
+    '4. DIVERSIDAD OBLIGATORIA ENTRE LAS 3 OPCIONES: Las variantes "bajo", "medio" y "alto" DEBEN ser claramente distintas entre si. Cada presupuesto DEBE usar un ingrediente principal (proteina) DIFERENTE (guiate por "proteinasSugeridasPorPresupuesto"), un titulo distinto y acompanamientos/vegetales/preparacion distintos. NO repitas la misma proteina ni la misma lista de ingredientes en las 3 opciones.',
+    `5. Cada variante debe estar entre ${mealBand.min} y ${mealBand.max} kcal (meta ideal ${mealBand.target} kcal).`,
+    '6. Apoyate en las fuentes USDA proporcionadas y no repitas un mismo ingrediente dos veces dentro de la lista "ingredients" de una misma variante (ejemplo prohibido: poner "1 tomate" y "100g de tomate").',
+    '7. NO incluyas el nivel de presupuesto (como "bajo presupuesto", "presupuesto medio", "alto presupuesto", "economico" o "premium") en el campo title ni en description. Incluye en ingredients la lista completa de ingredientes en espanol con cantidades aproximadas.',
   ].join('\n');
 
   const baseUserPrompt = JSON.stringify(
     {
+      semillaVariacion: variationSeed,
+      enfoqueCulinarioObligatorio: {
+        formato: chosenArchetype.name,
+        estilo: chosenArchetype.style,
+      },
+      proteinasSugeridasPorPresupuesto: suggestedProteins,
+      platillosRecientesProhibidos: {
+        basesYaMostradas: recentBaseNames,
+        titulosYaMostrados: recentVariantTitles,
+      },
       perfilUsuario: {
         nombre: user.name,
         objetivo: metabolism.goalLabel,
@@ -153,7 +448,7 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
         favoritosDelUsuario: favoriteMeals,
         platillosIgnorados: ignoredMeals,
       },
-      fuentesUsdaDisponibles: usdaFoods.slice(0, 10).map((f) => ({
+      fuentesUsdaDisponibles: usdaFoods.slice(0, 14).map((f) => ({
         alimento: f.description,
         por100g: { kcal: f.calories, prot: f.protein, carb: f.carbs, grasa: f.fat },
       })),
@@ -169,14 +464,15 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
   let modelUsed = null;
   let retries = 0;
   const validationRejections = [];
+  const temperatures = [0.75, 0.6, 0.45];
 
-  for (let attempt = 0; attempt < 2; attempt++) {
+  for (let attempt = 0; attempt < 3; attempt++) {
     retries = attempt;
     const response = await ollamaChat({
       systemPrompt,
       userPrompt: promptToSend,
       formatSchema: MEAL_RESPONSE_SCHEMA,
-      temperature: attempt === 0 ? 0.25 : 0.1,
+      temperature: temperatures[attempt] ?? 0.5,
       timeoutMs: 65000,
     });
     modelUsed = response.modelUsed;
@@ -207,9 +503,9 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
       const cleanTitle = stripEmojis(v.title || `Opcion ${expectedTier}`);
       const cleanDesc = stripEmojis(v.description || '');
       const cleanMain = stripEmojis(v.mainIngredientName || cleanTitle);
-      const cleanIngredients = (Array.isArray(v.ingredients) ? v.ingredients : [cleanMain])
-        .map((x) => stripEmojis(x))
-        .filter(Boolean);
+      const cleanIngredients = deduplicateIngredients(
+        Array.isArray(v.ingredients) ? v.ingredients : [cleanMain]
+      );
 
       const protein = Math.max(12, Math.min(80, Math.round(Number(v.protein) || 32)));
       const carbs = Math.max(10, Math.min(110, Math.round(Number(v.carbs) || 45)));
@@ -246,13 +542,13 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
           priceTier: expectedTier,
           allergens: [],
         },
-        ingredients: cleanIngredients,
+        ingredients: cleanIngredients.length > 0 ? cleanIngredients : [cleanMain],
         allergens: [],
         calories,
         protein,
         carbs,
         fat,
-        visualTheme: sanitizeVisualTheme(mealTime, expectedTier),
+        visualTheme: sanitizeVisualTheme(mealTime, expectedTier, cleanTitle),
         nutritionalSheet: stripEmojis(
           v.nutritionalSheet ||
             `Ficha nutricional generada con respaldo USDA: ${calories} kcal (${protein}g proteina, ${carbs}g carbohidratos, ${fat}g grasas).`
@@ -296,16 +592,39 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
     }
 
     if (errors.length === 0 && normalized.length === 3) {
-      validatedVariants = normalized;
-      parsedBaseName = stripEmojis(parsed.baseName || `Base IA: ${normalized[1].title}`);
-      if (!parsedBaseName.toLowerCase().startsWith('base:')) {
-        parsedBaseName = `Base IA: ${parsedBaseName}`;
+      const candidateBaseName = stripEmojis(
+        parsed.baseName || chosenArchetype.name || `Base IA: ${normalized[1].title}`
+      );
+
+      // Validar novedad respecto a platillos recientes y diversidad entre las 3 variantes
+      // (en el ultimo intento solo exigimos reglas duras de alergia/precio para no bloquear al usuario)
+      if (attempt < 2) {
+        const noveltyCheck = checkMealNovelty(candidateBaseName, normalized, [
+          ...recentBaseNames,
+          ...recentVariantTitles,
+        ]);
+        if (!noveltyCheck.novel) {
+          errors.push(noveltyCheck.reason);
+        }
+
+        const diversityCheck = checkVariantsDiversity(normalized);
+        if (!diversityCheck.diverse) {
+          errors.push(diversityCheck.reason);
+        }
       }
-      break;
+
+      if (errors.length === 0) {
+        validatedVariants = normalized;
+        parsedBaseName = candidateBaseName;
+        if (!parsedBaseName.toLowerCase().startsWith('base:')) {
+          parsedBaseName = `Base IA: ${parsedBaseName}`;
+        }
+        break;
+      }
     }
 
     lastError = errors.join(' | ');
-    promptToSend = `${baseUserPrompt}\n\nRECHAZO DEL MOTOR SIMBOLICO: ${lastError}. Regenera las 3 variantes evitando estrictamente esos alergenos o errores.`;
+    promptToSend = `${baseUserPrompt}\n\nRECHAZO DEL MOTOR SIMBOLICO: ${lastError}. Regenera las 3 variantes evitando estrictamente esos alergenos, repeticiones o similitudes. Usa exactamente las proteinas sugeridas por presupuesto (${suggestedProteins.bajo} / ${suggestedProteins.medio} / ${suggestedProteins.alto}) y el formato "${chosenArchetype.name}".`;
   }
 
   if (validationRejections.length > 0) {
@@ -361,7 +680,7 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
   };
 }
 
-export async function generatePersonalizedWorkoutsWithAI(user) {
+export async function generatePersonalizedWorkoutsWithAI(user, { excludeRoutines = [] } = {}) {
   const metabolism = calculateMifflinStJeor(user);
   const userInjuries = Array.isArray(user.injuries) ? user.injuries : [];
   const safeExercises = await fetchAndCacheWgerExercises({ injuries: userInjuries });
@@ -373,6 +692,7 @@ export async function generatePersonalizedWorkoutsWithAI(user) {
   const dislikedWorkouts = allWorkouts
     .filter((w) => (user.affinity?.workouts?.[w.id]?.score || 0) < 0)
     .map((w) => w.title);
+  const recentExcluded = Array.isArray(excludeRoutines) ? excludeRoutines.filter(Boolean) : [];
 
   const injuryDescriptions =
     userInjuries.length > 0
@@ -400,6 +720,7 @@ export async function generatePersonalizedWorkoutsWithAI(user) {
         lesionesActivas: userInjuries,
         rutinasPreferidas: likedWorkouts,
         rutinasEvitadas: dislikedWorkouts,
+        rutinasRecientesNoRepetir: recentExcluded,
       },
       ejerciciosWgerSeguros: safeExercises.slice(0, 12).map((e) => ({
         wgerId: e.wgerId,
@@ -536,6 +857,8 @@ export async function generatePersonalizedWorkoutsWithAI(user) {
       `El Motor Simbolico rechazo las rutinas de IA tras validar lesiones: ${lastError}`
     );
   }
+
+  await deactivateUserAiWorkouts(user.id);
 
   const groupId = `grp_ai_${Date.now().toString(36)}`;
   const savedRoutines = [];

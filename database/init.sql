@@ -155,6 +155,14 @@ CREATE TABLE IF NOT EXISTS daily_workout_logs (
 
 CREATE INDEX IF NOT EXISTS idx_daily_workout_logs_user_date ON daily_workout_logs (user_id, log_date DESC, logged_at DESC);
 
+CREATE TABLE IF NOT EXISTS daily_hydration_logs (
+  user_id VARCHAR(64) NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  log_date DATE NOT NULL DEFAULT CURRENT_DATE,
+  liters NUMERIC(4,2) NOT NULL DEFAULT 0,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (user_id, log_date)
+);
+
 CREATE TABLE IF NOT EXISTS user_history (
   id BIGSERIAL PRIMARY KEY,
   user_id VARCHAR(64) NOT NULL REFERENCES users(id) ON DELETE CASCADE,

@@ -1,18 +1,26 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { AppTopBar } from '../components/layout/AppTopBar';
+import { WorkoutVisual } from '../components/workouts/WorkoutVisual';
 import { useSamba } from '../context/SambaContext';
 import { api } from '../services/api';
 
+function getImpactBadge(impactLevel, recommended) {
+  const levelLabel =
+    impactLevel === 'alto'
+      ? 'IMPACTO ALTO'
+      : impactLevel === 'medio'
+      ? 'IMPACTO MEDIO'
+      : 'IMPACTO BAJO';
+  return recommended ? `${levelLabel} • SUGERIDA` : levelLabel;
+}
+
 export function WorkoutsPage({ refreshTrigger }) {
-  const { user, setUser, setTodayLog, openChatWithPrompt } = useSamba();
+  const { user, setUser, setTodayLog } = useSamba();
   const [data, setData] = useState(null);
-  const [groupIndex, setGroupIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [generatingAi, setGeneratingAi] = useState(false);
-  const [ratingBusy, setRatingBusy] = useState(null);
+  const [actionId, setActionId] = useState(null);
   const [feedback, setFeedback] = useState('');
-  const [openWhyId, setOpenWhyId] = useState(null);
-  const [showDiscarded, setShowDiscarded] = useState(false);
 
   const loadWorkouts = useCallback(async () => {
     if (!user?.id) return;
@@ -20,7 +28,6 @@ export function WorkoutsPage({ refreshTrigger }) {
     try {
       const res = await api.getWorkouts(user.id);
       setData(res);
-      setGroupIndex(0);
     } catch (err) {
       setFeedback(err.message);
     } finally {
@@ -32,35 +39,34 @@ export function WorkoutsPage({ refreshTrigger }) {
     loadWorkouts();
   }, [loadWorkouts, refreshTrigger]);
 
+  useEffect(() => {
+    if (!feedback) return undefined;
+    const timer = setTimeout(() => setFeedback(''), 3500);
+    return () => clearTimeout(timer);
+  }, [feedback]);
+
   if (!user) return null;
 
   const groups = data?.groups || [];
-  const activeGroup = groups[groupIndex] || null;
+  const activeGroup = groups[0] || null;
   const sessionGoal = data?.sessionGoal || {
     minCalories: 280,
     maxCalories: 360,
-    activityLabel: 'Ligeramente activo',
   };
-  const discardedWorkouts = data?.discardedWorkouts || [];
-  const hasInjuries = (user.injuries || []).length > 0;
 
-  async function handleRate(workoutId, rating) {
-    setRatingBusy(`${workoutId}_${rating}`);
+  async function handleChooseWorkout(workoutId) {
+    setActionId(workoutId);
     setFeedback('');
     try {
-      const res = await api.setWorkoutAffinity(user.id, workoutId, rating, rating > 0);
+      const res = await api.setWorkoutAffinity(user.id, workoutId, 1, true);
       setUser(res.user);
       setTodayLog(res.todayLog);
       setData(res.evaluation);
-      setFeedback(
-        rating > 0
-          ? 'Sesión completada y calificada (+1 afinidad). Registrada en tu historial.'
-          : 'Calificación negativa registrada (-1 afinidad). Priorizaremos otras rutinas.'
-      );
+      setFeedback('Rutina elegida. Balance diario actualizado.');
     } catch (err) {
       setFeedback(err.message);
     } finally {
-      setRatingBusy(null);
+      setActionId(null);
     }
   }
 
@@ -69,13 +75,16 @@ export function WorkoutsPage({ refreshTrigger }) {
     setGeneratingAi(true);
     setFeedback('');
     try {
-      const res = await api.generateAiWorkouts(user.id);
+      const currentRoutines = activeGroup
+        ? [
+            activeGroup.groupName,
+            ...(activeGroup.options || []).map((opt) => opt.title),
+          ].filter(Boolean)
+        : [];
+      const res = await api.generateAiWorkouts(user.id, currentRoutines);
       setUser(res.user);
       setData(res.evaluation);
-      setGroupIndex(0);
-      setFeedback(
-        `Plan IA (${res.generated.modelUsed} + wger Workout API) validado por el Motor Simbólico y guardado en PostgreSQL.`
-      );
+      setFeedback('Entreno actualizado con 3 nuevas rutinas.');
     } catch (err) {
       setFeedback(err.message);
     } finally {
@@ -88,314 +97,222 @@ export function WorkoutsPage({ refreshTrigger }) {
       <AppTopBar title="ENTRENO" />
 
       <div className="flex flex-col w-full px-margin pt-4 pb-6 space-y-4">
-        <header className="flex flex-col gap-1">
+        <section className="flex flex-col gap-1">
           <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-            Rutinas recomendadas
+            Opciones del día
           </h2>
           <p className="font-body-md text-body-md text-on-surface-variant">
-            Elige la rutina segura que mejor se adapte a tu energía, lesiones y objetivo de hoy.
+            Elige la rutina que mejor se adapte a tu energía, equipo y lesiones.
           </p>
-        </header>
-
-        {/* Tarjeta meta de entrenamiento */}
-        <section className="bg-white rounded-3xl p-5 shadow-sm flex flex-col gap-3 border border-outline-variant/30">
-          <div className="flex items-center justify-between gap-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed/40">
-              <span className="w-2 h-2 rounded-full bg-[#00B87C]" />
-              <span className="font-label-sm text-label-sm font-bold text-on-primary-container uppercase tracking-wide whitespace-nowrap">
-                Meta de Entrenamiento
-              </span>
-            </div>
-            <span className="font-label-sm text-label-sm font-semibold text-primary">Hoy</span>
-          </div>
-
-          <div className="flex items-baseline gap-2 flex-wrap">
-            <span className="font-headline-lg text-headline-lg text-on-surface font-bold tabular-nums">
-              {sessionGoal.minCalories} – {sessionGoal.maxCalories}
-            </span>
-            <span className="font-body-md text-body-md text-on-surface-variant">
-              kcal estimadas • {sessionGoal.activityLabel}
-            </span>
-          </div>
-
-          {activeGroup && (
-            <div className="flex items-center gap-2 pt-2 border-t border-outline-variant/20">
-              <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-primary text-[18px]">
-                  fitness_center
-                </span>
-              </div>
-              <span className="font-label-md text-label-md text-on-surface font-semibold">
-                Enfoque actual:
-              </span>
-              <span className="font-body-md text-body-md text-on-surface-variant font-medium truncate">
-                {activeGroup.groupName}
-              </span>
-            </div>
-          )}
         </section>
 
-        {/* Banner de proteccion articular + acceso a Chat RAG */}
-        <section className="rounded-3xl p-4 bg-gradient-to-br from-[#E8F9EF] to-[#FFFFFF] border border-[#CBF3DB] flex items-center justify-between gap-3">
-          <div className="min-w-0">
-            <div className="flex items-center gap-1.5 mb-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2E7D5B]" />
-              <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#2E7D5B]">
-                {hasInjuries ? 'Protección Articular Activa' : 'Filtro Simbólico Activo'}
+        {/* Meta de Entrenamiento (sin superposiciones) */}
+        <div className="flex items-center justify-between p-4 rounded-2xl bg-white shadow-sm gap-3">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary shrink-0">
+              <span className="material-symbols-outlined text-[22px]">fitness_center</span>
+            </div>
+            <div className="flex flex-col min-w-0">
+              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+                Meta de entreno
+              </span>
+              <span className="font-headline-sm text-headline-sm text-on-surface font-bold tabular-nums">
+                {sessionGoal.minCalories} – {sessionGoal.maxCalories} kcal
               </span>
             </div>
-            <p className="text-[12px] text-[#3c4a42] leading-snug">
-              {hasInjuries
-                ? `Se excluyeron ${discardedWorkouts.length} rutinas de alto impacto incompatibles con tus lesiones (${user.injuries.join(', ')}).`
-                : 'Todas las intensidades habilitadas. Pregunta a Samba AI si deseas adaptar el impacto.'}
-            </p>
           </div>
-          <button
-            type="button"
-            onClick={() =>
-              openChatWithPrompt(
-                hasInjuries
-                  ? '¿Por qué no me recomiendas correr?'
-                  : '¿Qué rutina me recomiendas según mi objetivo?'
-              )
-            }
-            className="px-3.5 py-2 rounded-full bg-[#181A20] text-white text-[11.5px] font-bold shrink-0 whitespace-nowrap active:scale-95 transition-transform"
-          >
-            Consultar IA
-          </button>
-        </section>
-
-        {/* Cambiar rutina + Generar con IA */}
-        <div className="flex items-center justify-between gap-2 px-1 flex-wrap">
-          <span className="font-body-sm text-body-sm text-on-surface-variant">
-            Enfoque {groups.length > 0 ? `${groupIndex + 1} de ${groups.length}` : '0'}
-          </span>
-          <div className="flex items-center gap-1.5">
-            <button
-              type="button"
-              disabled={generatingAi}
-              onClick={handleGenerateAiWorkouts}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#181A20] hover:bg-[#232332] text-white font-label-sm text-label-sm font-bold active:scale-95 transition-all shadow-sm disabled:opacity-60"
-            >
-              <span
-                className={`material-symbols-outlined text-[16px] text-[#6ffbbe] ${
-                  generatingAi ? 'animate-spin' : ''
-                }`}
-              >
-                {generatingAi ? 'progress_activity' : 'neurology'}
-              </span>
-              <span>{generatingAi ? 'wger + Ollama...' : 'Generar rutina IA'}</span>
-            </button>
-            {groups.length > 1 && (
-              <button
-                type="button"
-                onClick={() => setGroupIndex((i) => (i + 1) % groups.length)}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white text-primary font-label-sm text-label-sm font-bold hover:bg-surface-container active:scale-95 transition-all shadow-sm"
-              >
-                <span className="material-symbols-outlined text-[16px]">shuffle</span>
-                <span>Cambiar rutina</span>
-              </button>
-            )}
+          <div className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-high text-primary font-label-md text-label-md shrink-0 whitespace-nowrap">
+            <span className="material-symbols-outlined text-[16px]">check_circle</span>
+            <span>Seguro</span>
           </div>
         </div>
 
+        {/* Tag enfoque actual */}
+        {activeGroup && (
+          <div className="flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-white shadow-sm border border-outline-variant/30">
+            <span className="material-symbols-outlined text-primary text-[20px] shrink-0">
+              fitness_center
+            </span>
+            <span className="font-label-md text-label-md font-bold text-on-surface tracking-tight truncate">
+              {activeGroup.groupName}
+            </span>
+          </div>
+        )}
+
         {feedback && (
-          <div className="rounded-2xl bg-[#CBF3DB] px-4 py-2.5 text-[12.5px] font-semibold text-[#005236] border border-[#00B87C]/30">
-            {feedback}
+          <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[390px] rounded-2xl bg-[#181A20] text-white px-4 py-3 text-[12.5px] font-semibold shadow-lg border border-white/10 flex items-center justify-between gap-2.5">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="material-symbols-outlined text-[18px] text-[#6ffbbe] shrink-0">
+                check_circle
+              </span>
+              <span className="truncate">{feedback}</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setFeedback('')}
+              aria-label="Cerrar notificación"
+              className="text-white/70 hover:text-white shrink-0 flex items-center"
+            >
+              <span className="material-symbols-outlined text-[16px]">close</span>
+            </button>
           </div>
         )}
 
         {loading ? (
           <div className="bg-white rounded-3xl p-6 text-center text-[13px] text-on-surface-variant">
-            Evaluando rutinas seguras en el Motor Simbólico...
+            Cargando rutinas del día...
           </div>
         ) : !activeGroup ? (
-          <div className="bg-white rounded-3xl p-6 text-center text-[13px] text-on-surface-variant">
-            No se encontraron rutinas compatibles. Revisa tus lesiones en Perfil.
+          <div className="bg-white rounded-3xl p-6 text-center space-y-3 border border-outline-variant/20 shadow-sm">
+            <div className="w-11 h-11 rounded-full bg-[#E8F9EF] text-[#006c49] flex items-center justify-center mx-auto">
+              <span className="material-symbols-outlined text-[24px]">fitness_center</span>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[14px] font-bold text-[#151D24]">
+                Aún no tienes rutinas para hoy
+              </p>
+              <p className="text-[12.5px] text-on-surface-variant">
+                Toca el botón para preparar 3 rutinas personalizadas adaptadas a tu objetivo y lesiones.
+              </p>
+            </div>
+            <button
+              type="button"
+              disabled={generatingAi}
+              onClick={handleGenerateAiWorkouts}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#181A20] hover:bg-[#232332] text-white text-[12.5px] font-semibold transition-all active:scale-95 disabled:opacity-60"
+            >
+              <span
+                className={`material-symbols-outlined text-[17px] text-[#6ffbbe] ${
+                  generatingAi ? 'animate-spin' : ''
+                }`}
+              >
+                {generatingAi ? 'progress_activity' : 'fitness_center'}
+              </span>
+              <span>{generatingAi ? 'Preparando rutinas...' : 'Ver opciones de entreno'}</span>
+            </button>
           </div>
         ) : (
           <div className="flex flex-col gap-4">
             {activeGroup.options.map((w) => {
-              const isWhyOpen = openWhyId === w.id;
+              const isFavorite = (w.affinity?.score || 0) >= 2;
+              const isLowPriority = (w.affinity?.score || 0) <= -2;
               return (
                 <article
                   key={w.id}
-                  className={`bg-white rounded-3xl p-5 shadow-sm flex flex-col gap-3 transition-all border ${
-                    w.recommended ? 'border-2 border-[#00B87C]' : 'border-white/80'
+                  className={`relative flex flex-col rounded-3xl bg-white p-4 shadow-sm border transition-all ${
+                    isFavorite
+                      ? 'border-2 border-[#00B87C]'
+                      : isLowPriority
+                      ? 'border-slate-200 opacity-85'
+                      : 'border-white/80'
                   }`}
                 >
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="flex flex-col gap-1 min-w-0">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <span
-                          className={`px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-bold whitespace-nowrap ${
-                            w.recommended
-                              ? 'bg-primary-fixed text-on-primary-fixed'
-                              : 'bg-surface-container text-on-surface'
-                          }`}
-                        >
-                          {w.recommended ? `RECOMENDADA • ${w.durationMin} MIN` : `${w.durationMin} MIN`}
+                  {/* Badges superiores sin solapamiento */}
+                  <div className="flex items-center justify-between gap-2 mb-2.5 flex-wrap">
+                    <span
+                      className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10.5px] font-bold tracking-wide whitespace-nowrap ${
+                        w.recommended
+                          ? 'bg-[#00B87C] text-white'
+                          : 'bg-surface-container-low text-on-surface-variant'
+                      }`}
+                    >
+                      {getImpactBadge(w.impactLevel, w.recommended)}
+                    </span>
+
+                    <div className="flex items-center gap-1.5">
+                      {isFavorite && (
+                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-100 text-[#006c49] text-[10.5px] font-bold">
+                          <span className="material-symbols-outlined text-[13px]">grade</span>
+                          Favorito ({w.affinity.score}x)
                         </span>
-                        <span className="px-2.5 py-0.5 rounded-full bg-secondary-container font-label-sm text-label-sm font-medium text-on-secondary-container">
-                          {w.equipment}
+                      )}
+                      {isLowPriority && (
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-[10.5px] font-bold">
+                          Baja prioridad
                         </span>
-                        <span className="px-2.5 py-0.5 rounded-full bg-[#E8F9EF] font-label-sm text-label-sm font-bold text-[#006c49] uppercase">
-                          Impacto {w.impactLevel}
-                        </span>
-                        {w.source === 'ollama_wger_ai' && (
-                          <span className="px-2.5 py-0.5 rounded-full bg-[#181A20] text-[#6ffbbe] font-label-sm text-label-sm font-bold">
-                            IA Local • wger
-                          </span>
-                        )}
-                      </div>
-                      <h3 className="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">
-                        {w.title}
-                      </h3>
+                      )}
                     </div>
                   </div>
 
-                  {/* Metricas */}
-                  <div className="flex flex-wrap items-center gap-2">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-primary-fixed/30 text-on-primary-container font-label-sm text-label-sm font-bold tabular-nums">
-                      <span className="material-symbols-outlined text-[16px] text-primary">
-                        local_fire_department
+                  <WorkoutVisual impactLevel={w.impactLevel} recommended={w.recommended} />
+
+                  <h3 className="font-headline-sm text-headline-sm text-on-surface leading-tight mb-1">
+                    {w.title}
+                  </h3>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant mb-2.5">
+                    {w.mainBenefit}
+                  </p>
+
+                  {/* Lista unificada de ejercicios */}
+                  {Array.isArray(w.exercises) && w.exercises.length > 0 && (
+                    <div className="rounded-2xl bg-[#F4FBF7] border border-[#E1EFE7] px-3 py-2.5 mb-3">
+                      <span className="block text-[10px] font-bold uppercase tracking-wider text-[#4A7265] mb-1.5">
+                        Ejercicios
                       </span>
-                      <span>{w.caloriesBurned} kcal quemadas</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {w.exercises.map((ex, idx) => (
+                          <span
+                            key={`${w.id}_ex_${idx}`}
+                            className="inline-flex items-center px-2 py-0.5 rounded-full bg-white text-[11px] font-medium text-[#151D24] border border-[#CBF3DB]"
+                          >
+                            {ex}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <span className="px-2.5 py-1 rounded-xl bg-surface-container font-label-sm text-label-sm text-on-surface-variant font-medium">
+                  )}
+
+                  {/* Métricas */}
+                  <div className="flex items-center gap-1.5 flex-wrap mb-3 tabular-nums">
+                    <span className="px-2.5 py-0.5 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+                      {w.caloriesBurned} kcal
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-md bg-[#E8F9EF] text-[#006c49] font-label-sm text-label-sm">
+                      {w.durationMin} min
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-md bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+                      {w.equipment}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-md bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
                       {w.intensity}
                     </span>
-                    <span className="ml-auto text-[11px] font-bold text-[#4A7265]">
-                      Afinidad: {w.affinity.score >= 0 ? `+${w.affinity.score}` : w.affinity.score}
-                    </span>
                   </div>
 
-                  {/* Ganancia principal */}
-                  <div className="p-3 rounded-2xl bg-surface-container-low flex items-start gap-2.5">
-                    <span className="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">
-                      trending_up
-                    </span>
-                    <div className="flex flex-col text-body-sm">
-                      <span className="font-label-sm text-label-sm font-bold text-on-surface">
-                        Ganancia principal:
-                      </span>
-                      <p className="text-on-surface-variant text-[12.5px] leading-tight mt-0.5">
-                        {w.mainBenefit}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Lista compacta de ejercicios */}
-                  <ul className="space-y-1 px-1">
-                    {w.exercises.map((ex, idx) => (
-                      <li
-                        key={idx}
-                        className="text-[12px] text-[#3c4a42] flex items-center gap-2"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#00B87C] shrink-0" />
-                        <span>{ex}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Botones Completar/Calificar (+1/-1) y Explicabilidad "¿Por qué?" */}
+                  {/* Acción: Elegir */}
                   <div className="flex items-center gap-2 pt-2 border-t border-slate-100">
                     <button
                       type="button"
-                      disabled={Boolean(ratingBusy)}
-                      onClick={() => handleRate(w.id, 1)}
-                      className="flex-1 h-10 rounded-full bg-[#181A20] hover:bg-[#232332] text-white text-[12.5px] font-bold flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all disabled:opacity-60"
+                      disabled={Boolean(actionId)}
+                      onClick={() => handleChooseWorkout(w.id)}
+                      className="w-full h-10 rounded-full bg-[#181A20] hover:bg-[#232332] text-white text-[12.5px] font-bold flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all disabled:opacity-60"
                     >
                       <span className="material-symbols-outlined text-[16px] text-[#6ffbbe]">
                         check_circle
                       </span>
-                      <span>Completar (+1)</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      disabled={Boolean(ratingBusy)}
-                      onClick={() => handleRate(w.id, -1)}
-                      className="px-3.5 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-[#3c4a42] text-[12px] font-semibold flex items-center justify-center gap-1 active:scale-[0.98] transition-all disabled:opacity-60"
-                    >
-                      <span className="material-symbols-outlined text-[16px]">thumb_down</span>
-                      <span>-1</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setOpenWhyId(isWhyOpen ? null : w.id)}
-                      className="px-3 h-10 rounded-full bg-[#E8F9EF] text-[#006c49] text-[12px] font-bold flex items-center justify-center shrink-0"
-                    >
-                      ¿Por qué?
+                      <span>Elegir</span>
                     </button>
                   </div>
-
-                  {isWhyOpen && (
-                    <div className="p-3 rounded-2xl bg-[#F4FBF7] border border-[#CBF3DB] text-[11.5px] text-[#3c4a42] space-y-1.5">
-                      <p className="font-semibold text-[#151D24]">{w.explainability.summary}</p>
-                      <p className="font-mono text-[10.5px] text-[#006c49]">
-                        Reglas: {w.explainability.rulesVerified.join(' | ')}
-                      </p>
-                      {Array.isArray(w.dataSources) && w.dataSources.length > 0 && (
-                        <p className="text-[10.5px] text-[#4A7265]">
-                          Fuentes wger:{' '}
-                          {w.dataSources
-                            .map((s) => `${s.name} (ID ${s.wgerId})`)
-                            .join(', ')}
-                        </p>
-                      )}
-                    </div>
-                  )}
                 </article>
               );
             })}
+
+            <button
+              type="button"
+              disabled={generatingAi}
+              onClick={handleGenerateAiWorkouts}
+              className="w-full h-11 rounded-full bg-white hover:bg-surface-container text-primary font-label-md text-[13px] font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.99] shadow-sm border border-outline-variant/40 disabled:opacity-60"
+            >
+              <span
+                className={`material-symbols-outlined text-[18px] ${
+                  generatingAi ? 'animate-spin' : ''
+                }`}
+              >
+                {generatingAi ? 'progress_activity' : 'shuffle'}
+              </span>
+              <span>{generatingAi ? 'Generando nueva rutina...' : 'Cambiar rutina'}</span>
+            </button>
           </div>
         )}
-
-        {/* Ejercicios descartados por lesiones */}
-        <section className="bg-white/90 rounded-3xl p-4 border border-[#E1EFE7]">
-          <button
-            type="button"
-            onClick={() => setShowDiscarded((v) => !v)}
-            className="w-full flex items-center justify-between text-left"
-          >
-            <div>
-              <p className="text-[13px] font-bold text-[#151D24]">
-                Rutinas descartadas ({discardedWorkouts.length})
-              </p>
-              <p className="text-[11px] text-[#52525B]">
-                Trazas de exclusión de alto impacto por lesiones activas
-              </p>
-            </div>
-            <span className="material-symbols-outlined text-[20px] text-[#4A7265]">
-              {showDiscarded ? 'expand_less' : 'expand_more'}
-            </span>
-          </button>
-
-          {showDiscarded && (
-            <div className="mt-3 space-y-2">
-              {discardedWorkouts.length === 0 ? (
-                <p className="text-[12px] text-[#52525B]">
-                  No hay rutinas descartadas; no tienes lesiones activas configuradas.
-                </p>
-              ) : (
-                discardedWorkouts.map((d) => (
-                  <div
-                    key={d.id}
-                    className="p-3 rounded-2xl bg-error-container/40 border border-error/20 text-[11.5px]"
-                  >
-                    <p className="font-bold text-[#151D24]">
-                      {d.title} ({d.impactLevel} impacto)
-                    </p>
-                    <p className="font-mono text-[10.5px] text-error mt-0.5">{d.rule}</p>
-                    <p className="text-[#3c4a42] mt-0.5">{d.discardReason}</p>
-                  </div>
-                ))
-              )}
-            </div>
-          )}
-        </section>
       </div>
     </div>
   );

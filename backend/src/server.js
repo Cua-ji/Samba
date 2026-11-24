@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import dotenv from 'dotenv';
@@ -65,12 +67,33 @@ export function createApp() {
   app.use('/api/workouts', workoutsRoutes);
   app.use('/api/chat', ragRoutes);
 
+  const frontendDistDir = path.resolve(__dirname, '../../frontend/dist');
+  if (fs.existsSync(frontendDistDir)) {
+    app.use(express.static(frontendDistDir));
+    app.get(/^\/(?!api(?:\/|$)).*/, (_req, res) => {
+      res.sendFile(path.join(frontendDistDir, 'index.html'));
+    });
+  }
+
   app.use((err, _req, res, _next) => {
     console.error('[Samba Backend Error]', err);
     res.status(500).json({ error: 'Error interno en el servidor Samba.' });
   });
 
   return app;
+}
+
+function getLocalNetworkUrls(port) {
+  const urls = [];
+  const interfaces = os.networkInterfaces();
+  for (const entries of Object.values(interfaces)) {
+    for (const entry of entries || []) {
+      if (entry.family === 'IPv4' && !entry.internal) {
+        urls.push(`http://${entry.address}:${port}`);
+      }
+    }
+  }
+  return urls;
 }
 
 const isDirectRun =
@@ -81,8 +104,12 @@ if (isDirectRun) {
   ensureDatabaseReady()
     .then(() => {
       const app = createApp();
-      app.listen(port, () => {
+      app.listen(port, '0.0.0.0', () => {
         console.log(`Samba Neuro-Symbolic API + PostgreSQL listening on http://localhost:${port}`);
+        const lanUrls = getLocalNetworkUrls(port);
+        for (const url of lanUrls) {
+          console.log(`  -> Acceso desde celular (LAN): ${url}`);
+        }
       });
     })
     .catch((err) => {

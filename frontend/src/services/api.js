@@ -33,6 +33,14 @@ export const api = {
       body: JSON.stringify(payload),
     }),
   getProfile: (userId) => request(`/profile/${encodeURIComponent(userId)}`),
+  getDailyLog: (userId, date) =>
+    request(`/profile/${encodeURIComponent(userId)}/daily-log?date=${encodeURIComponent(date)}`),
+  getDailyLogsSummary: (userId, startDate, endDate) =>
+    request(
+      `/profile/${encodeURIComponent(userId)}/daily-logs-summary?startDate=${encodeURIComponent(
+        startDate
+      )}&endDate=${encodeURIComponent(endDate)}`
+    ),
   updateProfile: (userId, payload) =>
     request(`/profile/${encodeURIComponent(userId)}`, {
       method: 'PATCH',
@@ -41,10 +49,10 @@ export const api = {
   getAdminAudit: (userId) => request(`/profile/${encodeURIComponent(userId)}/admin-audit`),
   getMeals: (userId, mealTime = 'almuerzo') =>
     request(`/meals/${encodeURIComponent(userId)}?mealTime=${encodeURIComponent(mealTime)}`),
-  generateAiMeal: (userId, mealTime = 'almuerzo') =>
+  generateAiMeal: (userId, mealTime = 'almuerzo', excludeDishes = []) =>
     request(`/meals/${encodeURIComponent(userId)}/generate-ai`, {
       method: 'POST',
-      body: JSON.stringify({ mealTime }),
+      body: JSON.stringify({ mealTime, excludeDishes }),
     }),
   createCatalogMeal: (requesterUserId, meal) =>
     request('/meals/catalog', {
@@ -57,9 +65,10 @@ export const api = {
       body: JSON.stringify({ mealId, action }),
     }),
   getWorkouts: (userId) => request(`/workouts/${encodeURIComponent(userId)}`),
-  generateAiWorkouts: (userId) =>
+  generateAiWorkouts: (userId, excludeRoutines = []) =>
     request(`/workouts/${encodeURIComponent(userId)}/generate-ai`, {
       method: 'POST',
+      body: JSON.stringify({ excludeRoutines }),
     }),
   createCatalogWorkout: (requesterUserId, workout) =>
     request('/workouts/catalog', {

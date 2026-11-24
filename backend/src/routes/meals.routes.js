@@ -26,8 +26,11 @@ router.post('/:userId/generate-ai', async (req, res, next) => {
     const mealTime = ['desayuno', 'almuerzo', 'cena'].includes(req.body?.mealTime)
       ? req.body.mealTime
       : 'almuerzo';
+    const excludeDishes = Array.isArray(req.body?.excludeDishes)
+      ? req.body.excludeDishes.filter((x) => typeof x === 'string' && x.trim().length > 0)
+      : [];
 
-    const generated = await generatePersonalizedMealWithAI(user, mealTime);
+    const generated = await generatePersonalizedMealWithAI(user, mealTime, { excludeDishes });
     const catalog = filterLatestBase(await getMealsCatalog(mealTime, user.id, { onlyAi: true }));
     const updatedUser = await getHydratedUser(user.id);
     const evaluation = evaluateMealsForUser(updatedUser, catalog, { mealTime });

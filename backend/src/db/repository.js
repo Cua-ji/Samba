@@ -123,6 +123,27 @@ export async function deactivateUserAiMeals(userId, mealTime) {
   );
 }
 
+export async function getRecentUserAiMeals(userId, mealTime, limit = 18) {
+  const res = await pool.query(
+    `SELECT base_id, base_name, title, main_ingredient_name, budget_tier, created_at
+     FROM meals
+     WHERE generated_for_user_id = $1
+       AND meal_time = $2
+       AND source = 'ollama_usda_ai'
+     ORDER BY created_at DESC
+     LIMIT $3`,
+    [userId, mealTime, limit]
+  );
+  return res.rows.map((r) => ({
+    baseId: r.base_id,
+    baseName: r.base_name,
+    title: r.title,
+    mainIngredientName: r.main_ingredient_name,
+    budgetTier: r.budget_tier,
+    createdAt: r.created_at,
+  }));
+}
+
 export async function createCatalogMeal(meal) {
   const id =
     meal.id ||
@@ -175,10 +196,13 @@ export async function createCatalogMeal(meal) {
   return mapMealRow(res.rows[0]);
 }
 
-export async function getWorkoutsCatalog(userId = null) {
+export async function getWorkoutsCatalog(userId = null, { onlyAi = false } = {}) {
   const conditions = ['is_active = TRUE'];
   const params = [];
 
+  if (onlyAi) {
+    conditions.push(`source = 'ollama_wger_ai'`);
+  }
   if (userId) {
     params.push(userId);
     conditions.push(`(generated_for_user_id IS NULL OR generated_for_user_id = $${params.length})`);
@@ -193,6 +217,17 @@ export async function getWorkoutsCatalog(userId = null) {
   `;
   const res = await pool.query(sql, params);
   return res.rows.map(mapWorkoutRow);
+}
+
+export async function deactivateUserAiWorkouts(userId) {
+  await pool.query(
+    `UPDATE workouts
+     SET is_active = FALSE
+     WHERE generated_for_user_id = $1
+       AND source = 'ollama_wger_ai'
+       AND is_active = TRUE`,
+    [userId]
+  );
 }
 
 export async function getWorkoutById(workoutId) {
@@ -363,24 +398,40 @@ export async function findUserAuthByEmail(email) {
   };
 }
 
-export async function getTodayLog(userId) {
-  const [mealLogsRes, workoutLogsRes] = await Promise.all([
+export async function getDailyLogByDate(userId, dateStr = null) {
+  const validDate = typeof dateStr === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(dateStr) ? dateStr : null;
+
+  const [dateMetaRes, mealLogsRes, workoutLogsRes, hydrationRes] = await Promise.all([
+    pool.query(
+      `SELECT
+         TO_CHAR(COALESCE($1::date, CURRENT_DATE), 'YYYY-MM-DD') AS target_date,
+         (COALESCE($1::date, CURRENT_DATE) = CURRENT_DATE) AS is_today,
+         (COALESCE($1::date, CURRENT_DATE) > CURRENT_DATE) AS is_future`,
+      [validDate]
+    ),
     pool.query(
       `SELECT meal_id, title, meal_time, calories, protein, carbs, fat, logged_at
        FROM daily_meal_logs
-       WHERE user_id = $1 AND log_date = CURRENT_DATE
+       WHERE user_id = $1 AND log_date = COALESCE($2::date, CURRENT_DATE)
        ORDER BY logged_at DESC, id DESC`,
-      [userId]
+      [userId, validDate]
     ),
     pool.query(
       `SELECT workout_id, title, calories_burned, rating, logged_at
        FROM daily_workout_logs
-       WHERE user_id = $1 AND log_date = CURRENT_DATE
+       WHERE user_id = $1 AND log_date = COALESCE($2::date, CURRENT_DATE)
        ORDER BY logged_at DESC, id DESC`,
-      [userId]
+      [userId, validDate]
+    ),
+    pool.query(
+      `SELECT liters
+       FROM daily_hydration_logs
+       WHERE user_id = $1 AND log_date = COALESCE($2::date, CURRENT_DATE)`,
+      [userId, validDate]
     ),
   ]);
 
+  const meta = dateMetaRes.rows[0];
   const chosenMeals = mealLogsRes.rows.map((r) => ({
     mealId: r.meal_id,
     title: r.title,
@@ -410,12 +461,39 @@ export async function getTodayLog(userId) {
     { caloriesConsumed: 0, proteinConsumed: 0, carbsConsumed: 0, fatConsumed: 0 }
   );
 
+  const caloriesBurned = completedWorkouts.reduce((acc, w) => acc + w.caloriesBurned, 0);
+  const hydrationLiters = hydrationRes.rows[0] ? Number(hydrationRes.rows[0].liters) : 0;
+
   return {
-    date: new Date().toISOString().slice(0, 10),
+    date: meta.target_date,
+    isToday: Boolean(meta.is_today),
+    isFuture: Boolean(meta.is_future),
     ...totals,
+    caloriesBurned,
+    hydrationLiters,
     chosenMeals,
     completedWorkouts,
   };
+}
+
+export async function getTodayLog(userId) {
+  return getDailyLogByDate(userId, null);
+}
+
+export async function getDailyLogDatesSummary(userId, startDate, endDate) {
+  const res = await pool.query(
+    `SELECT DISTINCT TO_CHAR(d, 'YYYY-MM-DD') AS active_date
+     FROM (
+       SELECT log_date AS d FROM daily_meal_logs WHERE user_id = $1 AND log_date BETWEEN $2::date AND $3::date
+       UNION ALL
+       SELECT log_date AS d FROM daily_workout_logs WHERE user_id = $1 AND log_date BETWEEN $2::date AND $3::date
+       UNION ALL
+       SELECT log_date AS d FROM daily_hydration_logs WHERE user_id = $1 AND liters > 0 AND log_date BETWEEN $2::date AND $3::date
+     ) AS logs
+     ORDER BY active_date ASC`,
+    [userId, startDate, endDate]
+  );
+  return res.rows.map((r) => r.active_date);
 }
 
 export async function getHydratedUser(userId) {
@@ -610,6 +688,16 @@ export async function updateUserProfile(userId, updates) {
         nextStatus,
       ]
     );
+
+    if (updates.hydrationLiters !== undefined) {
+      await client.query(
+        `INSERT INTO daily_hydration_logs (user_id, log_date, liters, updated_at)
+         VALUES ($1, CURRENT_DATE, $2, NOW())
+         ON CONFLICT (user_id, log_date)
+         DO UPDATE SET liters = EXCLUDED.liters, updated_at = NOW()`,
+        [userId, nextHydration]
+      );
+    }
 
     if (updates.role && updates.role !== existing.role) {
       await client.query(

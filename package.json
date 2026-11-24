@@ -12,6 +12,7 @@
     "start:backend": "npm.cmd --prefix backend start",
     "dev:frontend": "npm.cmd --prefix frontend run dev",
     "build:frontend": "npm.cmd --prefix frontend run build",
+    "start:mobile": "npm.cmd --prefix frontend run build && npm.cmd --prefix backend start",
     "test:symbolic": "node backend/src/symbolic/engine.test.js"
   }
 }

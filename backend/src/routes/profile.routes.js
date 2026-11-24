@@ -1,6 +1,8 @@
 import express from 'express';
 import {
   getHydratedUser,
+  getDailyLogByDate,
+  getDailyLogDatesSummary,
   updateUserProfile,
   getAdminAuditSummary,
   getMealsCatalog,
@@ -30,12 +32,54 @@ router.get('/:userId', async (req, res, next) => {
   }
 });
 
+router.get('/:userId/daily-log', async (req, res, next) => {
+  try {
+    const user = await getHydratedUser(req.params.userId);
+    if (!user) return res.status(404).json({ error: 'Usuario no encontrado.' });
+
+    const date = typeof req.query.date === 'string' ? req.query.date : null;
+    const log = await getDailyLogByDate(user.id, date);
+    if (log.isFuture) {
+      return res.status(400).json({ error: 'No se pueden consultar días posteriores al actual.' });
+    }
+    return res.json(log);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/:userId/daily-logs-summary', async (req, res, next) => {
+  try {
+    const user = await getHydratedUser(req.params.userId);
+    if (!user) return res.status(404).json({ error: 'Usuario no encontrado.' });
+
+    const todayStr = new Date().toISOString().slice(0, 10);
+    const startDate =
+      typeof req.query.startDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(req.query.startDate)
+        ? req.query.startDate
+        : todayStr;
+    const endDate =
+      typeof req.query.endDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(req.query.endDate)
+        ? req.query.endDate
+        : todayStr;
+
+    const activeDates = await getDailyLogDatesSummary(user.id, startDate, endDate);
+    return res.json({ activeDates });
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.patch('/:userId', async (req, res, next) => {
   try {
     const existing = await getHydratedUser(req.params.userId);
     if (!existing) return res.status(404).json({ error: 'Usuario no encontrado.' });
 
     const updates = { ...(req.body || {}) };
+    if (updates.targetDate && updates.targetDate !== existing.todayLog?.date) {
+      return res.status(400).json({ error: 'Solo puedes registrar cambios en el día actual.' });
+    }
+    delete updates.targetDate;
     if (updates.role && !VALID_ROLES.includes(updates.role)) {
       delete updates.role;
     }

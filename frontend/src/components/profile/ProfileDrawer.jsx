@@ -24,8 +24,6 @@ const GOAL_OPTIONS = [
   { id: 'salud_vitalidad', label: 'Mejorar salud y vitalidad' },
 ];
 
-const ROLE_OPTIONS = ['superusuario', 'usuario', 'invitado'];
-
 const INITIAL_MEAL_FORM = {
   title: '',
   baseName: 'Base: Bowl Especial del Dia',
@@ -67,7 +65,6 @@ export function ProfileDrawer({ onProfileUpdated }) {
   } = useSamba();
   const [saving, setSaving] = useState(false);
   const [auditData, setAuditData] = useState(null);
-  const [dbHealth, setDbHealth] = useState(null);
   const [statusMessage, setStatusMessage] = useState('');
   const [showCatalogEditor, setShowCatalogEditor] = useState(false);
   const [catalogMode, setCatalogMode] = useState('meal');
@@ -75,11 +72,6 @@ export function ProfileDrawer({ onProfileUpdated }) {
   const [workoutForm, setWorkoutForm] = useState(INITIAL_WORKOUT_FORM);
 
   const loadHealthAndAudit = () => {
-    api
-      .health()
-      .then((h) => setDbHealth(h))
-      .catch(() => setDbHealth(null));
-
     if (user?.role === 'superusuario') {
       api
         .getAdminAudit(user.id)
@@ -189,7 +181,6 @@ export function ProfileDrawer({ onProfileUpdated }) {
   }
 
   const nextStatus = user.status === 'activa' ? 'inactiva' : 'activa';
-  const dbInfo = dbHealth?.database;
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 backdrop-blur-[2px]">
@@ -213,74 +204,6 @@ export function ProfileDrawer({ onProfileUpdated }) {
         </div>
 
         <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4 no-scrollbar">
-          {/* Estado de PostgreSQL Docker */}
-          {dbInfo && (
-            <section className="rounded-3xl p-3.5 bg-white border border-[#CBF3DB] flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2.5 min-w-0">
-                <div
-                  className={`w-9 h-9 rounded-2xl flex items-center justify-center shrink-0 ${
-                    dbInfo.connected
-                      ? 'bg-emerald-100 text-[#006c49]'
-                      : 'bg-error-container text-error'
-                  }`}
-                >
-                  <span className="material-symbols-outlined text-[20px]">database</span>
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[12px] font-bold text-[#151D24] truncate">
-                    {dbInfo.engine || 'PostgreSQL'} ({dbInfo.name || 'samba_db'})
-                  </p>
-                  {dbInfo.stats && (
-                    <p className="text-[11px] text-[#4A7265] tabular-nums">
-                      {dbInfo.stats.meals} platillos • {dbInfo.stats.workouts} rutinas •{' '}
-                      {dbInfo.stats.external_foods || 0} USDA •{' '}
-                      {dbInfo.stats.external_exercises || 0} wger
-                    </p>
-                  )}
-                </div>
-              </div>
-              <span className="px-2 py-0.5 rounded-full bg-[#CBF3DB] text-[#005236] text-[10px] font-bold uppercase shrink-0">
-                {dbInfo.connected ? 'Conectada' : 'Offline'}
-              </span>
-            </section>
-          )}
-
-          {/* Estado de Ollama GPU local */}
-          {dbHealth?.ollama && (
-            <section className="rounded-3xl p-3.5 bg-white border border-[#E1EFE7] flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2.5 min-w-0">
-                <div
-                  className={`w-9 h-9 rounded-2xl flex items-center justify-center shrink-0 ${
-                    dbHealth.ollama.connected
-                      ? 'bg-[#181A20] text-[#6ffbbe]'
-                      : 'bg-slate-100 text-slate-500'
-                  }`}
-                >
-                  <span className="material-symbols-outlined text-[20px]">neurology</span>
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[12px] font-bold text-[#151D24] truncate">
-                    Ollama GPU Local ({dbHealth.ollama.activeModel})
-                  </p>
-                  <p className="text-[11px] text-[#4A7265] truncate">
-                    {dbHealth.ollama.connected
-                      ? 'Activo para Chat RAG y generación USDA / wger'
-                      : 'Desconectado (usando Fallback Local Auditado)'}
-                  </p>
-                </div>
-              </div>
-              <span
-                className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase shrink-0 ${
-                  dbHealth.ollama.connected
-                    ? 'bg-[#CBF3DB] text-[#005236]'
-                    : 'bg-slate-100 text-slate-600'
-                }`}
-              >
-                {dbHealth.ollama.connected ? 'Activo' : 'Offline'}
-              </span>
-            </section>
-          )}
-
           {statusMessage && (
             <div className="rounded-2xl bg-[#CBF3DB] px-3.5 py-2.5 text-[12px] font-semibold text-[#005236]">
               {statusMessage}
@@ -291,7 +214,7 @@ export function ProfileDrawer({ onProfileUpdated }) {
           <section className="bg-white rounded-3xl p-4 border border-[#E1EFE7] space-y-3">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-[14px] font-bold text-[#151D24]">Estado de Cuenta y Rol</h3>
+                <h3 className="text-[14px] font-bold text-[#151D24]">Estado de Cuenta</h3>
                 <p className="text-[11.5px] text-[#52525B]">
                   Desactivar conserva historial ({(user.history || []).length} eventos) y trazas.
                 </p>
@@ -321,29 +244,6 @@ export function ProfileDrawer({ onProfileUpdated }) {
               >
                 {user.status === 'activa' ? 'Marcar Inactiva (sin borrar)' : 'Reactivar Cuenta'}
               </button>
-            </div>
-
-            <div>
-              <span className="block text-[11.5px] font-bold text-[#3c4a42] mb-1.5">
-                Rol de acceso
-              </span>
-              <div className="grid grid-cols-3 gap-1.5">
-                {ROLE_OPTIONS.map((r) => (
-                  <button
-                    key={r}
-                    type="button"
-                    disabled={saving}
-                    onClick={() => patchUser({ role: r }, `Rol cambiado a ${r}.`)}
-                    className={`py-1.5 rounded-full text-[11.5px] font-bold transition-colors ${
-                      user.role === r
-                        ? 'bg-[#00B87C] text-white'
-                        : 'bg-[#F4FBF7] text-[#3c4a42] border border-[#E1EFE7]'
-                    }`}
-                  >
-                    {r}
-                  </button>
-                ))}
-              </div>
             </div>
           </section>
 

@@ -14,6 +14,11 @@ import {
 } from './engine.js';
 import { retrieveSymbolicContext } from '../rag/retrieval.js';
 import { generateGroundedResponse } from '../rag/generator.js';
+import {
+  checkMealNovelty,
+  checkVariantsDiversity,
+  deduplicateIngredients,
+} from '../services/aiRecommender.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const mealsCatalog = JSON.parse(
@@ -261,4 +266,80 @@ test('Guardrail simbolico detecta alergenos e impacto ocultos en salidas de IA',
   const workoutCheck = checkWorkoutDiscard(user, sneakyWorkout);
   assert.equal(workoutCheck.discarded, true);
   assert.ok(workoutCheck.conflicts.includes('rodilla'));
+});
+
+test('Guardrails de novedad y diversidad rechazan platillos repetidos y opciones similares', () => {
+  const repeatedNovelty = checkMealNovelty(
+    'Ensalada de Pollo con Brocoli',
+    [
+      { title: 'Ensalada de Pollo con Brocoli' },
+      { title: 'Ensalada de Pollo con Brocoli y Aguacate' },
+      { title: 'Ensalada de Pollo con Brocoli y Quinoa' },
+    ],
+    ['Base IA: Ensalada de Pollo con Brocoli']
+  );
+  assert.equal(repeatedNovelty.novel, false);
+
+  const freshNovelty = checkMealNovelty(
+    'Tacos Saludables Estilo Mexicano',
+    [
+      { title: 'Tacos de Frijoles Negros y Nopales' },
+      { title: 'Tacos de Pechuga de Pavo al Pastor' },
+      { title: 'Tacos de Camarones al Ajillo con Aguacate' },
+    ],
+    ['Base IA: Ensalada de Pollo con Brocoli']
+  );
+  assert.equal(freshNovelty.novel, true);
+
+  const similarVariants = checkVariantsDiversity([
+    {
+      budgetTier: 'bajo',
+      title: 'Ensalada de Pollo con Brocoli',
+      mainIngredient: { name: 'Pechuga de pollo' },
+      ingredients: ['200g pechuga de pollo', '100g brocoli', '100g lechuga', '1 tomate'],
+    },
+    {
+      budgetTier: 'medio',
+      title: 'Ensalada de Pollo con Brocoli y Aguacate',
+      mainIngredient: { name: 'Pechuga de pollo' },
+      ingredients: ['200g pechuga de pollo', '100g brocoli', '100g lechuga', '1 tomate', 'medio aguacate'],
+    },
+    {
+      budgetTier: 'alto',
+      title: 'Ensalada de Pollo con Brocoli y Quinoa',
+      mainIngredient: { name: 'Pechuga de pollo' },
+      ingredients: ['200g pechuga de pollo', '100g brocoli', '100g lechuga', '1 tomate', '80g quinoa'],
+    },
+  ]);
+  assert.equal(similarVariants.diverse, false);
+
+  const diverseVariants = checkVariantsDiversity([
+    {
+      budgetTier: 'bajo',
+      title: 'Tacos de Frijoles Negros y Calabacin',
+      mainIngredient: { name: 'Frijoles negros cocidos' },
+      ingredients: ['150g frijoles negros', '3 tortillas de maiz', '100g calabacin', 'pico de gallo'],
+    },
+    {
+      budgetTier: 'medio',
+      title: 'Fajitas de Pechuga de Pollo con Pimientos',
+      mainIngredient: { name: 'Pechuga de pollo a la plancha' },
+      ingredients: ['180g pechuga de pollo', '1 pimiento rojo', '1 cebolla morada', '2 tortillas de maiz', '50g aguacate'],
+    },
+    {
+      budgetTier: 'alto',
+      title: 'Tacos de Salmon Sellado con Mango y Esparragos',
+      mainIngredient: { name: 'Filete de salmon' },
+      ingredients: ['170g filete de salmon', '80g esparragos asados', '60g mango picado', 'col morada', 'aceite de oliva extra virgen'],
+    },
+  ]);
+  assert.equal(diverseVariants.diverse, true);
+
+  const deduped = deduplicateIngredients([
+    '200g de pechuga de pollo',
+    '1 tomate, cortado en cubos',
+    '100g de tomate',
+    '100g de brocoli',
+  ]);
+  assert.equal(deduped.length, 3);
 });

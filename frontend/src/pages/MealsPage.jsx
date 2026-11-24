@@ -93,7 +93,13 @@ export function MealsPage({ refreshTrigger }) {
     setGeneratingAi(true);
     setFeedback('');
     try {
-      const res = await api.generateAiMeal(user.id, mealTime);
+      const currentDishes = activeBase
+        ? [
+            activeBase.baseName,
+            ...(activeBase.options || []).map((opt) => opt.title),
+          ].filter(Boolean)
+        : [];
+      const res = await api.generateAiMeal(user.id, mealTime, currentDishes);
       setUser(res.user);
       setData({ mealTime, ...res.evaluation });
       setFeedback('Platillo actualizado con 3 nuevas opciones.');
