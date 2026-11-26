@@ -6,16 +6,18 @@ import {
   createCatalogWorkout,
   saveLogicalTraces,
   recordWorkoutAffinity,
+  removeTodayWorkoutLog,
 } from '../db/repository.js';
 import { evaluateWorkoutsForUser } from '../symbolic/engine.js';
 import { generatePersonalizedWorkoutsWithAI } from '../services/aiRecommender.js';
+import { enrichWorkoutsEvaluationWithML, predictSafetyML } from '../services/mlService.js';
 
 const router = express.Router();
 
-function filterLatestGroup(catalog) {
-  if (!Array.isArray(catalog) || catalog.length === 0) return [];
-  const latestGroupId = catalog[0].groupId;
-  return catalog.filter((w) => w.groupId === latestGroupId);
+async function evaluateAndRankWorkouts(user) {
+  const catalog = await getWorkoutsCatalog(user.id, { onlyAi: true });
+  const rawEval = evaluateWorkoutsForUser(user, catalog);
+  return enrichWorkoutsEvaluationWithML(user, rawEval);
 }
 
 router.post('/:userId/generate-ai', async (req, res, next) => {
@@ -28,9 +30,8 @@ router.post('/:userId/generate-ai', async (req, res, next) => {
       : [];
 
     const generated = await generatePersonalizedWorkoutsWithAI(user, { excludeRoutines });
-    const catalog = filterLatestGroup(await getWorkoutsCatalog(user.id, { onlyAi: true }));
     const updatedUser = await getHydratedUser(user.id);
-    const evaluation = evaluateWorkoutsForUser(updatedUser, catalog);
+    const evaluation = await evaluateAndRankWorkouts(updatedUser);
 
     return res.status(201).json({
       generated,
@@ -64,6 +65,19 @@ router.post('/catalog', async (req, res, next) => {
       });
     }
 
+    const mlSafety = await predictSafetyML(
+      `${workout.title} ${workout.mainBenefit} ${(workout.exercises || []).join(' ')}`,
+      0.7
+    );
+    if (mlSafety) {
+      if (mlSafety.highImpact) workout.impactLevel = 'alto';
+      if (mlSafety.contraindications?.length) {
+        workout.contraindications = Array.from(
+          new Set([...(workout.contraindications || []), ...mlSafety.contraindications])
+        );
+      }
+    }
+
     const created = await createCatalogWorkout(workout);
     return res.status(201).json({ workout: created });
   } catch (err) {
@@ -76,8 +90,7 @@ router.get('/:userId', async (req, res, next) => {
     const user = await getHydratedUser(req.params.userId);
     if (!user) return res.status(404).json({ error: 'Usuario no encontrado.' });
 
-    const catalog = filterLatestGroup(await getWorkoutsCatalog(user.id, { onlyAi: true }));
-    const evaluation = evaluateWorkoutsForUser(user, catalog);
+    const evaluation = await evaluateAndRankWorkouts(user);
 
     await saveLogicalTraces(
       user.id,
@@ -92,7 +105,7 @@ router.get('/:userId', async (req, res, next) => {
 
 router.post('/:userId/affinity', async (req, res, next) => {
   try {
-    const { workoutId, rating, completed = true } = req.body || {};
+    const { workoutId, rating, completed = true, action = null } = req.body || {};
     if (!workoutId) {
       return res.status(400).json({ error: 'workoutId es obligatorio.' });
     }
@@ -108,16 +121,32 @@ router.post('/:userId/affinity', async (req, res, next) => {
       existingUser.id,
       workout,
       delta,
-      delta > 0 && completed
+      delta > 0 && completed,
+      action
     );
 
-    const catalog = filterLatestGroup(await getWorkoutsCatalog(user.id, { onlyAi: true }));
-    const evaluation = evaluateWorkoutsForUser(user, catalog);
+    const evaluation = await evaluateAndRankWorkouts(user);
 
     return res.json({
       user,
       todayLog: user.todayLog,
       affinityRecord,
+      evaluation,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.delete('/:userId/today/:workoutId', async (req, res, next) => {
+  try {
+    const user = await removeTodayWorkoutLog(req.params.userId, req.params.workoutId);
+    if (!user) return res.status(404).json({ error: 'Usuario no encontrado.' });
+
+    const evaluation = await evaluateAndRankWorkouts(user);
+    return res.json({
+      user,
+      todayLog: user.todayLog,
       evaluation,
     });
   } catch (err) {

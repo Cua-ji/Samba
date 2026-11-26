@@ -13,6 +13,7 @@ import { checkDbHealth } from './db/pool.js';
 import { ensureDatabaseReady } from './db/seed.js';
 import { getDatabaseStats } from './db/repository.js';
 import { checkOllamaHealth } from './services/ollama.js';
+import { checkMlServiceHealth } from './services/mlService.js';
 import authRoutes from './routes/auth.routes.js';
 import profileRoutes from './routes/profile.routes.js';
 import mealsRoutes from './routes/meals.routes.js';
@@ -26,10 +27,11 @@ export function createApp() {
 
   app.get('/api/health', async (_req, res) => {
     try {
-      const [dbInfo, stats, ollamaInfo] = await Promise.all([
+      const [dbInfo, stats, ollamaInfo, mlInfo] = await Promise.all([
         checkDbHealth(),
         getDatabaseStats(),
         checkOllamaHealth(),
+        checkMlServiceHealth(),
       ]);
       res.json({
         status: 'ok',
@@ -37,11 +39,14 @@ export function createApp() {
         brand: 'Whixte & Co.',
         database: {
           connected: true,
-          engine: 'PostgreSQL 16 (Docker)',
+          engine: (process.env.DATABASE_URL || '').includes('supabase')
+            ? 'PostgreSQL (Supabase)'
+            : 'PostgreSQL 16',
           name: dbInfo.database,
           stats,
         },
         ollama: ollamaInfo,
+        mlService: mlInfo,
         llmProvider: process.env.LLM_PROVIDER || 'auto',
         llmConfigured: Boolean(
           ollamaInfo.connected ||

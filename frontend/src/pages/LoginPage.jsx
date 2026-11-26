@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { MobileShell } from '../components/layout/MobileShell';
 import { BrandHeader } from '../components/layout/BrandHeader';
 import { useSamba } from '../context/SambaContext';
@@ -6,20 +6,12 @@ import { api } from '../services/api';
 
 export function LoginPage() {
   const { setScreen, enterDashboardWithSession } = useSamba();
-  const [email, setEmail] = useState('alejandro@samba.app');
-  const [password, setPassword] = useState('Samba2026');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [inactiveNotice, setInactiveNotice] = useState(null);
-  const [demoAccounts, setDemoAccounts] = useState([]);
-
-  useEffect(() => {
-    api
-      .getDemoAccounts()
-      .then((res) => setDemoAccounts(res.accounts || []))
-      .catch(() => {});
-  }, []);
 
   async function handleSubmit(e, reactivate = false) {
     if (e) e.preventDefault();
@@ -44,17 +36,17 @@ export function LoginPage() {
     <MobileShell variant="mesh">
       <BrandHeader onBack={() => setScreen('welcome')} />
 
-      <section className="relative z-10 px-7 pt-4 pb-2 flex flex-col flex-1 justify-start text-left overflow-y-auto no-scrollbar">
-        <div className="mb-5">
-          <h1 className="text-3xl sm:text-[34px] font-extrabold text-brand-heading tracking-tight leading-tight mb-2">
+      <section className="relative z-10 px-5 sm:px-7 pt-3 pb-3 flex flex-col flex-1 min-h-0 justify-start text-left overflow-y-auto no-scrollbar">
+        <div className="mb-4">
+          <h1 className="text-[28px] sm:text-[34px] font-extrabold text-brand-heading tracking-tight leading-tight mb-1.5">
             Iniciar sesión
           </h1>
-          <p className="text-[15px] leading-snug font-normal text-brand-secondary">
+          <p className="text-[14.5px] leading-snug font-normal text-brand-secondary">
             Bienvenido de nuevo a tu plan de nutrición y bienestar
           </p>
         </div>
 
-        <form className="flex flex-col gap-4 w-full" onSubmit={(e) => handleSubmit(e, false)}>
+        <form id="login-form" className="flex flex-col gap-4 w-full" onSubmit={(e) => handleSubmit(e, false)}>
           <div className="bg-white rounded-3xl p-5 shadow-sm border border-white/80 flex flex-col gap-4 mb-1">
             <div className="flex flex-col gap-1.5">
               <label className="text-[13px] font-bold text-brand-heading" htmlFor="login-email">
@@ -77,14 +69,9 @@ export function LoginPage() {
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <div className="flex items-center justify-between">
-                <label className="text-[13px] font-bold text-brand-heading" htmlFor="login-pass">
-                  Contraseña
-                </label>
-                <span className="text-[12px] font-semibold text-[#00B87C]">
-                  Acceso directo
-                </span>
-              </div>
+              <label className="text-[13px] font-bold text-brand-heading" htmlFor="login-pass">
+                Contraseña
+              </label>
               <div className="relative flex items-center">
                 <div className="absolute left-4 text-brand-subtle pointer-events-none flex items-center">
                   <span className="material-symbols-outlined text-[20px] text-[#4A7265]">lock</span>
@@ -102,7 +89,7 @@ export function LoginPage() {
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
                   aria-label="Mostrar contraseña"
-                  className="absolute right-4 text-brand-subtle hover:text-brand-heading focus:outline-none flex items-center"
+                  className="absolute right-2 w-10 h-10 rounded-full text-brand-subtle hover:text-brand-heading focus:outline-none flex items-center justify-center"
                 >
                   <span className="material-symbols-outlined text-[20px] text-[#4A7265]">
                     {showPassword ? 'visibility_off' : 'visibility'}
@@ -159,40 +146,15 @@ export function LoginPage() {
             </button>
           </div>
         </form>
-
-        {demoAccounts.length > 0 && (
-          <div className="mt-4 bg-white/75 rounded-2xl p-3 border border-white/70">
-            <p className="text-[11px] font-bold uppercase tracking-wider text-brand-secondary mb-2">
-              Perfiles de prueba rápidos (Roles)
-            </p>
-            <div className="flex flex-wrap gap-1.5">
-              {demoAccounts.map((acc) => (
-                <button
-                  key={acc.email}
-                  type="button"
-                  onClick={() => {
-                    setEmail(acc.email);
-                    setPassword(acc.hint);
-                    setError('');
-                    setInactiveNotice(null);
-                  }}
-                  className="px-2.5 py-1 rounded-full bg-white text-[11px] font-semibold text-brand-heading border border-emerald-200 hover:border-[#00B87C] transition-colors"
-                >
-                  {acc.role}: {acc.name.split(' ')[0]}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
       </section>
 
-      <footer className="relative z-10 px-8 pb-8 safe-bottom flex flex-col items-center w-full gap-4 pt-3">
-        <div className="flex items-center justify-center gap-2 text-[14px]">
+      <footer className="relative z-10 px-5 sm:px-7 pt-2 pb-5 safe-bottom flex flex-col items-center w-full gap-3 shrink-0">
+        <div className="flex items-center justify-center flex-wrap gap-2 text-[14px]">
           <span className="text-brand-subtle font-medium">¿No tienes una cuenta?</span>
           <button
             type="button"
             onClick={() => setScreen('onboarding-1')}
-            className="bg-white/95 hover:bg-white text-brand-heading font-semibold px-3 py-1.5 rounded-md text-[13.5px] shadow-sm hover:shadow active:scale-95 transition-all duration-150 inline-flex items-center justify-center"
+            className="bg-white/95 hover:bg-white text-brand-heading font-semibold px-3.5 py-2 rounded-lg text-[13.5px] shadow-sm hover:shadow active:scale-95 transition-all duration-150 inline-flex items-center justify-center"
           >
             Regístrate
           </button>

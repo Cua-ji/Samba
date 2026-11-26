@@ -15,9 +15,10 @@ import { CreateAccountPage } from './pages/CreateAccountPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { MealsPage } from './pages/MealsPage';
 import { WorkoutsPage } from './pages/WorkoutsPage';
+import { SuperuserDashboardPage } from './pages/SuperuserDashboardPage';
 
 function SambaRouter() {
-  const { screen, activeTab, loadingSession } = useSamba();
+  const { user, screen, activeTab, loadingSession } = useSamba();
   const [profileRefreshTick, setProfileRefreshTick] = useState(0);
 
   if (loadingSession) {
@@ -41,6 +42,15 @@ function SambaRouter() {
   if (screen === 'onboarding-4') return <Step4Activity />;
   if (screen === 'onboarding-5') return <Step5Allergies />;
   if (screen === 'create-account') return <CreateAccountPage />;
+
+  if (user?.role === 'superusuario') {
+    return (
+      <MobileShell variant="app" className="justify-start">
+        <SuperuserDashboardPage refreshTrigger={profileRefreshTick} />
+        <ProfileDrawer onProfileUpdated={() => setProfileRefreshTick((n) => n + 1)} />
+      </MobileShell>
+    );
+  }
 
   return (
     <MobileShell variant="app" className="justify-start">

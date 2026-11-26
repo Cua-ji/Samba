@@ -162,10 +162,11 @@ export function DashboardPage() {
   }
 
   return (
-    <div className="flex flex-col flex-1 overflow-y-auto no-scrollbar">
+    <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
       <AppTopBar title="INICIO" />
 
-      <div className="flex flex-col w-full px-margin pt-4 pb-6 space-y-4">
+      <div className="flex-1 min-h-0 overflow-y-auto no-scrollbar">
+        <div className="flex flex-col w-full px-4 sm:px-margin pt-4 pb-6 space-y-4">
         {/* Saludo & Tira semanal */}
         <section className="flex flex-col space-y-3">
           <div className="flex flex-col">
@@ -339,11 +340,11 @@ export function DashboardPage() {
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between px-1">
-                    <span className="font-body-sm text-body-sm text-on-surface-variant">
+                  <div className="flex items-center justify-between gap-2 px-1">
+                    <span className="font-body-sm text-[11.5px] text-on-surface-variant leading-tight">
                       Meta Mifflin-St Jeor
                     </span>
-                    <span className="font-label-md text-label-md text-on-surface font-bold tabular-nums">
+                    <span className="font-label-md text-[12.5px] text-on-surface font-bold tabular-nums whitespace-nowrap shrink-0">
                       {targetCalories.toLocaleString('es-MX')} kcal
                     </span>
                   </div>
@@ -351,13 +352,13 @@ export function DashboardPage() {
               </div>
 
               {/* Desglose de Macronutrientes */}
-              <div className="grid grid-cols-3 gap-2.5 pt-1">
-                <div className="flex flex-col p-2.5 rounded-2xl bg-surface-container-low/90 space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <span className="font-label-sm text-label-sm text-on-surface-variant">
+              <div className="grid grid-cols-3 gap-2 pt-1">
+                <div className="flex flex-col p-2 sm:p-2.5 rounded-2xl bg-surface-container-low/90 space-y-1.5 min-w-0">
+                  <div className="flex items-center justify-between gap-1">
+                    <span className="font-label-sm text-[10.5px] text-on-surface-variant truncate">
                       Proteína
                     </span>
-                    <span className="font-label-sm text-label-sm font-bold text-tertiary tabular-nums">
+                    <span className="font-label-sm text-[10.5px] font-bold text-tertiary tabular-nums shrink-0">
                       {proteinPct}%
                     </span>
                   </div>
@@ -367,22 +368,22 @@ export function DashboardPage() {
                       style={{ width: `${proteinPct}%` }}
                     />
                   </div>
-                  <div className="flex items-baseline justify-between pt-0.5 tabular-nums">
-                    <span className="font-label-md text-label-md font-bold text-on-surface">
+                  <div className="flex items-baseline justify-between gap-0.5 pt-0.5 tabular-nums">
+                    <span className="font-label-md text-[12.5px] font-bold text-on-surface">
                       {proteinConsumed}g
                     </span>
-                    <span className="font-body-sm text-[10px] text-on-surface-variant">
+                    <span className="font-body-sm text-[10px] text-on-surface-variant whitespace-nowrap">
                       / {proteinTarget}g
                     </span>
                   </div>
                 </div>
 
-                <div className="flex flex-col p-2.5 rounded-2xl bg-surface-container-low/90 space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <span className="font-label-sm text-label-sm text-on-surface-variant">
+                <div className="flex flex-col p-2 sm:p-2.5 rounded-2xl bg-surface-container-low/90 space-y-1.5 min-w-0">
+                  <div className="flex items-center justify-between gap-1">
+                    <span className="font-label-sm text-[10.5px] text-on-surface-variant truncate">
                       Carbos
                     </span>
-                    <span className="font-label-sm text-label-sm font-bold text-[#006c49] tabular-nums">
+                    <span className="font-label-sm text-[10.5px] font-bold text-[#006c49] tabular-nums shrink-0">
                       {carbsPct}%
                     </span>
                   </div>
@@ -392,22 +393,22 @@ export function DashboardPage() {
                       style={{ width: `${carbsPct}%` }}
                     />
                   </div>
-                  <div className="flex items-baseline justify-between pt-0.5 tabular-nums">
-                    <span className="font-label-md text-label-md font-bold text-on-surface">
+                  <div className="flex items-baseline justify-between gap-0.5 pt-0.5 tabular-nums">
+                    <span className="font-label-md text-[12.5px] font-bold text-on-surface">
                       {carbsConsumed}g
                     </span>
-                    <span className="font-body-sm text-[10px] text-on-surface-variant">
+                    <span className="font-body-sm text-[10px] text-on-surface-variant whitespace-nowrap">
                       / {carbsTarget}g
                     </span>
                   </div>
                 </div>
 
-                <div className="flex flex-col p-2.5 rounded-2xl bg-surface-container-low/90 space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <span className="font-label-sm text-label-sm text-on-surface-variant">
+                <div className="flex flex-col p-2 sm:p-2.5 rounded-2xl bg-surface-container-low/90 space-y-1.5 min-w-0">
+                  <div className="flex items-center justify-between gap-1">
+                    <span className="font-label-sm text-[10.5px] text-on-surface-variant truncate">
                       Grasas
                     </span>
-                    <span className="font-label-sm text-label-sm font-bold text-secondary tabular-nums">
+                    <span className="font-label-sm text-[10.5px] font-bold text-secondary tabular-nums shrink-0">
                       {fatPct}%
                     </span>
                   </div>
@@ -417,11 +418,11 @@ export function DashboardPage() {
                       style={{ width: `${fatPct}%` }}
                     />
                   </div>
-                  <div className="flex items-baseline justify-between pt-0.5 tabular-nums">
-                    <span className="font-label-md text-label-md font-bold text-on-surface">
+                  <div className="flex items-baseline justify-between gap-0.5 pt-0.5 tabular-nums">
+                    <span className="font-label-md text-[12.5px] font-bold text-on-surface">
                       {fatConsumed}g
                     </span>
-                    <span className="font-body-sm text-[10px] text-on-surface-variant">
+                    <span className="font-body-sm text-[10px] text-on-surface-variant whitespace-nowrap">
                       / {fatTarget}g
                     </span>
                   </div>
@@ -571,7 +572,7 @@ export function DashboardPage() {
                   type="button"
                   disabled={updatingWater}
                   onClick={handleAddWater}
-                  className="px-2.5 py-1 rounded-full bg-[#181A20] text-white text-[11px] font-bold active:scale-95 transition-transform"
+                  className="px-3 py-1.5 min-h-[32px] rounded-full bg-[#181A20] text-white text-[11px] font-bold active:scale-95 transition-transform whitespace-nowrap"
                 >
                   +0.25 L
                 </button>
@@ -585,6 +586,7 @@ export function DashboardPage() {
             </div>
           </div>
         </section>
+      </div>
       </div>
     </div>
   );

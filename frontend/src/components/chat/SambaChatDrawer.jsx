@@ -95,20 +95,20 @@ export function SambaChatDrawer() {
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 backdrop-blur-[2px]">
-      <div className="w-full max-w-[430px] h-[88vh] bg-[#F4FBF7] rounded-t-[24px] shadow-2xl flex flex-col overflow-hidden border-t border-white">
+      <div className="w-full sm:max-w-[460px] md:max-w-[500px] h-[88dvh] max-h-[88vh] bg-[#F4FBF7] rounded-t-[24px] shadow-2xl flex flex-col overflow-hidden border-t border-white">
         {/* Header */}
-        <div className="px-5 py-4 bg-white border-b border-[#E1EFE7] flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#CBF3DB] text-[#2E7D5B] text-[11px] font-bold tracking-wider uppercase">
+        <div className="px-4 sm:px-5 py-3.5 bg-white border-b border-[#E1EFE7] flex items-center justify-between gap-2.5 shrink-0">
+          <div className="flex items-center gap-2.5 min-w-0 flex-1">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#CBF3DB] text-[#2E7D5B] text-[10.5px] font-bold tracking-wider uppercase whitespace-nowrap shrink-0">
               <span className="w-2 h-2 rounded-full bg-[#00B87C]" />
               SAMBA AI
             </span>
-            <div>
-              <h2 className="text-[15px] font-bold text-[#151D24] leading-tight">
+            <div className="min-w-0">
+              <h2 className="text-[14px] sm:text-[15px] font-bold text-[#151D24] leading-tight truncate">
                 Asistente RAG Neuro-Simbólico
               </h2>
-              <p className="text-[11px] text-[#52525B]">
-                Paso A Simbólico + Paso B Generación Auditada
+              <p className="text-[11px] text-[#52525B] truncate">
+                Paso A Simbólico + Paso B Auditado
               </p>
             </div>
           </div>
@@ -116,21 +116,21 @@ export function SambaChatDrawer() {
             type="button"
             onClick={() => setChatOpen(false)}
             aria-label="Cerrar chat"
-            className="w-9 h-9 rounded-full bg-[#F4FBF7] hover:bg-[#E8F9EF] text-[#181A20] flex items-center justify-center transition-colors"
+            className="w-9 h-9 rounded-full bg-[#F4FBF7] hover:bg-[#E8F9EF] text-[#181A20] flex items-center justify-center transition-colors shrink-0"
           >
             <span className="material-symbols-outlined text-[20px]">close</span>
           </button>
         </div>
 
         {/* Preguntas rapidas */}
-        <div className="px-4 py-2.5 bg-white/70 border-b border-[#E1EFE7] flex items-center gap-2 overflow-x-auto no-scrollbar shrink-0">
+        <div className="px-4 py-2.5 bg-white/70 border-b border-[#E1EFE7] flex flex-wrap items-center gap-1.5 shrink-0">
           {QUICK_PROMPTS.map((q) => (
             <button
               key={q}
               type="button"
               disabled={sending}
               onClick={() => handleSend(q)}
-              className="shrink-0 px-3 py-1.5 rounded-full bg-white border border-[#E1EFE7] hover:border-[#00B87C] text-[11.5px] font-semibold text-[#181A20] transition-colors whitespace-nowrap"
+              className="px-2.5 py-1.5 rounded-full bg-white border border-[#E1EFE7] hover:border-[#00B87C] text-[11px] font-semibold text-[#181A20] transition-colors text-left"
             >
               {q}
             </button>
@@ -187,6 +187,27 @@ export function SambaChatDrawer() {
 
                       {auditOpen && (
                         <div className="mt-2 p-2.5 rounded-xl bg-white/90 border border-[#E1EFE7] text-[11px] space-y-2 text-[#3c4a42]">
+                          {Array.isArray(msg.retrieval.mlModelsUsed) &&
+                            msg.retrieval.mlModelsUsed.length > 0 && (
+                              <div>
+                                <p className="font-bold text-[#151D24] uppercase tracking-wider text-[10px] mb-1">
+                                  Redes Neuronales Activas (PyTorch)
+                                </p>
+                                <div className="flex flex-wrap gap-1">
+                                  {msg.retrieval.mlModelsUsed.map((mName) => (
+                                    <span
+                                      key={mName}
+                                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#E8F9EF] text-[#006c49] font-bold text-[10px]"
+                                    >
+                                      <span className="material-symbols-outlined text-[12px]">
+                                        neurology
+                                      </span>
+                                      {mName}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
                           <div>
                             <p className="font-bold text-[#151D24] uppercase tracking-wider text-[10px] mb-1">
                               Paso A - Reglas Activas
@@ -267,8 +288,8 @@ export function SambaChatDrawer() {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Pregunta por cenas baratas, rutinas o reglas..."
-            className="flex-1 h-12 px-4 rounded-2xl bg-[#F4FBF7] border border-[#E1EFE7] focus:border-[#00B87C] focus:bg-white focus:outline-none text-[14px] text-[#18181B] placeholder:text-[#71717A]"
+            placeholder="Pregunta por cenas, rutinas o reglas..."
+            className="flex-1 min-w-0 h-12 px-4 rounded-2xl bg-[#F4FBF7] border border-[#E1EFE7] focus:border-[#00B87C] focus:bg-white focus:outline-none text-[14px] text-[#18181B] placeholder:text-[#71717A]"
           />
           <button
             type="submit"

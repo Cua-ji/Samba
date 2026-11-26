@@ -1,0 +1,7517 @@
+[
+  {
+    "text": "cheese cream yogurt whole whey butter protein milk",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "salmon tuna shrimp camaron pescado ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "box jumps burpees running sprint leche queso crema mantequilla",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "salmon tuna shrimp camaron pescado overhead press handstand press militar fondos jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "Atun a la Plancha con Arroz y Pepino Lata de atun o filete economico sellado al comino con arroz integral, pepino en laminas y limon. Atun en filete Arroz integral Pepino fresco Limon",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo overhead press handstand press militar fondos leche queso crema mantequilla",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos box jumps burpees running sprint wheat bread pasta harina pan",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras jump rope jumping jacks saltos cuerda pliometria leche queso crema mantequilla",
+    "labels": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "isometrica impacto ciclismo plancha caminata estacionario sin",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "free rice quinoa chicken gluten breast avocado",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Tacos de Salmon Sellado y Guacamole Tortillas de linaza y maiz con lomo de salmon sellado, guacamole rustico, mango fresco en cubos y cilantro silvestre. Tortillas de linaza y maiz Lomo de salmon Aguacate Mango Cilantro",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "shrimp atun mariscos fish cod tuna camaron salmon",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "heavy conventional deadlift back squat barbell",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos wheat bread pasta harina pan",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "peso convencional pesada muerto trasera sentadilla",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Quinoa blanca organica, Leche de coco ligera, Semillas de chia, Arandanos organicos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "pan integral pasta harina trigo de tortilla harina de",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "gluten chicken breast avocado quinoa free rice",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Tortillas de linaza y maiz, Lomo de salmon, Aguacate, Mango, Cilantro",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "cod salmon tuna mariscos fish atun camaron shrimp",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "box jumps burpees running sprint salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "peso convencional sentadilla pesada trasera muerto",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "yogurt queso entera leche crema griego mantequilla",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "pan harina pasta harina trigo tortilla de integral de",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "cheese milk whole cream whey yogurt butter protein",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "press con profundos militar fondos barra",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "salmon tuna shrimp camaron pescado overhead press handstand press militar fondos",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "whole milk cheese yogurt ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria overhead press handstand press militar fondos wheat bread pasta harina pan",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "box jumps burpees running sprint jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "pistachios secos cashews frutos almonds walnuts peanuts",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "box jumps burpees running sprint ankle hops lateral bounds sprints impacto tobillo salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "explosivos saltos al burpees correr trotar cajon",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "frutos cashews walnuts almonds pistachios secos peanuts",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria almonds peanuts walnuts nueces almendras overhead press handstand press militar fondos",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "barra militar profundos press fondos con",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "weighted overhead barbell press dips handstand",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "whole milk cheese yogurt ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "Filete de Robalo al Horno con Quinoa Robalo horneado con limon y eneldo sobre cama de quinoa cocida y jitomates cherry asados. Filete de robalo Quinoa Jitomate cherry Eneldo y limon",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo whole milk cheese yogurt overhead press handstand press militar fondos",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "mariscos atun shrimp cod camaron tuna salmon fish",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ciclismo estacionario sin plancha isometrica impacto caminata",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "harina pasta de pan harina integral tortilla de trigo",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "oliva pechuga integral arroz brocoli pollo aceite de de",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "cashews almonds frutos walnuts secos peanuts pistachios",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "clara eggs mayonesa scrambled yema omelette huevo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "swimming stationary walking impact low saltos cycling sin",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "fondos militar press con barra profundos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "Claras Revueltas con Espinaca y Maiz Claras de huevo revueltas con espinaca fresca, jitomate picado y dos tortillas de maiz nixtamalizado. Claras de huevo Espinaca Jitomate Tortillas de maiz",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan leche queso crema mantequilla scrambled eggs omelette huevo",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Bowl de Arroz Inflado, Garbanzo y Semillas Bowl energetico de arroz integral inflado, garbanzos dulces tostados, platano y pepitas de calabaza. Arroz integral inflado Garbanzos cocidos Platano Semillas de calabaza",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras whole milk cheese yogurt overhead press handstand press militar fondos",
+    "labels": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "breast chicken quinoa gluten free rice avocado",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo almonds peanuts walnuts nueces almendras whole milk cheese yogurt",
+    "labels": [
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "leche mantequilla crema queso yogurt griego entera",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Tofu sedoso, Cacao puro, Semillas de chia, Fresas frescas, Trigo sarraceno",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "sin impact low walking saltos stationary cycling swimming",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "gluten sin bebida ni de almendra lactosa",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Huevo entero, Queso panela, Champinones, Aguacate",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "chicken rice avocado free gluten breast quinoa",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "bread wheat flour spaghetti gluten tortillas pasta",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "estacionario isometrica caminata sin plancha impacto ciclismo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "salmon tuna shrimp camaron pescado box jumps burpees running sprint jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "peanuts walnuts cashews pistachios frutos almonds secos",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "salmon tuna shrimp camaron pescado overhead press handstand press militar fondos",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "plancha sin isometrica estacionario impacto ciclismo caminata",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "mantequilla yogurt entera queso griego leche crema",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "press barra profundos con militar fondos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread spaghetti gluten flour pasta tortillas",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "leche queso crema mantequilla overhead press handstand press militar fondos salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts frutos pistachios cashews secos",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo box jumps burpees running sprint",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "tortillas bread spaghetti flour pasta wheat gluten",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "cheese whey butter cream yogurt protein whole milk",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "cajon burpees explosivos trotar saltos al correr",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "salmon tuna shrimp camaron pescado box jumps burpees running sprint scrambled eggs omelette huevo",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "milk almond coconut oat dairy lactosa milk free sin milk",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "atun shrimp mariscos fish salmon camaron cod tuna",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "aceite brocoli de arroz integral pechuga de oliva pollo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "impact saltos sin cycling swimming low walking stationary",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "plancha estacionario ciclismo isometrica caminata sin impacto",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan whole milk cheese yogurt almonds peanuts walnuts nueces almendras",
+    "labels": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "de almendra gluten bebida sin ni lactosa",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "cod atun shrimp mariscos tuna camaron salmon fish",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "queso griego crema mantequilla yogurt entera leche",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "walking stationary impact swimming sin low cycling saltos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "trigo pan pasta de harina tortilla de integral harina",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "box jumps burpees running sprint scrambled eggs omelette huevo ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "jumps running sprint high plyometric burpees impact box",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "milk milk oat sin milk dairy coconut free lactosa almond",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "leche queso crema mantequilla ankle hops lateral bounds sprints impacto tobillo box jumps burpees running sprint",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "dairy sin free oat coconut milk milk milk almond lactosa",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Risotto de Cebada con Requeson Artesanal Cebada perla cocida en caldo vegetal con requeson artesanal, esparragos tiernos y ralladura de limon. Cebada perla Requeson artesanal Esparragos Caldo vegetal",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras scrambled eggs omelette huevo box jumps burpees running sprint",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "leche queso crema mantequilla box jumps burpees running sprint almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "huevo yema eggs scrambled mayonesa clara omelette",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Fuerza Hipertrofia: Torso & Core Ficha tecnica: 38 min, impacto articular bajo (360 kcal estimadas). Prioriza tension mecanica sin compresion axial ni impacto en rodillas o tobillos. Press en suelo con mancuernas 4x10 Remo unilateral apoyado en banco 4x12 Curl de biceps + extension de triceps controlado 3x12 Dead bug con mancuerna ligera 3x12",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jumps high plyometric burpees running sprint box impact",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "sin bebida gluten almendra de lactosa ni",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "arroz aceite oliva pollo brocoli integral de pechuga de",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "squat deadlift conventional barbell back heavy",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "oliva de pechuga de arroz pollo brocoli aceite integral",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo scrambled eggs omelette huevo leche queso crema mantequilla",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "Metabolica Express & Definicion Ficha tecnica: 45 min, ALTO IMPACTO (430 kcal estimadas). Incluye burpees y saltos repetidos; contraindicada ante lesiones de rodilla o tobillo. Burpees explosivos 4x12 Saltos al cajon o sentadilla con salto 4x15 Mountain climbers de alta velocidad 4x40s Sprints estacionarios en intervalo 20/10",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "integral pechuga aceite brocoli oliva arroz de pollo de",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Avena Clasica con Leche y Platano Hojuelas de avena cocidas con leche descremada, rodajas de platano maduro y toque de canela. Avena en hojuelas Leche descremada Platano Canela",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo box jumps burpees running sprint salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "handstand weighted overhead barbell dips press",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "Salmon Silvestre con Bok Choy y Sesamo Lomo de salmon silvestre glaseado con jengibre, bok choy al vapor y toque de sesamo negro tostado. Salmon silvestre Bok choy Jengibre fresco Sesamo negro",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "whole milk cheese yogurt leche queso crema mantequilla box jumps burpees running sprint",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "jumps impact high burpees plyometric running box sprint",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "trasera peso pesada muerto sentadilla convencional",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "pan trigo tortilla harina integral harina de de pasta",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "queso leche yogurt entera mantequilla griego crema",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "leche queso crema mantequilla ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "Potaje de Lenteja Roja y Huevo Sopa tibia de lenteja roja con comino, huevo cocido en mitades y rebanada de pan integral tostado. Lentejas rojas Huevo cocido Pan integral Comino y zanahoria",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Pechuga de pollo, Batata asada, Brocoli al vapor, Aceite de oliva virgen",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "pechuga de aceite oliva de arroz pollo brocoli integral",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "sin plancha ciclismo estacionario caminata isometrica impacto",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Version Clasica Casera Pollo deshebrado, arroz blanco, frijol negro y pico de gallo tradicional. Preparacion simple y rendidora en batch. Pollo deshebrado Arroz blanco Frijol negro Jitomate y cebolla",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Sentadilla Pesada & Peso Muerto Axial Ficha tecnica: 42 min, ALTO IMPACTO / CARGA AXIAL (400 kcal estimadas). Genera alta compresion espinal y torque en rodilla; descartado con lesion lumbar o de rodilla. Sentadilla trasera con barra 5x5 Peso muerto convencional pesado 4x5 Remo Pendlay explosivo 3x8",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "protein whey milk yogurt cream whole butter cheese",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo almonds peanuts walnuts nueces almendras leche queso crema mantequilla",
+    "labels": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "omelette eggs yema huevo scrambled clara mayonesa",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras jump rope jumping jacks saltos cuerda pliometria box jumps burpees running sprint",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "whole milk cheese yogurt salmon tuna shrimp camaron pescado ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria whole milk cheese yogurt salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo jump rope jumping jacks saltos cuerda pliometria wheat bread pasta harina pan",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "cod fish mariscos camaron salmon tuna shrimp atun",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "pesada trasera muerto peso sentadilla convencional",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo wheat bread pasta harina pan leche queso crema mantequilla",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "peanuts frutos pistachios almonds cashews secos walnuts",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "low sin saltos cycling impact stationary swimming walking",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "mantequilla griego leche entera queso crema yogurt",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo ankle hops lateral bounds sprints impacto tobillo overhead press handstand press militar fondos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "yogurt entera crema queso leche mantequilla griego",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo box jumps burpees running sprint overhead press handstand press militar fondos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "Remo Ergometro & Resistencia Segura Ficha tecnica: 30 min, bajo impacto articular (325 kcal estimadas). Ideal sin lesiones lumbares; evita impactos de tobillo y rodilla. Tecnica controlada sin saltos: secuencia piernas-espalda-brazos Bloques aerobicos de 4x5 min a ritmo sostenido Enfriamiento y movilidad toracica 5 min",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "whole milk cheese yogurt box jumps burpees running sprint almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "Penne integral, Atun claro en agua, Pesto de espinaca, Queso rallado, Tomates cherry",
+    "labels": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Arroz integral inflado, Garbanzos cocidos, Platano, Semillas de calabaza",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "griego mantequilla yogurt entera crema queso leche",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "explosivos correr cajon al trotar saltos burpees",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "scrambled mayonesa eggs clara omelette yema huevo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Tortillas artesanales de maiz, Salmon salvaje, Aguacate, Yuzu, Brotes organicos",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "coconut milk sin free dairy oat lactosa milk milk almond",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "heavy deadlift barbell back conventional squat",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "gluten wheat flour pasta bread spaghetti tortillas",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "free milk almond lactosa dairy coconut milk oat sin milk",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "press profundos barra fondos militar con",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "running high jumps plyometric impact sprint burpees box",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "pechuga brocoli de oliva aceite integral arroz pollo de",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan leche queso crema mantequilla",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "salmon tuna shrimp camaron pescado scrambled eggs omelette huevo almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "salmon tuna fish camaron cod shrimp mariscos atun",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "aceite pollo de oliva pechuga brocoli de integral arroz",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Fajitas Economicas de Pollo y Calabacin Muslo de pollo magro sin piel salteado con calabacin, pimiento, arroz al vapor y toque de limon verde. Muslo de pollo sin piel Calabacin Pimiento morron Arroz al vapor",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "trigo pan de harina pasta tortilla harina integral de",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Cebada perla, Requeson artesanal, Esparragos, Caldo vegetal",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "saltos trotar cajon correr explosivos burpees al",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "whole cream butter milk yogurt protein whey cheese",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "barra militar fondos profundos con press",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs yema huevo mayonesa omelette clara",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "dips handstand weighted barbell press overhead",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "fish salmon cod shrimp mariscos atun camaron tuna",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat flour tortillas spaghetti bread gluten pasta",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "trasera sentadilla peso muerto convencional pesada",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "dips handstand press weighted overhead barbell",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "Pollo deshebrado, Arroz blanco, Frijol negro, Jitomate y cebolla",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "box jumps burpees running sprint leche queso crema mantequilla",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "yogurt milk whole cream whey butter protein cheese",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan scrambled eggs omelette huevo",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "harina de harina tortilla integral trigo pan de pasta",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan almonds peanuts walnuts nueces almendras salmon tuna shrimp camaron pescado",
+    "labels": [
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Rutina Funcional & Peso Corporal Ficha tecnica: 25 min, impacto articular bajo (280 kcal estimadas). Segura para rodilla, tobillo, lumbar y hombro al ejecutarse con rango controlado y sin saltos. Plancha frontal controlada 3x40s Flexiones inclinadas o de rodillas 3x12 Remo invertido con toalla o mesa 3x10 Bird-dog isometrico para estabilidad lumbar 3x10 por lado",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Ciclismo Estatico & Zona 2 Controlada Ficha tecnica: 36 min, impacto articular nulo/bajo (340 kcal estimadas). Sustituto directo de correr para proteger rodillas, tobillos y columna lumbar manteniendo alto gasto calorico. Ajuste ergonomico de sillin para extension segura de rodilla Pedaleo fluido a 75-85 RPM en Zona 2 cardiaca durante 26 min 4 intervalos suaves de cadencia moderada 60s",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Huevos Pochados con Salmon Ahumado y Camote Huevos organicos pochados sobre laminas de camote rostizado, salmon ahumado en frio y brotes de alfalfa. Huevos de libre pastoreo Salmon ahumado Camote rostizado Brotes de alfalfa",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "cajon al correr explosivos burpees trotar saltos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "box impact plyometric jumps burpees high sprint running",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria almonds peanuts walnuts nueces almendras overhead press handstand press militar fondos",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "crema yogurt queso entera griego mantequilla leche",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "free quinoa chicken avocado rice breast gluten",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "conventional deadlift barbell back heavy squat",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "flour wheat tortillas pasta spaghetti gluten bread",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Pechuga de pollo, Quinoa y arroz integral, Aguacate fresco, Mix de verduras",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Atun en filete, Arroz integral, Pepino fresco, Limon",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "peanuts pistachios walnuts secos cashews frutos almonds",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Avena Sin Gluten con Bebida de Almendra Avena certificada sin gluten hidratada con bebida de almendra sin azucar, proteina vegetal y fresas frescas. Avena certificada sin gluten Bebida de almendra Proteina aislada de chicharo Fresas",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "militar press con fondos barra profundos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "Bowl de Tofu Sedoso, Cacao y Chia Crema batida de tofu sedoso con cacao puro sin azucar, fresas frescas, semillas de chia y trigo sarraceno crujiente. Tofu sedoso Cacao puro Semillas de chia Fresas frescas Trigo sarraceno",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "leche queso crema mantequilla box jumps burpees running sprint",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "leche queso crema mantequilla scrambled eggs omelette huevo whole milk cheese yogurt",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan ankle hops lateral bounds sprints impacto tobillo almonds peanuts walnuts nueces almendras",
+    "labels": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "swimming cycling sin impact stationary low walking saltos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "integral aceite pollo arroz oliva brocoli pechuga de de",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "dips press barbell weighted overhead handstand",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo salmon tuna shrimp camaron pescado scrambled eggs omelette huevo",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "dips barbell weighted handstand press overhead",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "breast free gluten avocado quinoa chicken rice",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "chicken rice free avocado breast quinoa gluten",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "de integral de pechuga arroz oliva pollo aceite brocoli",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "leche queso crema mantequilla almonds peanuts walnuts nueces almendras salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "peanuts pistachios almonds walnuts secos cashews frutos",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria overhead press handstand press militar fondos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo almonds peanuts walnuts nueces almendras scrambled eggs omelette huevo",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "jumps box sprint running impact high plyometric burpees",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "Movilidad Articular & Estabilidad Segura Ficha tecnica: 24 min, impacto minimo (195 kcal estimadas). Apta para cualquier perfil articular y recuperacion activa. Isometrico de cuadriceps en pared (angulo alto seguro) 3x35s Puente de cadera unilateral lento 3x10 Movilidad de cadera 90/90 y tobillo sin carga 3x8",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "sin low impact cycling swimming walking stationary saltos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "weighted barbell overhead press handstand dips",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "sin oat milk dairy coconut milk almond lactosa free milk",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "griego mantequilla leche crema queso entera yogurt",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "isometrica sin plancha impacto estacionario caminata ciclismo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "lactosa coconut milk dairy oat milk sin milk almond free",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "cycling walking impact stationary low swimming sin saltos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos scrambled eggs omelette huevo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "yogurt crema leche entera queso griego mantequilla",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo scrambled eggs omelette huevo whole milk cheese yogurt",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "Press Militar & Fondos Explosivos Ficha tecnica: 36 min, ALTO IMPACTO EN MANGUITO ROTADOR (350 kcal estimadas). Descartado ante molestias o lesion de hombro. Press militar estricto sobre la cabeza 4x8 Fondos en paralelas profundos 4x10 Elevaciones laterales explosivas 3x15",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "jumps impact running burpees box plyometric high sprint",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "free quinoa avocado rice gluten chicken breast",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Lentejas rojas, Huevo cocido, Pan integral, Comino y zanahoria",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Fuerza de Gluteo y Pierna Sin Impacto Ficha tecnica: 35 min, impacto bajo (330 kcal estimadas). Disenada para fortalecer la cadena posterior sin estres de cizalla ni aterrizajes. Puente de gluteo en suelo con pausa isometrica 4x15 Abduccion lateral con banda elastica 3x18 Peso muerto rumano ligero con mancuernas en rango comodo 3x12 Elevacion controlada de talones sentado 3x15",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "gluten pasta spaghetti bread tortillas flour wheat",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras jump rope jumping jacks saltos cuerda pliometria ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "handstand weighted overhead dips press barbell",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "Fusilli de garbanzo, Pechuga de pollo, Albahaca fresca, Pinones tostados, Calabacin",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Filete de robalo, Quinoa, Jitomate cherry, Eneldo y limon",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "sprint plyometric box running jumps burpees high impact",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "press barra militar fondos profundos con",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "eggs omelette scrambled mayonesa huevo clara yema",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "free almond lactosa dairy oat milk sin coconut milk milk",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria wheat bread pasta harina pan almonds peanuts walnuts nueces almendras",
+    "labels": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo salmon tuna shrimp camaron pescado leche queso crema mantequilla",
+    "labels": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "clara yema huevo omelette eggs scrambled mayonesa",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "tortillas pasta flour spaghetti gluten wheat bread",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "whole milk cheese yogurt leche queso crema mantequilla",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan whole milk cheese yogurt leche queso crema mantequilla",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ciclismo estacionario isometrica caminata impacto sin plancha",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "barbell heavy conventional deadlift back squat",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "barra con profundos press fondos militar",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "bread gluten spaghetti flour pasta tortillas wheat",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "squat barbell heavy conventional back deadlift",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "cajon burpees trotar correr saltos explosivos al",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "huevo mayonesa clara scrambled omelette eggs yema",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "box jumps burpees running sprint salmon tuna shrimp camaron pescado almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "overhead barbell press dips weighted handstand",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "saltos cajon al explosivos trotar burpees correr",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "cajon trotar al burpees correr saltos explosivos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "box jumps burpees running sprint almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "mariscos atun cod salmon fish camaron tuna shrimp",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "impact plyometric burpees box jumps high running sprint",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "trotar explosivos saltos cajon burpees al correr",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "isometrica impacto estacionario caminata plancha sin ciclismo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Porridge de Quinoa Organica y Coco Quinoa tricolor cocida en leche de coco ligera, semillas de chia hidratadas, arandanos organicos y proteina limpia. Quinoa blanca organica Leche de coco ligera Semillas de chia Arandanos organicos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "whole cream cheese butter milk protein whey yogurt",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo salmon tuna shrimp camaron pescado almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "gluten lactosa de sin ni bebida almendra",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "protein yogurt cream cheese milk whole butter whey",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "leche queso crema mantequilla box jumps burpees running sprint",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "Avena certificada sin gluten, Bebida de almendra, Proteina aislada de chicharo, Fresas",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan whole milk cheese yogurt",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Pechuga Sellada con Batata y Brocoli Pechuga de pollo en tiras al oregano, floretes de brocoli al vapor, cubos de batata asada y aceite de oliva virgen. Pechuga de pollo Batata asada Brocoli al vapor Aceite de oliva virgen",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "Tacos Clasicos de Salmon y Yogur Tortillas de maiz con medallon de salmon desmenuzado, repollo morado crujiente y aderezo ligero de yogur y limon. Tortillas de maiz Medallon de salmon Repollo morado Yogur natural Limon",
+    "labels": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos wheat bread pasta harina pan whole milk cheese yogurt",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "leche queso crema mantequilla whole milk cheese yogurt",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "stationary swimming cycling sin walking low saltos impact",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "pistachios cashews frutos almonds secos peanuts walnuts",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "entera leche griego queso mantequilla crema yogurt",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "whole milk cheese yogurt leche queso crema mantequilla wheat bread pasta harina pan",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "explosivos al correr saltos burpees trotar cajon",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "al saltos correr burpees cajon explosivos trotar",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "tortillas gluten spaghetti wheat pasta flour bread",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "frutos pistachios peanuts secos walnuts almonds cashews",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "muerto peso trasera pesada sentadilla convencional",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "explosivos cajon saltos correr al burpees trotar",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo ankle hops lateral bounds sprints impacto tobillo box jumps burpees running sprint",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "impact saltos stationary sin cycling walking low swimming",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria whole milk cheese yogurt",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "rice chicken gluten avocado free quinoa breast",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "lactosa coconut free oat sin milk almond milk milk dairy",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "whole cheese yogurt milk cream butter protein whey",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "pasta harina integral de pan trigo harina tortilla de",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "dips barbell overhead weighted press handstand",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "peso pesada convencional sentadilla muerto trasera",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "barra press fondos militar con profundos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "yogurt whey cream milk butter whole protein cheese",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "whole milk cheese yogurt almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "pesada muerto sentadilla trasera convencional peso",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Pechuga organica, Arroz salvaje, Almendras tostadas, Esparragos grillados, AOVE",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "quinoa rice breast free chicken gluten avocado",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "impact sin saltos walking swimming cycling stationary low",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan jump rope jumping jacks saltos cuerda pliometria almonds peanuts walnuts nueces almendras",
+    "labels": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "jumps plyometric sprint box burpees running impact high",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "Bowl de Cottage Ligero y Garbanzo Queso cottage ligero con garbanzos rostizados al pimenton, espinaca baby y aceite de oliva. Queso cottage ligero Garbanzos rostizados Espinaca baby Pimenton y AOVE",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "walking cycling swimming impact saltos stationary sin low",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "burpees explosivos al trotar correr saltos cajon",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "conventional back squat barbell deadlift heavy",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "secos cashews frutos walnuts almonds pistachios peanuts",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "gluten tortillas wheat pasta bread flour spaghetti",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "chicken breast free gluten avocado quinoa rice",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "secos frutos cashews walnuts pistachios peanuts almonds",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "conventional deadlift squat barbell back heavy",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "sprint jumps box burpees impact running high plyometric",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras leche queso crema mantequilla",
+    "labels": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "pasta de harina trigo pan harina integral tortilla de",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan overhead press handstand press militar fondos salmon tuna shrimp camaron pescado",
+    "labels": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "sentadilla pesada trasera convencional muerto peso",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "gluten lactosa ni almendra bebida de sin",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs clara omelette mayonesa yema huevo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan whole milk cheese yogurt",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo overhead press handstand press militar fondos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "plancha sin estacionario impacto ciclismo caminata isometrica",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos leche queso crema mantequilla",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos scrambled eggs omelette huevo almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "dairy coconut lactosa almond milk free milk sin milk oat",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Claras de huevo, Espinaca, Jitomate, Tortillas de maiz",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "harina pasta trigo pan de de harina tortilla integral",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "quinoa chicken breast avocado gluten free rice",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "sin dairy lactosa milk free almond milk coconut milk oat",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "burpees impact jumps sprint plyometric box running high",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "salmon tuna shrimp camaron pescado overhead press handstand press militar fondos",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "muerto peso convencional pesada trasera sentadilla",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "weighted handstand press barbell overhead dips",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "box jumps burpees running sprint salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "Muslo de pollo sin piel, Calabacin, Pimiento morron, Arroz al vapor",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Version Balanceada & Granos Pechuga de pollo a las finas hierbas sellada, arroz integral o quinoa, aguacate fresco y mix de verduras salteadas. Pechuga de pollo Quinoa y arroz integral Aguacate fresco Mix de verduras",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "con barra profundos press militar fondos",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "barra profundos fondos militar press con",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "whole milk cheese yogurt almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo whole milk cheese yogurt",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "flour tortillas wheat bread gluten spaghetti pasta",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Fusilli de Garbanzo con Pollo y Pinones Fusilli de garbanzo con pesto genoves fresco sin lacteos, pechuga salteada, pinones tostados y calabacin asado. Fusilli de garbanzo Pechuga de pollo Albahaca fresca Pinones tostados Calabacin",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "milk oat free sin lactosa dairy coconut almond milk milk",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "deadlift barbell squat heavy back conventional",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Salmon silvestre, Bok choy, Jengibre fresco, Sesamo negro",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "fish salmon tuna mariscos shrimp atun cod camaron",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "pechuga aceite brocoli pollo integral arroz oliva de de",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Pavo Organico con Esparragos y Coliflor Medallones de pechuga de pavo organica sellados al tomillo con esparragos trigueros y pure cremoso de coliflor al AOVE. Pechuga de pavo organica Esparragos trigueros Coliflor AOVE",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "walking sin low saltos swimming stationary cycling impact",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "gluten rice free breast quinoa avocado chicken",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "lactosa milk coconut almond sin milk milk free dairy oat",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "gluten bread spaghetti wheat pasta flour tortillas",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "sin almendra bebida gluten de ni lactosa",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "mariscos tuna shrimp cod camaron fish salmon atun",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "back squat heavy barbell deadlift conventional",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos scrambled eggs omelette huevo salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "box jumps burpees running sprint ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria wheat bread pasta harina pan scrambled eggs omelette huevo",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "trasera peso sentadilla muerto convencional pesada",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Pappardelle artesanal, Langostinos, Pistacho, Parmigiano Reggiano",
+    "labels": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos wheat bread pasta harina pan scrambled eggs omelette huevo",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos whole milk cheese yogurt scrambled eggs omelette huevo",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "lactosa sin gluten almendra de bebida ni",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan almonds peanuts walnuts nueces almendras ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "impact sprint box high burpees plyometric running jumps",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo jump rope jumping jacks saltos cuerda pliometria salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "queso crema griego entera yogurt leche mantequilla",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "box jumps burpees running sprint salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan jump rope jumping jacks saltos cuerda pliometria leche queso crema mantequilla",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "whey whole cheese protein milk butter cream yogurt",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "eggs mayonesa clara scrambled yema huevo omelette",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "omelette scrambled clara yema mayonesa eggs huevo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "whole milk cheese yogurt salmon tuna shrimp camaron pescado box jumps burpees running sprint",
+    "labels": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "leche queso crema mantequilla box jumps burpees running sprint jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "barbell heavy squat back deadlift conventional",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "atun fish salmon camaron shrimp tuna mariscos cod",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ciclismo impacto sin plancha estacionario caminata isometrica",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "low impact saltos swimming walking cycling stationary sin",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "walnuts almonds peanuts pistachios cashews secos frutos",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan whole milk cheese yogurt",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "saltos al cajon explosivos trotar correr burpees",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "convencional trasera muerto peso pesada sentadilla",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "de oliva pollo integral aceite arroz de brocoli pechuga",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "plancha sin isometrica impacto estacionario ciclismo caminata",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "barra con press fondos profundos militar",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "crema leche yogurt entera queso mantequilla griego",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo wheat bread pasta harina pan",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "weighted overhead handstand barbell press dips",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "muerto convencional pesada peso trasera sentadilla",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Tortillas de maiz, Medallon de salmon, Repollo morado, Yogur natural, Limon",
+    "labels": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat flour pasta bread tortillas gluten spaghetti",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "harina integral harina pasta de pan de tortilla trigo",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "yema omelette clara huevo mayonesa eggs scrambled",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "bebida lactosa ni sin de gluten almendra",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "back barbell squat conventional deadlift heavy",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras leche queso crema mantequilla",
+    "labels": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "protein cream butter yogurt whey whole cheese milk",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "harina de tortilla pan harina trigo integral de pasta",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "almendra sin gluten bebida lactosa de ni",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "chicken avocado rice gluten free breast quinoa",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "salmon tuna shrimp camaron pescado box jumps burpees running sprint scrambled eggs omelette huevo",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos box jumps burpees running sprint",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan box jumps burpees running sprint jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "dips overhead press weighted handstand barbell",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "breast free quinoa rice avocado chicken gluten",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "weighted handstand barbell overhead press dips",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras scrambled eggs omelette huevo ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "salmon tuna shrimp camaron pescado whole milk cheese yogurt box jumps burpees running sprint",
+    "labels": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo overhead press handstand press militar fondos jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "harina de tortilla integral pasta pan harina trigo de",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "al burpees trotar saltos explosivos correr cajon",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "protein cheese butter whey whole cream milk yogurt",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Pappardelle al Pistacho con Langostinos Pappardelle artesanal al pesto de albahaca y pistacho con langostinos grillados y lascas de Parmigiano Reggiano. Pappardelle artesanal Langostinos Pistacho Parmigiano Reggiano",
+    "labels": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras jump rope jumping jacks saltos cuerda pliometria wheat bread pasta harina pan",
+    "labels": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras scrambled eggs omelette huevo",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "de almendra ni gluten lactosa sin bebida",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "leche queso crema mantequilla wheat bread pasta harina pan jump rope jumping jacks saltos cuerda pliometria",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "sin lactosa gluten ni de almendra bebida",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "aceite arroz de integral pechuga oliva brocoli pollo de",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "eggs clara yema huevo scrambled mayonesa omelette",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Version Gourmet Trufada Pechuga de pollo organica al limon y romero, arroz salvaje con almendras tostadas, esparragos grillados y AOVE. Pechuga organica Arroz salvaje Almendras tostadas Esparragos grillados AOVE",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "almonds peanuts walnuts nueces almendras box jumps burpees running sprint",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "gluten ni lactosa almendra de bebida sin",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Penne Integral con Pesto y Atun Pasta penne integral con pesto casero de espinaca, atun claro en agua, tomates cherry y toque de queso rallado. Penne integral Atun claro en agua Pesto de espinaca Queso rallado Tomates cherry",
+    "labels": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo leche queso crema mantequilla",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "whole milk cheese yogurt salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "con fondos militar barra profundos press",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "arroz pollo aceite pechuga de oliva brocoli integral de",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Pulpa de asai organico, Aislado de proteina de chicharo, Kiwi, Semillas de canamo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "handstand dips barbell overhead weighted press",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "Queso cottage ligero, Garbanzos rostizados, Espinaca baby, Pimenton y AOVE",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Tacos de Salmon Salvaje y Yuzu Tortillas artesanales con salmon salvaje sellado a la parrilla, crema de aguacate con yuzu y brotes organicos. Tortillas artesanales de maiz Salmon salvaje Aguacate Yuzu Brotes organicos",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "lactosa milk free milk oat milk sin coconut dairy almond",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "sin gluten lactosa bebida ni de almendra",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Omelette de Huevo con Panela y Aguacate Omelette esponjoso con queso panela fresco, champinones salteados, aguacate en cubos y guarnicion verde. Huevo entero Queso panela Champinones Aguacate",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "fondos press barra militar profundos con",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "huevo omelette yema scrambled eggs mayonesa clara",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria scrambled eggs omelette huevo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos jump rope jumping jacks saltos cuerda pliometria almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "Bowl de Asai Organico con Proteina de Chicharo Pulpa pura de asai amazonico batida con aislado de chicharo, kiwi fresco, semillas de canamo y nibs de cacao. Pulpa de asai organico Aislado de proteina de chicharo Kiwi Semillas de canamo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Correr / HIIT de Alto Impacto Ficha tecnica: 35 min, ALTO IMPACTO (410 kcal estimadas). Cada zancada al correr genera fuerzas de reaccion de 2.5x a 3x el peso corporal; contraindicado si hay lesion de rodilla, tobillo o zona lumbar. Trote progresivo de calentamiento 8 min 8 series de carrera rapida 400m con zancada reactiva Cambios de ritmo en pendiente suave",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo scrambled eggs omelette huevo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria scrambled eggs omelette huevo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "salmon tuna shrimp camaron pescado ankle hops lateral bounds sprints impacto tobillo almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "milk oat free almond sin lactosa milk milk dairy coconut",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "de de pan tortilla harina trigo harina integral pasta",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "whey protein butter cheese yogurt cream milk whole",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "peanuts secos pistachios frutos cashews walnuts almonds",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "sprint running box impact plyometric high burpees jumps",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "gluten tortillas flour spaghetti wheat bread pasta",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "bebida lactosa sin gluten de almendra ni",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "overhead press handstand press militar fondos leche queso crema mantequilla scrambled eggs omelette huevo",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "text": "shrimp salmon cod tuna atun mariscos camaron fish",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "conventional deadlift squat back heavy barbell",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "pollo integral pechuga arroz oliva de aceite brocoli de",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "pesada sentadilla trasera muerto convencional peso",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo leche queso crema mantequilla almonds peanuts walnuts nueces almendras",
+    "labels": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "plancha isometrica caminata ciclismo impacto estacionario sin",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jumps high impact plyometric box burpees running sprint",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "pasta pan de integral harina de tortilla trigo harina",
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Huevos de libre pastoreo, Salmon ahumado, Camote rostizado, Brotes de alfalfa",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "salmon tuna shrimp camaron pescado wheat bread pasta harina pan",
+    "labels": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Avena en hojuelas, Leche descremada, Platano, Canela",
+    "labels": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "ankle hops lateral bounds sprints impacto tobillo jump rope jumping jacks saltos cuerda pliometria scrambled eggs omelette huevo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "sin de almendra bebida gluten ni lactosa",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "leche queso crema mantequilla salmon tuna shrimp camaron pescado ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "Full Body Controlado con Bandas y Mancuernas Ficha tecnica: 34 min, bajo impacto articular (320 kcal estimadas). Totalmente compatible con proteccion articular completa. Press en suelo con agarre neutro 3x12 Remo con banda elastica a la cintura 3x15 Puente de gluteo + pallof press de core 3x12",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "squat heavy barbell deadlift conventional back",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "mayonesa omelette eggs scrambled yema huevo clara",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "squat heavy barbell conventional back deadlift",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "crema griego queso leche yogurt entera mantequilla",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Pliometria y Saltos de Potencia Ficha tecnica: 32 min, ALTO IMPACTO (390 kcal estimadas). Exige aterrizajes explosivos; descartado ante lesiones de rodilla o tobillo. Saltos profundos con recepcion reactiva 4x8 Zancadas con salto alterno 3x16 Saltos laterales de velocidad 3x20s",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "peanuts secos walnuts almonds frutos pistachios cashews",
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "scrambled eggs omelette huevo ankle hops lateral bounds sprints impacto tobillo",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "swimming impact stationary saltos low cycling sin walking",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "cheese protein yogurt whey milk butter cream whole",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "muerto pesada sentadilla peso convencional trasera",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria salmon tuna shrimp camaron pescado",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "sin ciclismo caminata impacto plancha isometrica estacionario",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "jump rope jumping jacks saltos cuerda pliometria whole milk cheese yogurt overhead press handstand press militar fondos",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "text": "caminata ciclismo estacionario isometrica sin impacto plancha",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "Pechuga de pavo organica, Esparragos trigueros, Coliflor, AOVE",
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "shrimp salmon tuna atun fish mariscos cod camaron",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "tuna fish salmon atun camaron mariscos shrimp cod",
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "whole milk cheese yogurt box jumps burpees running sprint",
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan leche queso crema mantequilla salmon tuna shrimp camaron pescado",
+    "labels": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "text": "wheat bread pasta harina pan overhead press handstand press militar fondos almonds peanuts walnuts nueces almendras",
+    "labels": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  }
+]

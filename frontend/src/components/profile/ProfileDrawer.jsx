@@ -182,14 +182,50 @@ export function ProfileDrawer({ onProfileUpdated }) {
 
   const nextStatus = user.status === 'activa' ? 'inactiva' : 'activa';
 
+  if (user.role === 'superusuario') {
+    return (
+      <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 backdrop-blur-[2px]">
+        <div className="w-full sm:max-w-[460px] md:max-w-[500px] bg-[#F4FBF7] rounded-t-[24px] shadow-2xl flex flex-col overflow-hidden">
+          <div className="px-5 py-4 bg-white border-b border-[#E1EFE7] flex items-center justify-between gap-3 shrink-0">
+            <div className="min-w-0">
+              <h2 className="text-[17px] font-extrabold text-[#151D24] truncate">{user.name}</h2>
+              <p className="text-[12px] text-[#4A7265] truncate">
+                {user.email} • Rol: <strong className="uppercase">{user.role}</strong>
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setProfileOpen(false)}
+              aria-label="Cerrar perfil"
+              className="w-9 h-9 rounded-full bg-[#F4FBF7] hover:bg-[#E8F9EF] text-[#181A20] flex items-center justify-center shrink-0"
+            >
+              <span className="material-symbols-outlined text-[20px]">close</span>
+            </button>
+          </div>
+
+          <div className="p-4 bg-white safe-bottom shrink-0">
+            <button
+              type="button"
+              onClick={logout}
+              className="w-full h-12 rounded-full bg-slate-100 hover:bg-slate-200 text-[#181A20] font-bold text-[14px] flex items-center justify-center gap-2 transition-colors"
+            >
+              <span className="material-symbols-outlined text-[19px]">logout</span>
+              <span>Cerrar sesión</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 backdrop-blur-[2px]">
-      <div className="w-full max-w-[430px] h-[90vh] bg-[#F4FBF7] rounded-t-[24px] shadow-2xl flex flex-col overflow-hidden">
+      <div className="w-full sm:max-w-[460px] md:max-w-[500px] h-[90dvh] max-h-[90vh] bg-[#F4FBF7] rounded-t-[24px] shadow-2xl flex flex-col overflow-hidden">
         {/* Header */}
-        <div className="px-5 py-4 bg-white border-b border-[#E1EFE7] flex items-center justify-between shrink-0">
-          <div>
-            <h2 className="text-[17px] font-extrabold text-[#151D24]">{user.name}</h2>
-            <p className="text-[12px] text-[#4A7265]">
+        <div className="px-5 py-4 bg-white border-b border-[#E1EFE7] flex items-center justify-between gap-3 shrink-0">
+          <div className="min-w-0">
+            <h2 className="text-[17px] font-extrabold text-[#151D24] truncate">{user.name}</h2>
+            <p className="text-[12px] text-[#4A7265] truncate">
               {user.email} • Rol: <strong className="uppercase">{user.role}</strong>
             </p>
           </div>
@@ -197,7 +233,7 @@ export function ProfileDrawer({ onProfileUpdated }) {
             type="button"
             onClick={() => setProfileOpen(false)}
             aria-label="Cerrar perfil"
-            className="w-9 h-9 rounded-full bg-[#F4FBF7] hover:bg-[#E8F9EF] text-[#181A20] flex items-center justify-center"
+            className="w-9 h-9 rounded-full bg-[#F4FBF7] hover:bg-[#E8F9EF] text-[#181A20] flex items-center justify-center shrink-0"
           >
             <span className="material-symbols-outlined text-[20px]">close</span>
           </button>
@@ -249,109 +285,86 @@ export function ProfileDrawer({ onProfileUpdated }) {
 
           {/* Datos metabolicos */}
           {metabolism && (
-            <section className="bg-white rounded-3xl p-4 border border-[#E1EFE7] space-y-2">
-              <h3 className="text-[14px] font-bold text-[#151D24]">
-                Perfil Metabólico (Mifflin-St Jeor)
-              </h3>
-              <p className="text-[12px] text-[#3c4a42] leading-snug">
-                {metabolism.formulaSummary}
-              </p>
-              <div className="grid grid-cols-3 gap-2 pt-1 text-center">
-                <div className="rounded-2xl bg-[#F4FBF7] p-2">
+            <section className="bg-white rounded-3xl p-4 border border-[#E1EFE7] space-y-2.5">
+              <h3 className="text-[14px] font-bold text-[#151D24]">Resumen Metabólico</h3>
+              <div className="grid grid-cols-3 gap-2 text-center">
+                <div className="rounded-2xl bg-[#F4FBF7] p-2.5">
                   <span className="block text-[10px] font-bold text-[#52525B] uppercase">IMC</span>
                   <span className="text-[14px] font-extrabold text-[#151D24] tabular-nums">
                     {metabolism.imc.bmi}
                   </span>
                 </div>
-                <div className="rounded-2xl bg-[#F4FBF7] p-2">
-                  <span className="block text-[10px] font-bold text-[#52525B] uppercase">TMB</span>
+                <div className="rounded-2xl bg-[#F4FBF7] p-2.5">
+                  <span className="block text-[10px] font-bold text-[#52525B] uppercase">
+                    Gasto basal
+                  </span>
                   <span className="text-[14px] font-extrabold text-[#151D24] tabular-nums">
-                    {metabolism.bmr}
+                    {metabolism.bmr} kcal
                   </span>
                 </div>
-                <div className="rounded-2xl bg-[#F4FBF7] p-2">
-                  <span className="block text-[10px] font-bold text-[#52525B] uppercase">Meta</span>
+                <div className="rounded-2xl bg-[#E8F9EF] p-2.5">
+                  <span className="block text-[10px] font-bold text-[#006c49] uppercase">
+                    Meta diaria
+                  </span>
                   <span className="text-[14px] font-extrabold text-[#006c49] tabular-nums">
-                    {metabolism.targetCalories}
+                    {metabolism.targetCalories} kcal
                   </span>
                 </div>
               </div>
             </section>
           )}
 
-          {/* Objetivo, Alergias y Lesiones */}
+          {/* Objetivo, Alergias y Lesiones (solo lectura) */}
           <section className="bg-white rounded-3xl p-4 border border-[#E1EFE7] space-y-3.5">
             <div>
-              <h3 className="text-[13.5px] font-bold text-[#151D24] mb-2">Objetivo</h3>
-              <div className="grid grid-cols-2 gap-1.5">
-                {GOAL_OPTIONS.map((g) => (
-                  <button
-                    key={g.id}
-                    type="button"
-                    disabled={saving}
-                    onClick={() => patchUser({ goal: g.id }, 'Objetivo recalibrado.')}
-                    className={`py-2 px-2.5 rounded-2xl text-[11.5px] font-semibold text-left border transition-all ${
-                      user.goal === g.id
-                        ? 'bg-[#E8F9EF] border-[#00B87C] text-[#005236]'
-                        : 'bg-[#F4FBF7] border-transparent text-[#3c4a42]'
-                    }`}
-                  >
-                    {g.label}
-                  </button>
-                ))}
-              </div>
+              <h3 className="text-[13.5px] font-bold text-[#151D24] mb-1.5">Objetivo</h3>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-2xl bg-[#E8F9EF] text-[#005236] text-[12px] font-semibold border border-[#CBF3DB]">
+                {GOAL_OPTIONS.find((g) => g.id === user.goal)?.label || 'Sin definir'}
+              </span>
             </div>
 
             <div>
-              <h3 className="text-[13.5px] font-bold text-[#151D24] mb-2">
-                Alergias e Intolerancias (Filtro duro)
+              <h3 className="text-[13.5px] font-bold text-[#151D24] mb-1.5">
+                Alergias e Intolerancias
               </h3>
-              <div className="flex flex-wrap gap-1.5">
-                {ALLERGY_OPTIONS.map((a) => {
-                  const active = (user.allergies || []).includes(a.id);
-                  return (
-                    <button
-                      key={a.id}
-                      type="button"
-                      disabled={saving}
-                      onClick={() => toggleArrayItem('allergies', a.id)}
-                      className={`px-3 py-1.5 rounded-full text-[11.5px] font-semibold border transition-all ${
-                        active
-                          ? 'bg-[#181A20] text-white border-[#181A20]'
-                          : 'bg-white text-[#52525B] border-[#E1EFE7]'
-                      }`}
-                    >
-                      {a.label}
-                    </button>
-                  );
-                })}
-              </div>
+              {(user.allergies || []).length === 0 ? (
+                <p className="text-[12px] text-[#52525B]">Ninguna registrada</p>
+              ) : (
+                <div className="flex flex-wrap gap-1.5">
+                  {(user.allergies || []).map((aId) => {
+                    const label = ALLERGY_OPTIONS.find((a) => a.id === aId)?.label || aId;
+                    return (
+                      <span
+                        key={aId}
+                        className="px-3 py-1 rounded-full bg-[#181A20] text-white text-[11.5px] font-semibold"
+                      >
+                        {label}
+                      </span>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             <div>
-              <h3 className="text-[13.5px] font-bold text-[#151D24] mb-2">
-                Lesiones Activas (Excluye alto impacto)
-              </h3>
-              <div className="flex flex-wrap gap-1.5">
-                {INJURY_OPTIONS.map((inj) => {
-                  const active = (user.injuries || []).includes(inj.id);
-                  return (
-                    <button
-                      key={inj.id}
-                      type="button"
-                      disabled={saving}
-                      onClick={() => toggleArrayItem('injuries', inj.id)}
-                      className={`px-3 py-1.5 rounded-full text-[11.5px] font-semibold border transition-all ${
-                        active
-                          ? 'bg-[#181A20] text-white border-[#181A20]'
-                          : 'bg-white text-[#52525B] border-[#E1EFE7]'
-                      }`}
-                    >
-                      {inj.label}
-                    </button>
-                  );
-                })}
-              </div>
+              <h3 className="text-[13.5px] font-bold text-[#151D24] mb-1.5">Lesiones Activas</h3>
+              {(user.injuries || []).length === 0 ? (
+                <p className="text-[12px] text-[#52525B]">Ninguna registrada</p>
+              ) : (
+                <div className="flex flex-wrap gap-1.5">
+                  {(user.injuries || []).map((injId) => {
+                    const label = INJURY_OPTIONS.find((i) => i.id === injId)?.label || injId;
+                    return (
+                      <span
+                        key={injId}
+                        className="px-3 py-1 rounded-full bg-[#181A20] text-white text-[11.5px] font-semibold"
+                      >
+                        {label}
+                      </span>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </section>
 
@@ -563,30 +576,6 @@ export function ProfileDrawer({ onProfileUpdated }) {
               </div>
             </section>
           )}
-
-          {/* Trazas logicas recientes */}
-          <section className="bg-white rounded-3xl p-4 border border-[#E1EFE7] space-y-2">
-            <h3 className="text-[13.5px] font-bold text-[#151D24]">
-              Trazas Lógicas del Motor ({(user.traces || []).length})
-            </h3>
-            {(user.traces || []).length === 0 ? (
-              <p className="text-[12px] text-[#52525B]">
-                No hay descartes registrados para tu perfil actual.
-              </p>
-            ) : (
-              <div className="space-y-2 max-h-44 overflow-y-auto no-scrollbar">
-                {user.traces.slice(0, 10).map((t) => (
-                  <div
-                    key={t.id}
-                    className="p-2.5 rounded-2xl bg-[#F4FBF7] border border-[#E1EFE7] text-[11px]"
-                  >
-                    <p className="font-mono font-bold text-[#006c49] break-all">{t.rule}</p>
-                    <p className="text-[#3c4a42] mt-0.5">{t.reason}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
 
           {/* Historial conservado */}
           <section className="bg-white rounded-3xl p-4 border border-[#E1EFE7] space-y-2">

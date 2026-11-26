@@ -68,7 +68,7 @@ export function Step3Physical() {
     <MobileShell variant="mesh">
       <BrandHeader onBack={() => setScreen('onboarding-2')} />
 
-      <section className="relative z-10 px-7 pt-4 pb-6 flex flex-col flex-1 justify-start text-left overflow-y-auto no-scrollbar">
+      <section className="relative z-10 px-5 sm:px-7 pt-3 pb-4 flex flex-col flex-1 min-h-0 justify-start text-left overflow-y-auto no-scrollbar">
         <div className="flex flex-col gap-2.5 mb-5">
           <div className="flex items-center justify-between text-[12px] font-bold tracking-wider">
             <span className="text-[#00B87C] uppercase tracking-widest font-extrabold">
@@ -99,7 +99,7 @@ export function Step3Physical() {
                 <button
                   type="button"
                   onClick={() => updateOnboarding({ sex: 'hombre' })}
-                  className={`px-3 py-1 rounded-full text-[11.5px] transition-all ${
+                  className={`px-3.5 py-1.5 min-h-[34px] rounded-full text-[12px] transition-all ${
                     onboarding.sex === 'hombre'
                       ? 'bg-[#181A20] text-white font-bold shadow-sm'
                       : 'text-brand-subtle hover:text-brand-heading font-medium'
@@ -110,7 +110,7 @@ export function Step3Physical() {
                 <button
                   type="button"
                   onClick={() => updateOnboarding({ sex: 'mujer' })}
-                  className={`px-3 py-1 rounded-full text-[11.5px] transition-all ${
+                  className={`px-3.5 py-1.5 min-h-[34px] rounded-full text-[12px] transition-all ${
                     onboarding.sex === 'mujer'
                       ? 'bg-[#181A20] text-white font-bold shadow-sm'
                       : 'text-brand-subtle hover:text-brand-heading font-medium'
@@ -122,12 +122,12 @@ export function Step3Physical() {
             </div>
             <div className="flex items-center justify-between pt-1 border-t border-slate-100">
               <span className="text-[12px] text-brand-subtle font-medium">Edad cumplida</span>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5">
                 <button
                   type="button"
                   aria-label="Disminuir edad"
                   onClick={() => adjustAge(-1)}
-                  className="w-8 h-8 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center active:scale-95 text-lg font-bold"
+                  className="w-10 h-10 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center active:scale-95 text-lg font-bold"
                 >
                   -
                 </button>
@@ -141,7 +141,7 @@ export function Step3Physical() {
                   type="button"
                   aria-label="Aumentar edad"
                   onClick={() => adjustAge(1)}
-                  className="w-8 h-8 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center active:scale-95 text-lg font-bold"
+                  className="w-10 h-10 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center active:scale-95 text-lg font-bold"
                 >
                   +
                 </button>
@@ -160,7 +160,7 @@ export function Step3Physical() {
                 <button
                   type="button"
                   onClick={() => setWeightUnit('kg')}
-                  className={`px-2.5 py-0.5 rounded-full text-[11px] transition-all ${
+                  className={`px-3 py-1 min-h-[32px] rounded-full text-[11.5px] transition-all ${
                     weightUnit === 'kg'
                       ? 'bg-[#181A20] text-white font-bold shadow-sm'
                       : 'text-brand-subtle font-medium'
@@ -171,7 +171,7 @@ export function Step3Physical() {
                 <button
                   type="button"
                   onClick={() => setWeightUnit('lb')}
-                  className={`px-2.5 py-0.5 rounded-full text-[11px] transition-all ${
+                  className={`px-3 py-1 min-h-[32px] rounded-full text-[11.5px] transition-all ${
                     weightUnit === 'lb'
                       ? 'bg-[#181A20] text-white font-bold shadow-sm'
                       : 'text-brand-subtle font-medium'
@@ -183,12 +183,12 @@ export function Step3Physical() {
             </div>
             <div className="flex items-center justify-between pt-1 border-t border-slate-100">
               <span className="text-[11px] text-brand-subtle">Precisión decimal</span>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5">
                 <button
                   type="button"
                   aria-label="Disminuir peso"
                   onClick={() => adjustWeight(-1)}
-                  className="w-8 h-8 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center active:scale-95 text-lg font-bold"
+                  className="w-10 h-10 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center active:scale-95 text-lg font-bold"
                 >
                   -
                 </button>
@@ -204,7 +204,7 @@ export function Step3Physical() {
                   type="button"
                   aria-label="Aumentar peso"
                   onClick={() => adjustWeight(1)}
-                  className="w-8 h-8 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center active:scale-95 text-lg font-bold"
+                  className="w-10 h-10 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center active:scale-95 text-lg font-bold"
                 >
                   +
                 </button>
@@ -225,7 +225,7 @@ export function Step3Physical() {
                 <button
                   type="button"
                   onClick={() => setHeightUnit('cm')}
-                  className={`px-2.5 py-0.5 rounded-full text-[11px] transition-all ${
+                  className={`px-3 py-1 min-h-[32px] rounded-full text-[11.5px] transition-all ${
                     heightUnit === 'cm'
                       ? 'bg-[#181A20] text-white font-bold shadow-sm'
                       : 'text-brand-subtle font-medium'
@@ -236,7 +236,7 @@ export function Step3Physical() {
                 <button
                   type="button"
                   onClick={() => setHeightUnit('ft')}
-                  className={`px-2.5 py-0.5 rounded-full text-[11px] transition-all ${
+                  className={`px-3 py-1 min-h-[32px] rounded-full text-[11.5px] transition-all ${
                     heightUnit === 'ft'
                       ? 'bg-[#181A20] text-white font-bold shadow-sm'
                       : 'text-brand-subtle font-medium'
@@ -248,12 +248,12 @@ export function Step3Physical() {
             </div>
             <div className="flex items-center justify-between pt-1 border-t border-slate-100">
               <span className="text-[11px] text-brand-subtle">Altura de pie</span>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5">
                 <button
                   type="button"
                   aria-label="Disminuir estatura"
                   onClick={() => adjustHeight(-1)}
-                  className="w-8 h-8 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center active:scale-95 text-lg font-bold"
+                  className="w-10 h-10 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center active:scale-95 text-lg font-bold"
                 >
                   -
                 </button>
@@ -269,7 +269,7 @@ export function Step3Physical() {
                   type="button"
                   aria-label="Aumentar estatura"
                   onClick={() => adjustHeight(1)}
-                  className="w-8 h-8 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center active:scale-95 text-lg font-bold"
+                  className="w-10 h-10 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center active:scale-95 text-lg font-bold"
                 >
                   +
                 </button>
@@ -293,7 +293,7 @@ export function Step3Physical() {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 p-3 bg-white/70 rounded-2xl border border-white/60 mb-4">
+        <div className="flex items-center gap-2 p-3 bg-white/70 rounded-2xl border border-white/60 mb-2">
           <span className="material-symbols-outlined text-[18px] text-[#00B87C] shrink-0">
             verified_user
           </span>
@@ -301,18 +301,18 @@ export function Step3Physical() {
             Tus datos biométricos están protegidos y solo se usan para tu plan nutricional.
           </p>
         </div>
-
-        <div className="mt-auto pt-2 pb-1">
-          <button
-            type="button"
-            onClick={() => setScreen('onboarding-4')}
-            className="w-full h-14 bg-[#181A20] hover:bg-[#232332] active:scale-[0.98] transition-all duration-150 rounded-full flex items-center justify-center gap-2 text-white text-[16px] font-bold tracking-wide shadow-md shadow-[#181A20]/20"
-          >
-            <span>Continuar</span>
-            <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-          </button>
-        </div>
       </section>
+
+      <footer className="relative z-10 px-5 sm:px-7 pt-2 pb-4 safe-bottom bg-gradient-to-t from-[#c6ecdc] via-[#d5f7e8]/95 to-transparent shrink-0">
+        <button
+          type="button"
+          onClick={() => setScreen('onboarding-4')}
+          className="w-full h-14 bg-[#181A20] hover:bg-[#232332] active:scale-[0.98] transition-all duration-150 rounded-full flex items-center justify-center gap-2 text-white text-[16px] font-bold tracking-wide shadow-md shadow-[#181A20]/20"
+        >
+          <span>Continuar</span>
+          <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </button>
+      </footer>
     </MobileShell>
   );
 }

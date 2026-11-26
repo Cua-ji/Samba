@@ -63,7 +63,7 @@ router.post('/register', async (req, res, next) => {
       return res.status(409).json({ error: 'Ya existe una cuenta registrada con ese correo.' });
     }
 
-    const safeRole = VALID_ROLES.includes(role) ? role : 'usuario';
+    const safeRole = 'usuario';
     const createdUser = await createUser({
       name: trimmedName,
       email: normalizedEmail,

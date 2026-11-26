@@ -11,11 +11,19 @@ const { Pool } = pg;
 const connectionString =
   process.env.DATABASE_URL || 'postgresql://samba:samba_secret@localhost:5432/samba_db';
 
+const isLocalConnection =
+  connectionString.includes('localhost') || connectionString.includes('127.0.0.1');
+
+const useSsl =
+  process.env.DATABASE_SSL === 'true' ||
+  (!isLocalConnection && process.env.DATABASE_SSL !== 'false');
+
 export const pool = new Pool({
   connectionString,
-  max: 10,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 5000,
+  ssl: useSsl ? { rejectUnauthorized: false } : false,
+  max: Number(process.env.PG_POOL_MAX || 5),
+  idleTimeoutMillis: 10000,
+  connectionTimeoutMillis: 10000,
 });
 
 export async function query(text, params = []) {

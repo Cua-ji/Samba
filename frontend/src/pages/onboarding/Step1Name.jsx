@@ -20,7 +20,7 @@ export function Step1Name() {
     <MobileShell variant="mesh">
       <BrandHeader onBack={() => setScreen('welcome')} />
 
-      <section className="relative z-10 px-7 pt-4 pb-6 flex flex-col flex-1 justify-start text-left overflow-y-auto no-scrollbar">
+      <section className="relative z-10 px-5 sm:px-7 pt-3 pb-4 flex flex-col flex-1 min-h-0 justify-start text-left overflow-y-auto no-scrollbar">
         <div className="flex flex-col gap-2.5 mb-5">
           <div className="flex items-center justify-between text-[12px] font-bold tracking-wider">
             <span className="text-[#00B87C] uppercase tracking-widest font-extrabold">
@@ -75,12 +75,12 @@ export function Step1Name() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-2.5 mb-5">
+        <div className="grid grid-cols-2 gap-2.5 mb-2">
           <div className="bg-white/80 rounded-2xl p-3 border border-white/60 flex items-center gap-2.5 shadow-sm">
             <div className="w-8 h-8 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center shrink-0">
               <span className="material-symbols-outlined text-[18px]">tune</span>
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="text-[12px] font-bold text-brand-heading leading-tight">
                 100% Personalizado
               </p>
@@ -93,7 +93,7 @@ export function Step1Name() {
             <div className="w-8 h-8 rounded-full bg-emerald-100/70 text-[#00B87C] flex items-center justify-center shrink-0">
               <span className="material-symbols-outlined text-[18px]">shield</span>
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="text-[12px] font-bold text-brand-heading leading-tight">
                 Datos protegidos
               </p>
@@ -103,18 +103,18 @@ export function Step1Name() {
             </div>
           </div>
         </div>
-
-        <div className="mt-auto pt-2 pb-1">
-          <button
-            type="button"
-            onClick={handleContinue}
-            className="w-full h-14 bg-[#181A20] hover:bg-[#232332] active:scale-[0.98] transition-all duration-150 rounded-full flex items-center justify-center gap-2 text-white text-[16px] font-bold tracking-wide shadow-md shadow-[#181A20]/20"
-          >
-            <span>Continuar</span>
-            <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-          </button>
-        </div>
       </section>
+
+      <footer className="relative z-10 px-5 sm:px-7 pt-2 pb-4 safe-bottom bg-gradient-to-t from-[#c6ecdc] via-[#d5f7e8]/95 to-transparent shrink-0">
+        <button
+          type="button"
+          onClick={handleContinue}
+          className="w-full h-14 bg-[#181A20] hover:bg-[#232332] active:scale-[0.98] transition-all duration-150 rounded-full flex items-center justify-center gap-2 text-white text-[16px] font-bold tracking-wide shadow-md shadow-[#181A20]/20"
+        >
+          <span>Continuar</span>
+          <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </button>
+      </footer>
     </MobileShell>
   );
 }

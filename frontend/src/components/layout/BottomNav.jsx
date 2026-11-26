@@ -11,7 +11,10 @@ export function BottomNav() {
   const { activeTab, setActiveTab } = useSamba();
 
   return (
-    <nav className="sticky bottom-0 w-full z-30 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)] border-t border-white/60 shrink-0">
+    <nav
+      className="w-full z-30 bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)] border-t border-white/60 shrink-0"
+      style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+    >
       <div className="h-16 px-space-xs flex items-center justify-around">
         {TABS.map((tab) => {
           const isActive = activeTab === tab.id;

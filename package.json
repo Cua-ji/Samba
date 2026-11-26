@@ -2,17 +2,16 @@
   "name": "samba-wellness-platform",
   "version": "1.0.0",
   "private": true,
-  "description": "Samba (Whixte & Co.) - Sistema experto neuro-simbolico para nutricion y entrenamiento con arquitectura RAG y PostgreSQL en Docker",
+  "description": "Samba (Whixte & Co.) - Sistema experto neuro-simbolico para nutricion y entrenamiento con arquitectura RAG y PostgreSQL (Supabase)",
   "scripts": {
-    "db:up": "docker compose up -d",
-    "db:down": "docker compose down",
-    "db:logs": "docker compose logs -f postgres",
     "db:seed": "npm.cmd --prefix backend run db:seed",
     "dev:backend": "npm.cmd --prefix backend run dev",
     "start:backend": "npm.cmd --prefix backend start",
     "dev:frontend": "npm.cmd --prefix frontend run dev",
     "build:frontend": "npm.cmd --prefix frontend run build",
     "start:mobile": "npm.cmd --prefix frontend run build && npm.cmd --prefix backend start",
-    "test:symbolic": "node backend/src/symbolic/engine.test.js"
+    "test:symbolic": "node backend/src/symbolic/engine.test.js",
+    "ml:train": "ml_service\\.venv\\Scripts\\python.exe ml_service\\training\\train_all.py",
+    "ml:start": "ml_service\\.venv\\Scripts\\python.exe -m uvicorn app:app --app-dir ml_service --host 127.0.0.1 --port 8001"
   }
 }

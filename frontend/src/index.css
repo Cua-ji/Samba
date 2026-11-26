@@ -6,13 +6,15 @@
   html,
   body,
   #root {
-    min-height: 100%;
+    height: 100%;
+    height: 100dvh;
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
 
   body {
-    overscroll-behavior-y: none;
+    overscroll-behavior: none;
     -webkit-tap-highlight-color: transparent;
   }
 }
@@ -31,12 +33,14 @@
   background: linear-gradient(180deg, #d5f7e8 0%, #cbf4e2 50%, #bcefd8 100%);
 }
 
-.safe-top {
-  padding-top: env(safe-area-inset-top, 0.75rem);
+.safe-top,
+.pt-safe {
+  padding-top: calc(env(safe-area-inset-top, 0px) + 1rem);
 }
 
-.safe-bottom {
-  padding-bottom: env(safe-area-inset-bottom, 1.25rem);
+.safe-bottom,
+.pb-safe {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 1.25rem);
 }
 
 .tabular-nums {

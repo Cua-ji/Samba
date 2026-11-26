@@ -12,7 +12,7 @@ const DEFAULT_ONBOARDING = {
   weightKg: 72.5,
   heightCm: 176,
   activityLevel: 'ligeramente',
-  allergies: ['lactosa'],
+  allergies: [],
   injuries: [],
   role: 'usuario',
 };
@@ -49,6 +49,15 @@ export function SambaProvider({ children }) {
 
   const updateOnboarding = useCallback((patch) => {
     setOnboarding((prev) => ({ ...prev, ...patch }));
+  }, []);
+
+  const resetOnboarding = useCallback(() => {
+    setOnboarding(DEFAULT_ONBOARDING);
+    try {
+      localStorage.removeItem(STORAGE_ONBOARDING_KEY);
+    } catch {
+      // ignore storage errors
+    }
   }, []);
 
   const refreshProfile = useCallback(async (targetUserId) => {
@@ -100,7 +109,8 @@ export function SambaProvider({ children }) {
     }
     setActiveTab('inicio');
     setScreen('app');
-  }, []);
+    resetOnboarding();
+  }, [resetOnboarding]);
 
   const logout = useCallback(() => {
     localStorage.removeItem(STORAGE_USER_KEY);
@@ -131,6 +141,7 @@ export function SambaProvider({ children }) {
     loadingSession,
     onboarding,
     updateOnboarding,
+    resetOnboarding,
     refreshProfile,
     enterDashboardWithSession,
     logout,

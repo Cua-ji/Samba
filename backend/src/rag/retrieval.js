@@ -5,6 +5,7 @@ import {
   INJURY_LABELS,
   BUDGET_LABELS,
 } from '../symbolic/engine.js';
+import { predictAffinityML, predictIntentML } from '../services/mlService.js';
 
 function normalizeText(text) {
   return String(text || '')
@@ -77,8 +78,8 @@ function resolveTodayLog(user) {
  * Consulta el Motor Simbolico con el perfil activo del usuario y recupera:
  * (1) opciones validas filtradas, (2) fichas nutricionales/tecnicas, (3) reglas de descarte activadas.
  */
-export function retrieveSymbolicContext(user, query, mealsCatalog, workoutsCatalog) {
-  const intent = detectQueryIntent(query);
+export function retrieveSymbolicContext(user, query, mealsCatalog, workoutsCatalog, intentOverride = null, mlAffinity = null) {
+  const intent = intentOverride || detectQueryIntent(query);
 
   const mealEvaluation = evaluateMealsForUser(user, mealsCatalog, {
     mealTime: intent.mealTime,
@@ -98,6 +99,9 @@ export function retrieveSymbolicContext(user, query, mealsCatalog, workoutsCatal
   relevantMeals = [...relevantMeals]
     .sort((a, b) => {
       if (a.affinity.isFavorite !== b.affinity.isFavorite) return a.affinity.isFavorite ? -1 : 1;
+      const mlA = mlAffinity?.meals?.[a.id] ?? 0;
+      const mlB = mlAffinity?.meals?.[b.id] ?? 0;
+      if (mlB !== mlA) return mlB - mlA;
       if (b.affinity.score !== a.affinity.score) return b.affinity.score - a.affinity.score;
       return (b.suggested ? 1 : 0) - (a.suggested ? 1 : 0);
     })
@@ -106,6 +110,9 @@ export function retrieveSymbolicContext(user, query, mealsCatalog, workoutsCatal
   // Filtrar rutinas relevantes (maximo 4)
   const relevantWorkouts = [...workoutEvaluation.validWorkouts]
     .sort((a, b) => {
+      const mlA = mlAffinity?.workouts?.[a.id] ?? 0;
+      const mlB = mlAffinity?.workouts?.[b.id] ?? 0;
+      if (mlB !== mlA) return mlB - mlA;
       if (b.affinity.score !== a.affinity.score) return b.affinity.score - a.affinity.score;
       if (a.goalMatch !== b.goalMatch) return a.goalMatch ? -1 : 1;
       return (b.recommended ? 1 : 0) - (a.recommended ? 1 : 0);
@@ -210,5 +217,63 @@ export function retrieveSymbolicContext(user, query, mealsCatalog, workoutsCatal
       workouts: workoutDiscardTraces,
     },
     activeRules,
+  };
+}
+
+/**
+ * Version neuro-simbolica asincrona:
+ * Usa IntentNet para clasificar la consulta y AffinityNet para rankear opciones validas,
+ * con fallback automatico al motor determinista si ml_service no esta disponible.
+ */
+export async function retrieveSymbolicContextWithML(user, query, mealsCatalog, workoutsCatalog) {
+  const regexIntent = detectQueryIntent(query);
+  const mlIntent = await predictIntentML(query);
+
+  const intent = mlIntent
+    ? {
+        mealTime: mlIntent.mealTime ?? regexIntent.mealTime,
+        budgetTier: mlIntent.budgetTier ?? regexIntent.budgetTier,
+        mentionsWorkout: mlIntent.mentionsWorkout,
+        mentionsRunning: regexIntent.mentionsRunning,
+        mentionsMeal: mlIntent.mentionsMeal,
+        mentionsWhyDiscard: mlIntent.mentionsWhyDiscard,
+        mentionsMacros: mlIntent.mentionsMacros,
+        rawQuery: query,
+        normalizedQuery: regexIntent.normalizedQuery,
+        source: 'IntentNet',
+      }
+    : { ...regexIntent, source: 'symbolic_regex' };
+
+  const mealEvaluation = evaluateMealsForUser(user, mealsCatalog, {
+    mealTime: intent.mealTime,
+    budgetTier: intent.budgetTier,
+  });
+  const workoutEvaluation = evaluateWorkoutsForUser(user, workoutsCatalog);
+
+  const [mealScoresRes, workoutScoresRes] = await Promise.all([
+    predictAffinityML(user, mealEvaluation.validMeals, true),
+    predictAffinityML(user, workoutEvaluation.validWorkouts, false),
+  ]);
+
+  const mlAffinity = {
+    meals: mealScoresRes?.scores || null,
+    workouts: workoutScoresRes?.scores || null,
+  };
+
+  const context = retrieveSymbolicContext(
+    user,
+    query,
+    mealsCatalog,
+    workoutsCatalog,
+    intent,
+    mlAffinity
+  );
+
+  return {
+    ...context,
+    mlModelsUsed: [
+      mlIntent ? 'IntentNet' : null,
+      mealScoresRes || workoutScoresRes ? 'AffinityNet' : null,
+    ].filter(Boolean),
   };
 }

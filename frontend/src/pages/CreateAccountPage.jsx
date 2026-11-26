@@ -4,14 +4,8 @@ import { BrandHeader } from '../components/layout/BrandHeader';
 import { useSamba } from '../context/SambaContext';
 import { api } from '../services/api';
 
-const ROLES = [
-  { id: 'usuario', label: 'Usuario' },
-  { id: 'superusuario', label: 'Superusuario' },
-  { id: 'invitado', label: 'Invitado' },
-];
-
 export function CreateAccountPage() {
-  const { onboarding, updateOnboarding, setScreen, enterDashboardWithSession } = useSamba();
+  const { onboarding, setScreen, enterDashboardWithSession } = useSamba();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -39,6 +33,7 @@ export function CreateAccountPage() {
     try {
       const authData = await api.register({
         ...onboarding,
+        role: 'usuario',
         name: displayName,
         email: email.trim(),
         password,
@@ -55,18 +50,18 @@ export function CreateAccountPage() {
     <MobileShell variant="mesh">
       <BrandHeader onBack={() => setScreen('onboarding-5')} />
 
-      <section className="relative z-10 px-6 pt-3 pb-6 flex flex-col flex-1 justify-between overflow-y-auto no-scrollbar">
+      <section className="relative z-10 px-5 sm:px-6 pt-2 pb-4 flex flex-col flex-1 min-h-0 overflow-y-auto no-scrollbar">
         <div>
-          <div className="mb-4">
-            <h1 className="text-[30px] leading-[1.12] font-extrabold text-slate-900 tracking-tight">
+          <div className="mb-3.5">
+            <h1 className="text-[26px] sm:text-[30px] leading-[1.12] font-extrabold text-slate-900 tracking-tight">
               Crea tu cuenta para guardar tu plan
             </h1>
-            <p className="mt-2 text-[14.5px] leading-relaxed text-slate-600 font-medium">
+            <p className="mt-1.5 text-[14px] leading-relaxed text-slate-600 font-medium">
               Hemos calculado tus calorías, macros y plan nutricional según tus respuestas. Regístrate para acceder de inmediato.
             </p>
           </div>
 
-          <form className="space-y-3.5" onSubmit={handleCreateAccount}>
+          <form id="create-account-form" className="space-y-3" onSubmit={handleCreateAccount}>
             {/* Confirmed Profile Badge */}
             <div className="bg-white/95 rounded-[24px] p-4 shadow-sm border border-white/80 flex items-center justify-between gap-2">
               <div className="flex items-center gap-3 min-w-0">
@@ -107,6 +102,7 @@ export function CreateAccountPage() {
                   <input
                     id="reg-email"
                     type="email"
+                    autoComplete="off"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -127,17 +123,18 @@ export function CreateAccountPage() {
                   <input
                     id="reg-pass"
                     type={showPassword ? 'text' : 'password'}
+                    autoComplete="new-password"
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Mínimo 8 caracteres y 1 número"
-                    className="w-full bg-transparent border-0 p-0 text-slate-800 text-[15px] font-medium focus:outline-none placeholder:text-slate-400"
+                    placeholder="Mín. 8 caracteres y 1 número"
+                    className="w-full min-w-0 bg-transparent border-0 p-0 text-slate-800 text-[14.5px] font-medium focus:outline-none placeholder:text-slate-400"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword((v) => !v)}
                     aria-label="Mostrar contraseña"
-                    className="text-slate-400 hover:text-slate-600 transition-colors p-1 ml-2"
+                    className="text-slate-400 hover:text-slate-600 transition-colors w-9 h-9 -mr-1.5 flex items-center justify-center shrink-0"
                   >
                     <span className="material-symbols-outlined text-[20px]">
                       {showPassword ? 'visibility_off' : 'visibility'}
@@ -146,7 +143,7 @@ export function CreateAccountPage() {
                 </div>
 
                 {/* Validaciones en vivo */}
-                <div className="pt-1 flex items-center gap-4 text-xs font-semibold">
+                <div className="pt-1 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs font-semibold">
                   <div
                     className={`flex items-center gap-1.5 ${
                       hasMinLength ? 'text-[#006c49]' : 'text-slate-500'
@@ -182,32 +179,6 @@ export function CreateAccountPage() {
                 </div>
               </div>
 
-              {/* Rol de perfil */}
-              <div className="pt-1 border-t border-slate-100">
-                <span className="block text-xs font-bold text-slate-700 mb-2">
-                  Rol del perfil activo
-                </span>
-                <div className="grid grid-cols-3 gap-1.5">
-                  {ROLES.map((r) => {
-                    const active = onboarding.role === r.id;
-                    return (
-                      <button
-                        key={r.id}
-                        type="button"
-                        onClick={() => updateOnboarding({ role: r.id })}
-                        className={`py-1.5 px-2 rounded-full text-[11.5px] font-bold transition-all ${
-                          active
-                            ? 'bg-[#181A20] text-white'
-                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                        }`}
-                      >
-                        {r.label}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
               <div className="pt-1 flex items-start gap-2.5 text-xs text-slate-600">
                 <span className="material-symbols-outlined text-[17px] text-[#00B87C] shrink-0 mt-0.5">
                   verified_user
@@ -223,31 +194,32 @@ export function CreateAccountPage() {
                 {error}
               </div>
             )}
-
-            <div className="pt-2">
-              <button
-                type="submit"
-                disabled={submitting}
-                className="w-full h-14 px-6 bg-[#181A20] hover:bg-[#232332] text-white rounded-full font-bold text-[15.5px] shadow-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-all disabled:opacity-60"
-              >
-                <span>{submitting ? 'Creando perfil...' : 'Crear cuenta y ver mi plan'}</span>
-                <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-              </button>
-            </div>
           </form>
         </div>
+      </section>
 
-        <footer className="mt-4 pt-2 flex items-center justify-center gap-2 text-sm font-medium text-slate-600">
-          <span className="text-[14px]">¿Ya tienes una cuenta?</span>
+      <footer className="relative z-10 px-5 sm:px-6 pt-2.5 pb-4 safe-bottom bg-gradient-to-t from-[#c6ecdc] via-[#d5f7e8]/95 to-transparent flex flex-col gap-2.5 shrink-0">
+        <button
+          type="submit"
+          form="create-account-form"
+          disabled={submitting}
+          className="w-full h-13 py-3.5 px-5 bg-[#181A20] hover:bg-[#232332] text-white rounded-full font-bold text-[15px] shadow-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-all disabled:opacity-60"
+        >
+          <span>{submitting ? 'Creando perfil...' : 'Crear cuenta y ver mi plan'}</span>
+          <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </button>
+
+        <div className="flex items-center justify-center flex-wrap gap-2 text-sm font-medium text-slate-600">
+          <span className="text-[13.5px]">¿Ya tienes una cuenta?</span>
           <button
             type="button"
             onClick={() => setScreen('login')}
-            className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white text-slate-800 font-bold text-[13px] shadow-sm hover:text-[#00B87C] active:scale-95 transition-all"
+            className="inline-flex items-center justify-center px-3.5 py-1.5 rounded-full bg-white text-slate-800 font-bold text-[13px] shadow-sm hover:text-[#00B87C] active:scale-95 transition-all"
           >
             Iniciar sesión
           </button>
-        </footer>
-      </section>
+        </div>
+      </footer>
     </MobileShell>
   );
 }

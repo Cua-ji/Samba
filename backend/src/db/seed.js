@@ -101,29 +101,17 @@ export async function ensureDatabaseReady() {
       );
     }
 
+    // Eliminar cuenta de ejemplo alejandro@samba.app si existiera en la BD
+    await client.query(
+      `DELETE FROM users WHERE id = 'usr_alejandro' OR email = 'alejandro@samba.app'`
+    );
+
     const demoUsers = [
       {
-        id: 'usr_alejandro',
-        name: 'Alejandro Morales',
-        email: 'alejandro@samba.app',
-        passwordHash: hashPassword('Samba2026'),
-        role: 'usuario',
-        status: 'activa',
-        sex: 'hombre',
-        age: 28,
-        weightKg: 72.5,
-        heightCm: 176,
-        goal: 'perder_grasa',
-        activityLevel: 'ligeramente',
-        allergies: ['lactosa'],
-        injuries: ['rodilla'],
-        hydrationLiters: 1.5,
-      },
-      {
         id: 'usr_superadmin',
-        name: 'Sofia Navarro',
-        email: 'admin@samba.app',
-        passwordHash: hashPassword('Admin2026'),
+        name: 'Admin',
+        email: 'admin@gmail.com',
+        passwordHash: hashPassword('admin1234'),
         role: 'superusuario',
         status: 'activa',
         sex: 'mujer',
@@ -138,9 +126,9 @@ export async function ensureDatabaseReady() {
       },
       {
         id: 'usr_invitado',
-        name: 'Invitado Samba',
-        email: 'invitado@samba.app',
-        passwordHash: hashPassword('Invitado2026'),
+        name: 'Invitado',
+        email: 'invitado@gmail.com',
+        passwordHash: hashPassword('invitado1234'),
         role: 'invitado',
         status: 'activa',
         sex: 'hombre',
@@ -163,7 +151,11 @@ export async function ensureDatabaseReady() {
         ) VALUES (
           $1, $2, $3, $4, $5, $6, $7, $8,
           $9, $10, $11, $12, $13, $14, $15
-        ) ON CONFLICT (id) DO NOTHING`,
+        ) ON CONFLICT (id) DO UPDATE SET
+          name = EXCLUDED.name,
+          email = EXCLUDED.email,
+          password_hash = EXCLUDED.password_hash,
+          role = EXCLUDED.role`,
         [
           u.id,
           u.name,
@@ -181,55 +173,6 @@ export async function ensureDatabaseReady() {
           u.injuries,
           u.hydrationLiters,
         ]
-      );
-    }
-
-    // Sembrar afinidad, logs e historial inicial de Alejandro solo si aun no existen datos suyos
-    const histCountRes = await client.query(
-      'SELECT COUNT(*)::int AS cnt FROM user_history WHERE user_id = $1',
-      ['usr_alejandro']
-    );
-    if (histCountRes.rows[0].cnt === 0) {
-      await client.query(
-        `INSERT INTO user_meal_affinity (user_id, meal_id, score, chosen_count, ignored_count)
-         VALUES
-           ('usr_alejandro', 'alm_pollo_medio', 4, 2, 0),
-           ('usr_alejandro', 'cen_salteado_bajo', 2, 1, 0)
-         ON CONFLICT (user_id, meal_id) DO NOTHING`
-      );
-
-      await client.query(
-        `INSERT INTO user_workout_affinity (user_id, workout_id, score, completed_count, positive_count, negative_count)
-         VALUES
-           ('usr_alejandro', 'rut_hipertrofia_torso', 1, 1, 1, 0)
-         ON CONFLICT (user_id, workout_id) DO NOTHING`
-      );
-
-      await client.query(
-        `INSERT INTO daily_meal_logs (user_id, log_date, meal_id, title, meal_time, calories, protein, carbs, fat)
-         VALUES
-           ('usr_alejandro', CURRENT_DATE, 'alm_pollo_medio', 'Version Balanceada & Granos', 'almuerzo', 585, 44, 50, 19),
-           ('usr_alejandro', CURRENT_DATE, 'cen_salteado_bajo', 'Fajitas Economicas de Pollo y Calabacin', 'cena', 430, 34, 42, 12)`
-      );
-
-      await client.query(
-        `INSERT INTO daily_workout_logs (user_id, log_date, workout_id, title, calories_burned, rating)
-         VALUES
-           ('usr_alejandro', CURRENT_DATE, 'rut_hipertrofia_torso', 'Fuerza Hipertrofia: Torso & Core', 360, 1)`
-      );
-
-      await client.query(
-        `INSERT INTO user_history (user_id, event_type, entity_id, label, delta)
-         VALUES
-           ('usr_alejandro', 'meal_choose', 'alm_pollo_medio', 'Elegido: Version Balanceada & Granos (+2 afinidad, Favorito)', 2),
-           ('usr_alejandro', 'workout_rate', 'rut_hipertrofia_torso', 'Completada: Fuerza Hipertrofia: Torso & Core (+1 afinidad)', 1)`
-      );
-
-      await client.query(
-        `INSERT INTO logical_traces (user_id, rule, entity_type, entity_id, entity_title, outcome, reason, details)
-         VALUES
-           ('usr_alejandro', 'descartado(alm_tacos_bajo, alergia([lactosa]))', 'meal', 'alm_tacos_bajo', 'Tacos Clasicos de Salmon y Yogur', 'discarded', 'Descartado por restriccion del usuario (Lactosa / Lacteos).', '{"mealTime":"almuerzo"}'::jsonb),
-           ('usr_alejandro', 'ejercicio_descartado(rut_correr_hiit, lesion([rodilla]))', 'workout', 'rut_correr_hiit', 'Correr / HIIT de Alto Impacto', 'discarded', 'Excluido por seguridad articular (Rodilla). Rutina de impacto alto contraindicada para tu lesion activa.', '{"impactLevel":"alto"}'::jsonb)`
       );
     }
   });

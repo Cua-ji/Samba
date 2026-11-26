@@ -64,6 +64,13 @@ export const api = {
       method: 'POST',
       body: JSON.stringify({ mealId, action }),
     }),
+  undoTodayMeal: (userId, mealId, mealTime = 'almuerzo') =>
+    request(
+      `/meals/${encodeURIComponent(userId)}/today/${encodeURIComponent(
+        mealId
+      )}?mealTime=${encodeURIComponent(mealTime)}`,
+      { method: 'DELETE' }
+    ),
   getWorkouts: (userId) => request(`/workouts/${encodeURIComponent(userId)}`),
   generateAiWorkouts: (userId, excludeRoutines = []) =>
     request(`/workouts/${encodeURIComponent(userId)}/generate-ai`, {
@@ -75,10 +82,14 @@ export const api = {
       method: 'POST',
       body: JSON.stringify({ requesterUserId, workout }),
     }),
-  setWorkoutAffinity: (userId, workoutId, rating, completed = true) =>
+  setWorkoutAffinity: (userId, workoutId, rating, completed = true, action = null) =>
     request(`/workouts/${encodeURIComponent(userId)}/affinity`, {
       method: 'POST',
-      body: JSON.stringify({ workoutId, rating, completed }),
+      body: JSON.stringify({ workoutId, rating, completed, action }),
+    }),
+  undoTodayWorkout: (userId, workoutId) =>
+    request(`/workouts/${encodeURIComponent(userId)}/today/${encodeURIComponent(workoutId)}`, {
+      method: 'DELETE',
     }),
   askChat: (userId, message) =>
     request('/chat/ask', {

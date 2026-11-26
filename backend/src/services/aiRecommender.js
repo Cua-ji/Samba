@@ -12,6 +12,7 @@ import {
   fetchAndCacheWgerExercises,
 } from './externalData.js';
 import { ollamaChat, stripEmojis } from './ollama.js';
+import { predictSafetyML } from './mlService.js';
 import {
   addUserHistoryEvent,
   createCatalogMeal,
@@ -558,6 +559,14 @@ export async function generatePersonalizedMealWithAI(user, mealTime = 'almuerzo'
         dataSources: citedSources,
       };
 
+      const mlSafety = await predictSafetyML(
+        `${candidate.title} ${candidate.description} ${candidate.ingredients.join(' ')}`,
+        0.7
+      );
+      if (mlSafety?.allergens?.length) {
+        candidate.allergens = Array.from(new Set([...candidate.allergens, ...mlSafety.allergens]));
+      }
+
       const allergyCheck = checkAllergyDiscard(user, candidate);
       if (allergyCheck.discarded) {
         errors.push(`Variante ${expectedTier} rechazada: ${allergyCheck.reason}`);
@@ -819,6 +828,19 @@ export async function generatePersonalizedWorkoutsWithAI(user, { excludeRoutines
         generatedForUserId: user.id,
         dataSources: citedSources,
       };
+
+      const mlSafety = await predictSafetyML(
+        `${candidate.title} ${candidate.technicalSheet} ${candidate.exercises.join(' ')}`,
+        0.7
+      );
+      if (mlSafety) {
+        if (mlSafety.highImpact) candidate.impactLevel = 'alto';
+        if (mlSafety.contraindications?.length) {
+          candidate.contraindications = Array.from(
+            new Set([...candidate.contraindications, ...mlSafety.contraindications])
+          );
+        }
+      }
 
       const injuryCheck = checkWorkoutDiscard(user, candidate);
       if (injuryCheck.discarded) {

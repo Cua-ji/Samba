@@ -1,0 +1,15 @@
+{
+  "intent_net": {
+    "meal_time_acc": 1.0,
+    "budget_acc": 0.9778,
+    "flags_f1": 1.0
+  },
+  "safety_net": {
+    "micro_f1": 0.9934,
+    "macro_f1": 0.9923
+  },
+  "affinity_net": {
+    "accuracy": 0.8926,
+    "f1": 0.9324
+  }
+}

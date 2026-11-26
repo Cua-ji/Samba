@@ -1,0 +1,6536 @@
+[
+  {
+    "query": "Dame un platillo de comida sin limite de costo sin alergenos",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de cena sin limite de costo?",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo desayune hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para desayunar con barato",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa? segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de premium ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Quiero entrenar torso y core sin dolor de hombro",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo almuerce hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de equilibrado ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme algo para desayune gourmet por favor",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo comida hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de nocturno accesible?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de sin limite de costo ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que me recomiendas de algo ligero de noche caro?",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de almuerce presupuesto medio?",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de para comer hoy presupuesto bajo?",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo almorzar hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa? por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Ejercicios de bajo impacto para tobillo y rodilla",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me descartaron correr?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Quiero entrenar torso y core sin dolor de hombro hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para cena con que no sea caro",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de equilibrado ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme algo para para la manana balanceado por favor",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo almorzar hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme algo para mediodia presupuesto bajo por favor",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo almuerzo hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de barato ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que me prohibieron correr en mi plan?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de equilibrado ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que me descartaron correr?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de que no sea caro ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es el mejor nocturno economico para mi?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para en la manana con sin limite de costo",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo almorzar hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo cenar hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es el mejor almorzar premium para mi?",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo en la manana hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto bajo ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Rutina de cardio segura para mi lesion lumbar segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Ejercicios de bajo impacto para tobillo y rodilla por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Ejercicios de bajo impacto para tobillo y rodilla",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo para la manana hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Dame ejercicios para entrenar sin lastimar mi rodilla por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de caro ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Dame un platillo de cena premium sin alergenos",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Rutina de cardio segura para mi lesion lumbar por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me prohibieron correr en mi plan?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Rutina de cardio segura para mi lesion lumbar hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Rutina de cardio segura para mi lesion lumbar hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me prohibieron correr en mi plan?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de sin limite de costo ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Puedo salir a correr o trotar? segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de sugerido ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cual es el mejor desayune barato para mi?",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de equilibrado ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es mi IMC y meta diaria de kcal?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de gourmet ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que me recomiendas de nocturno presupuesto medio?",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Puedo salir a correr o trotar? por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Necesito ideas de almuerzo presupuesto bajo",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo almorzar hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para para comer hoy premium por favor",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es mi IMC y meta diaria de kcal?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para ceno con sugerido",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cual es la razon por la que se excluyo la rutina de impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de almorzar presupuesto medio?",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame un platillo de comida economico sin alergenos",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de sugerido ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo en la manana hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cual es mi IMC y meta diaria de kcal?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de sugerido ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de equilibrado ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto alto ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Quiero opciones para desayune con barato",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero entrenar torso y core sin dolor de hombro por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de que no sea caro ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que me prohibieron correr en mi plan?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo en la manana hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de equilibrado ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Dame un platillo de cena gourmet sin alergenos",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me descartaron la avena con leche?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para desayuno barato por favor",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Puedo salir a correr o trotar? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Rutina de cardio segura para mi lesion lumbar",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de accesible ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de equilibrado ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo desayunar hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Quiero entrenar torso y core sin dolor de hombro hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es mi IMC y meta diaria de kcal?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Quiero opciones para temprano con presupuesto alto",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es la razon por la que se excluyo la rutina de impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Dame un platillo de desayune economico sin alergenos",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de desayuno barato?",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es mi IMC y meta diaria de kcal?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa? segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que me descartaron correr?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de balanceado ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo para la manana hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Rutina de cardio segura para mi lesion lumbar segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Dame un platillo de desayune balanceado sin alergenos",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame un platillo de almuerzo caro sin alergenos",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de caro ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo cena hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que me descartaron correr?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo almorzar hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de equilibrado ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que me prohibieron correr en mi plan?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para temprano con que no sea caro",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para mediodia con que no sea caro",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto alto ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es el mejor cenar presupuesto alto para mi?",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me prohibieron correr en mi plan?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Puedo salir a correr o trotar? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo mediodia hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame un platillo de desayunar gourmet sin alergenos",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es la razon por la que se excluyo la rutina de impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Ejercicios de bajo impacto para tobillo y rodilla por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me descartaron correr?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es el mejor nocturno presupuesto medio para mi?",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo nocturno hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto bajo ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo en la noche hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Necesito ideas de para comer hoy premium",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame un platillo de en la manana presupuesto alto sin alergenos",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Necesito ideas de temprano balanceado",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame ejercicios para entrenar sin lastimar mi rodilla",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Necesito ideas de algo ligero de noche que no sea caro",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me descartaron correr?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Necesito ideas de desayunar accesible",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cual es el mejor temprano gourmet para mi?",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo almorzar hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que me prohibieron correr en mi plan?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de temprano sugerido?",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo ceno hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo temprano hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para ceno con presupuesto alto",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para para comer hoy balanceado por favor",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para algo ligero de noche con balanceado",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Por que me descartaron la avena con leche?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para desayunar con que no sea caro",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo desayuno hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Puedo hacer saltos o HIIT hoy? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para temprano presupuesto medio por favor",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Necesito ideas de almorzar sin limite de costo",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo cenar hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa? por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Rutina de cardio segura para mi lesion lumbar hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que rutina de ejercicio me toca hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo nocturno hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para mediodia caro por favor",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me descartaron correr?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Dame un platillo de temprano caro sin alergenos",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de nocturno equilibrado?",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me prohibieron correr en mi plan?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para temprano que no sea caro por favor",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero entrenar torso y core sin dolor de hombro",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Rutina de cardio segura para mi lesion lumbar hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Puedo salir a correr o trotar? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Puedo hacer saltos o HIIT hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para ceno barato por favor",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Necesito ideas de mediodia sugerido",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto bajo ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo almuerzo hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me descartaron correr?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo algo ligero de noche hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me descartaron la avena con leche?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de barato ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es el mejor desayuno sugerido para mi?",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para algo ligero de noche con presupuesto alto",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es el mejor desayunar presupuesto medio para mi?",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo en la manana hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para almorzar con presupuesto bajo",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que no puedo hacer burpees o saltos?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo comida hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto bajo ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que me recomiendas de nocturno equilibrado?",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es la razon por la que se excluyo la rutina de impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para desayune con balanceado",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que me descartaron correr?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para nocturno balanceado por favor",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Quiero opciones para temprano con accesible",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Puedo hacer saltos o HIIT hoy? por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es el mejor algo ligero de noche caro para mi?",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que no puedo hacer burpees o saltos?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cual es mi IMC y meta diaria de kcal?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para cenar con accesible",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo temprano hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me descartaron la avena con leche?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de comida presupuesto alto?",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para ceno con premium",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para cenar con presupuesto bajo",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto alto ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es mi IMC y meta diaria de kcal?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de premium ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es el mejor mediodia sugerido para mi?",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Ejercicios de bajo impacto para tobillo y rodilla hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Puedo hacer saltos o HIIT hoy? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de para la manana accesible?",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame ejercicios para entrenar sin lastimar mi rodilla hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame ejercicios para entrenar sin lastimar mi rodilla segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para nocturno barato por favor",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame ejercicios para entrenar sin lastimar mi rodilla por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Quiero entrenar torso y core sin dolor de hombro",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Necesito ideas de cena economico",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Puedo hacer saltos o HIIT hoy? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Dame ejercicios para entrenar sin lastimar mi rodilla hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que me recomiendas de para comer hoy premium?",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es el mejor mediodia equilibrado para mi?",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para almuerce con sin limite de costo",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Dame ejercicios para entrenar sin lastimar mi rodilla",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame un platillo de en la noche presupuesto bajo sin alergenos",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de gourmet ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de economico ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de economico ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Necesito ideas de nocturno presupuesto alto",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es el mejor temprano gourmet para mi?",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo cenar hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de en la manana balanceado?",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Dame un platillo de algo ligero de noche premium sin alergenos",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de almorzar equilibrado?",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto alto ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que rutina de ejercicio me toca hoy? por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo desayuno hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de gourmet ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo desayunar hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo mediodia hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es la razon por la que se excluyo la rutina de impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Puedo salir a correr o trotar?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es el mejor cena barato para mi?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Ejercicios de bajo impacto para tobillo y rodilla segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Dame ejercicios para entrenar sin lastimar mi rodilla hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es la razon por la que se excluyo la rutina de impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Ejercicios de bajo impacto para tobillo y rodilla",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto bajo ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Rutina de cardio segura para mi lesion lumbar por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que no puedo hacer burpees o saltos?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo en la noche hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que no puedo hacer burpees o saltos?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto medio ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que me descartaron correr?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo cena hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para cena con presupuesto medio",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para en la manana gourmet por favor",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es el mejor almorzar balanceado para mi?",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me descartaron correr?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de equilibrado ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que no puedo hacer burpees o saltos?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto alto ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo desayuno hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Puedo hacer saltos o HIIT hoy? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para almuerce barato por favor",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de para la manana balanceado?",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de mediodia equilibrado?",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de que no sea caro ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de que no sea caro ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es la razon por la que se excluyo la rutina de impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo ceno hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame un platillo de desayuno equilibrado sin alergenos",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto medio ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo para comer hoy hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es mi IMC y meta diaria de kcal?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Dame ejercicios para entrenar sin lastimar mi rodilla por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es mi IMC y meta diaria de kcal?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Necesito ideas de almorzar premium",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es mi IMC y meta diaria de kcal?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de barato ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que me descartaron la avena con leche?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo algo ligero de noche hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo algo ligero de noche hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto alto ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que me recomiendas de para comer hoy sugerido?",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero entrenar torso y core sin dolor de hombro por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que rutina de ejercicio me toca hoy? segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que no puedo hacer burpees o saltos?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Necesito ideas de ceno presupuesto medio",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Rutina de cardio segura para mi lesion lumbar hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me descartaron la avena con leche?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo cena hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Dame un platillo de cenar balanceado sin alergenos",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de desayunar caro?",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme algo para mediodia que no sea caro por favor",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que no puedo hacer burpees o saltos?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de para comer hoy sin limite de costo?",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de accesible ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Dame un platillo de almuerce equilibrado sin alergenos",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de premium ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Necesito ideas de cena accesible",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa? segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto medio ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es el mejor cena sugerido para mi?",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es la razon por la que se excluyo la rutina de impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Dame ejercicios para entrenar sin lastimar mi rodilla",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame un platillo de ceno gourmet sin alergenos",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me prohibieron correr en mi plan?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa? segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para para comer hoy con sugerido",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Necesito ideas de comida que no sea caro",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que rutina de ejercicio me toca hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo para la manana hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo comida hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo desayunar hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es el mejor desayuno que no sea caro para mi?",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Ejercicios de bajo impacto para tobillo y rodilla segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es el mejor en la noche presupuesto alto para mi?",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para mediodia con equilibrado",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me prohibieron correr en mi plan?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Necesito ideas de en la noche economico",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que me recomiendas de en la manana presupuesto medio?",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es el mejor almuerzo barato para mi?",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me prohibieron correr en mi plan?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de presupuesto alto ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es el mejor ceno equilibrado para mi?",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es el mejor almorzar que no sea caro para mi?",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame ejercicios para entrenar sin lastimar mi rodilla hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para cenar sugerido por favor",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de balanceado ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo desayuno hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Por que me prohibieron correr en mi plan?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de economico ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo desayunar hoy segun mis alergias?",
+    "mealTime": "desayuno",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme algo para desayune economico por favor",
+    "mealTime": "desayuno",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo almuerzo hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es la razon por la que se excluyo la rutina de impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Ejercicios de bajo impacto para tobillo y rodilla hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Puedo hacer saltos o HIIT hoy? por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para almuerzo con premium",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme algo para en la manana sin limite de costo por favor",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que platillos fueron bloqueados por mis alergias?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cual es la razon por la que se excluyo la rutina de impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo algo ligero de noche hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo comida hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Puedo salir a correr o trotar? por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es la razon por la que se excluyo la rutina de impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Por que se excluyo ese desayuno de mi menu?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Explicame por que se descarto ese ejercicio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cual es mi IMC y meta diaria de kcal?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Muestrame platillos de economico ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Quiero entrenar torso y core sin dolor de hombro hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuanta proteina me falta para llegar a mi meta?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo cena hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Dame un platillo de temprano caro sin alergenos",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que rutina de ejercicio me toca hoy? por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de temprano equilibrado?",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Puedo salir a correr o trotar? segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para mediodia con gourmet",
+    "mealTime": "almuerzo",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero opciones para temprano con balanceado",
+    "mealTime": "desayuno",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Rutina de cardio segura para mi lesion lumbar hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es la razon por la que se excluyo la rutina de impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme algo para para la manana caro por favor",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme algo para almuerce sugerido por favor",
+    "mealTime": "almuerzo",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas calorias tiene una cena economica y cuanta proteina aporta?",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Resumen de mis carbohidratos y grasas de hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Quiero entrenar torso y core sin dolor de hombro segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que me descartaron la avena con leche?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Puedo salir a correr o trotar? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme algo para algo ligero de noche accesible por favor",
+    "mealTime": "cena",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cual es mi IMC y meta diaria de kcal?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que entrenamiento de fuerza puedo hacer en casa? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que puedo nocturno hoy segun mis alergias?",
+    "mealTime": "cena",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Necesito ideas de mediodia presupuesto bajo",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Necesito ideas de almuerzo barato",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de en la noche presupuesto medio?",
+    "mealTime": "cena",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Puedo salir a correr o trotar? hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de algo ligero de noche caro?",
+    "mealTime": "cena",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de sin limite de costo ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Cuantas kcal quemo con una rutina de bajo impacto?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Que puedo almuerzo hoy segun mis alergias?",
+    "mealTime": "almuerzo",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Por que no me recomiendas platillos con queso o crema?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "query": "Muestrame platillos de sugerido ricos en proteina",
+    "mealTime": "none",
+    "budgetTier": "medio",
+    "flags": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio por favor",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero entrenar torso y core sin dolor de hombro",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de mediodia presupuesto bajo?",
+    "mealTime": "almuerzo",
+    "budgetTier": "bajo",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Como va mi balance calorico y mis macros?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "query": "Puedo hacer saltos o HIIT hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Quiero entrenar torso y core sin dolor de hombro hoy",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio segun mi perfil",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Que me recomiendas de desayunar premium?",
+    "mealTime": "desayuno",
+    "budgetTier": "alto",
+    "flags": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Sugiereme una rutina para el gimnasio",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "query": "Cuantas calorias y proteinas debo consumir hoy?",
+    "mealTime": "none",
+    "budgetTier": "none",
+    "flags": [
+      0,
+      0,
+      0,
+      1
+    ]
+  }
+]

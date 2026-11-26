@@ -66,7 +66,7 @@ export function Step5Allergies() {
     <MobileShell variant="mesh">
       <BrandHeader onBack={() => setScreen('onboarding-4')} />
 
-      <section className="relative z-10 px-7 pt-4 pb-6 flex flex-col flex-1 justify-start text-left overflow-y-auto no-scrollbar">
+      <section className="relative z-10 px-5 sm:px-7 pt-3 pb-4 flex flex-col flex-1 min-h-0 justify-start text-left overflow-y-auto no-scrollbar">
         <div className="flex flex-col gap-2.5 mb-5">
           <div className="flex items-center justify-between text-[12px] font-bold tracking-wider">
             <span className="text-[#00B87C] uppercase tracking-widest font-extrabold">
@@ -162,7 +162,7 @@ export function Step5Allergies() {
                   key={inj.id}
                   type="button"
                   onClick={() => toggleInjury(inj.id)}
-                  className={`px-3 py-1 rounded-full text-[11.5px] font-semibold transition-all ${
+                  className={`px-3.5 py-2 min-h-[36px] rounded-full text-[12px] font-semibold transition-all ${
                     active
                       ? 'bg-[#181A20] text-white'
                       : 'bg-white text-brand-subtle border border-slate-200 hover:border-[#00B87C]'
@@ -175,7 +175,7 @@ export function Step5Allergies() {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 p-3 bg-white/70 rounded-2xl border border-white/60 mb-4">
+        <div className="flex items-center gap-2 p-3 bg-white/70 rounded-2xl border border-white/60 mb-2">
           <span className="material-symbols-outlined text-[18px] text-[#00B87C] shrink-0">
             verified_user
           </span>
@@ -186,18 +186,18 @@ export function Step5Allergies() {
             Samba filtra con reglas simbólicas estrictas para preservar tu seguridad alimentaria y articular.
           </p>
         </div>
-
-        <div className="mt-auto pt-2 pb-1">
-          <button
-            type="button"
-            onClick={() => setScreen('create-account')}
-            className="w-full h-14 bg-[#181A20] hover:bg-[#232332] active:scale-[0.98] transition-all duration-150 rounded-full flex items-center justify-center gap-2 text-white text-[16px] font-bold tracking-wide shadow-md shadow-[#181A20]/20"
-          >
-            <span>Finalizar y crear plan</span>
-            <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-          </button>
-        </div>
       </section>
+
+      <footer className="relative z-10 px-5 sm:px-7 pt-2 pb-4 safe-bottom bg-gradient-to-t from-[#c6ecdc] via-[#d5f7e8]/95 to-transparent shrink-0">
+        <button
+          type="button"
+          onClick={() => setScreen('create-account')}
+          className="w-full h-14 bg-[#181A20] hover:bg-[#232332] active:scale-[0.98] transition-all duration-150 rounded-full flex items-center justify-center gap-2 text-white text-[16px] font-bold tracking-wide shadow-md shadow-[#181A20]/20"
+        >
+          <span>Finalizar y crear plan</span>
+          <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </button>
+      </footer>
     </MobileShell>
   );
 }

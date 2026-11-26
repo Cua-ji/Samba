@@ -1,9 +1,9 @@
-import { retrieveSymbolicContext } from './retrieval.js';
+import { retrieveSymbolicContextWithML } from './retrieval.js';
 import { generateGroundedResponse } from './generator.js';
 
 export async function runRagPipeline(user, userQuery, mealsCatalog, workoutsCatalog) {
-  // Paso A: Retrieval desde el Motor Simbolico
-  const retrieval = retrieveSymbolicContext(user, userQuery, mealsCatalog, workoutsCatalog);
+  // Paso A: Retrieval desde el Motor Simbolico + Redes Neuronales (IntentNet y AffinityNet)
+  const retrieval = await retrieveSymbolicContextWithML(user, userQuery, mealsCatalog, workoutsCatalog);
 
   // Paso B: Augmented Generation con System Prompt auditado o Fallback Local
   const generation = await generateGroundedResponse(userQuery, retrieval);
@@ -20,6 +20,7 @@ export async function runRagPipeline(user, userQuery, mealsCatalog, workoutsCata
       documents: retrieval.documents,
       discardTraces: retrieval.discardTraces,
       activeRules: retrieval.activeRules,
+      mlModelsUsed: retrieval.mlModelsUsed || [],
     },
     systemPromptPreview: generation.systemPromptPreview,
   };

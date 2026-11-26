@@ -5,6 +5,7 @@ import {
   getDailyLogDatesSummary,
   updateUserProfile,
   getAdminAuditSummary,
+  getDatabaseStats,
   getMealsCatalog,
   getWorkoutsCatalog,
   saveLogicalTraces,
@@ -123,8 +124,11 @@ router.get('/:userId/admin-audit', async (req, res, next) => {
       });
     }
 
-    const accounts = await getAdminAuditSummary();
-    return res.json({ totalUsers: accounts.length, accounts });
+    const [accounts, stats] = await Promise.all([
+      getAdminAuditSummary(),
+      getDatabaseStats(),
+    ]);
+    return res.json({ totalUsers: accounts.length, accounts, stats });
   } catch (err) {
     next(err);
   }

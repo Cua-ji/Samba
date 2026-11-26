@@ -6,16 +6,18 @@ import {
   createCatalogMeal,
   saveLogicalTraces,
   recordMealAffinity,
+  removeTodayMealLog,
 } from '../db/repository.js';
 import { checkPriceConsistency, evaluateMealsForUser } from '../symbolic/engine.js';
 import { generatePersonalizedMealWithAI } from '../services/aiRecommender.js';
+import { enrichMealsEvaluationWithML, predictSafetyML } from '../services/mlService.js';
 
 const router = express.Router();
 
-function filterLatestBase(catalog) {
-  if (!Array.isArray(catalog) || catalog.length === 0) return [];
-  const latestBaseId = catalog[0].baseId;
-  return catalog.filter((m) => m.baseId === latestBaseId);
+async function evaluateAndRankMeals(user, mealTime) {
+  const catalog = await getMealsCatalog(mealTime, user.id, { onlyAi: true });
+  const rawEval = evaluateMealsForUser(user, catalog, { mealTime });
+  return enrichMealsEvaluationWithML(user, rawEval);
 }
 
 router.post('/:userId/generate-ai', async (req, res, next) => {
@@ -31,9 +33,8 @@ router.post('/:userId/generate-ai', async (req, res, next) => {
       : [];
 
     const generated = await generatePersonalizedMealWithAI(user, mealTime, { excludeDishes });
-    const catalog = filterLatestBase(await getMealsCatalog(mealTime, user.id, { onlyAi: true }));
     const updatedUser = await getHydratedUser(user.id);
-    const evaluation = evaluateMealsForUser(updatedUser, catalog, { mealTime });
+    const evaluation = await evaluateAndRankMeals(updatedUser, mealTime);
 
     return res.status(201).json({
       generated,
@@ -67,6 +68,14 @@ router.post('/catalog', async (req, res, next) => {
       });
     }
 
+    const mlSafety = await predictSafetyML(
+      `${meal.title} ${meal.description || ''} ${(meal.ingredients || []).join(' ')}`,
+      0.7
+    );
+    if (mlSafety?.allergens?.length) {
+      meal.allergens = Array.from(new Set([...(meal.allergens || []), ...mlSafety.allergens]));
+    }
+
     const priceCheck = checkPriceConsistency(meal);
     if (!priceCheck.consistent) {
       return res.status(400).json({
@@ -88,8 +97,7 @@ router.get('/:userId', async (req, res, next) => {
     if (!user) return res.status(404).json({ error: 'Usuario no encontrado.' });
 
     const mealTime = req.query.mealTime || 'almuerzo';
-    const catalog = filterLatestBase(await getMealsCatalog(mealTime, user.id, { onlyAi: true }));
-    const evaluation = evaluateMealsForUser(user, catalog, { mealTime });
+    const evaluation = await evaluateAndRankMeals(user, mealTime);
 
     await saveLogicalTraces(
       user.id,
@@ -108,8 +116,10 @@ router.get('/:userId', async (req, res, next) => {
 router.post('/:userId/affinity', async (req, res, next) => {
   try {
     const { mealId, action } = req.body || {};
-    if (!mealId || !['choose', 'ignore'].includes(action)) {
-      return res.status(400).json({ error: 'Parametros invalidos (mealId, action: choose|ignore).' });
+    if (!mealId || !['choose', 'ignore', 'unignore'].includes(action)) {
+      return res
+        .status(400)
+        .json({ error: 'Parametros invalidos (mealId, action: choose|ignore|unignore).' });
     }
 
     const existingUser = await getHydratedUser(req.params.userId);
@@ -119,13 +129,29 @@ router.post('/:userId/affinity', async (req, res, next) => {
     if (!meal) return res.status(404).json({ error: 'Platillo no encontrado en PostgreSQL.' });
 
     const { user, affinityRecord } = await recordMealAffinity(existingUser.id, meal, action);
-    const catalog = filterLatestBase(await getMealsCatalog(meal.mealTime, user.id, { onlyAi: true }));
-    const evaluation = evaluateMealsForUser(user, catalog, { mealTime: meal.mealTime });
+    const evaluation = await evaluateAndRankMeals(user, meal.mealTime);
 
     return res.json({
       user,
       todayLog: user.todayLog,
       affinityRecord,
+      evaluation,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.delete('/:userId/today/:mealId', async (req, res, next) => {
+  try {
+    const mealTime = req.query.mealTime || 'almuerzo';
+    const user = await removeTodayMealLog(req.params.userId, req.params.mealId);
+    if (!user) return res.status(404).json({ error: 'Usuario no encontrado.' });
+
+    const evaluation = await evaluateAndRankMeals(user, mealTime);
+    return res.json({
+      user,
+      todayLog: user.todayLog,
       evaluation,
     });
   } catch (err) {

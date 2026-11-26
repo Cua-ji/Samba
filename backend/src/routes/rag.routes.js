@@ -17,14 +17,14 @@ router.post('/ask', async (req, res, next) => {
       return res.status(400).json({ error: 'Escribe una consulta para el asistente Samba.' });
     }
 
-    const user = await getHydratedUser(userId || 'usr_alejandro');
+    const user = await getHydratedUser(userId || 'usr_invitado');
     if (!user) {
       return res.status(404).json({ error: 'No existe un perfil de usuario activo.' });
     }
 
     const [mealsCatalog, workoutsCatalog] = await Promise.all([
-      getMealsCatalog(null, user.id, { onlyAi: true }),
-      getWorkoutsCatalog(user.id),
+      getMealsCatalog(null, user.id, { onlyAi: false }),
+      getWorkoutsCatalog(user.id, { onlyAi: false }),
     ]);
 
     const result = await runRagPipeline(user, cleanMessage, mealsCatalog, workoutsCatalog);

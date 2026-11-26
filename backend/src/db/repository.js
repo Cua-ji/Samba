@@ -770,24 +770,68 @@ export async function saveLogicalTraces(userId, newTraces) {
 }
 
 export async function recordMealAffinity(userId, meal, action) {
-  const delta = action === 'choose' ? 2 : -1;
-  const chosenInc = action === 'choose' ? 1 : 0;
-  const ignoredInc = action === 'ignore' ? 1 : 0;
-
   const updatedAffinity = await withTransaction(async (client) => {
-    const affRes = await client.query(
-      `INSERT INTO user_meal_affinity (user_id, meal_id, score, chosen_count, ignored_count, last_action_at)
-       VALUES ($1, $2, $3, $4, $5, NOW())
-       ON CONFLICT (user_id, meal_id) DO UPDATE SET
-         score = user_meal_affinity.score + $3,
-         chosen_count = user_meal_affinity.chosen_count + $4,
-         ignored_count = user_meal_affinity.ignored_count + $5,
-         last_action_at = NOW()
-       RETURNING score, chosen_count, ignored_count, last_action_at`,
-      [userId, meal.id, delta, chosenInc, ignoredInc]
+    const existingRes = await client.query(
+      `SELECT score, chosen_count, ignored_count, last_action_at
+       FROM user_meal_affinity
+       WHERE user_id = $1 AND meal_id = $2`,
+      [userId, meal.id]
     );
+    const existing = existingRes.rows[0];
+    const currentIgnored = Number(existing?.ignored_count || 0);
 
-    const row = affRes.rows[0];
+    let delta = 0;
+    let chosenInc = 0;
+    let row;
+
+    if (action === 'choose') {
+      delta = 2;
+      chosenInc = 1;
+      const affRes = await client.query(
+        `INSERT INTO user_meal_affinity (user_id, meal_id, score, chosen_count, ignored_count, last_action_at)
+         VALUES ($1, $2, $3, $4, 0, NOW())
+         ON CONFLICT (user_id, meal_id) DO UPDATE SET
+           score = user_meal_affinity.score + $3,
+           chosen_count = user_meal_affinity.chosen_count + $4,
+           last_action_at = NOW()
+         RETURNING score, chosen_count, ignored_count, last_action_at`,
+        [userId, meal.id, delta, chosenInc]
+      );
+      row = affRes.rows[0];
+    } else if (action === 'unignore') {
+      const restorePoints = currentIgnored;
+      delta = restorePoints;
+      if (existing) {
+        const affRes = await client.query(
+          `UPDATE user_meal_affinity
+           SET score = user_meal_affinity.score + $3,
+               ignored_count = 0,
+               last_action_at = NOW()
+           WHERE user_id = $1 AND meal_id = $2
+           RETURNING score, chosen_count, ignored_count, last_action_at`,
+          [userId, meal.id, restorePoints]
+        );
+        row = affRes.rows[0];
+      } else {
+        row = { score: 0, chosen_count: 0, ignored_count: 0, last_action_at: new Date() };
+      }
+    } else {
+      // action === 'ignore': marca baja prioridad en 1 clic de forma idempotente
+      const needed = currentIgnored >= 2 ? 0 : 2 - currentIgnored;
+      delta = -needed;
+      const affRes = await client.query(
+        `INSERT INTO user_meal_affinity (user_id, meal_id, score, chosen_count, ignored_count, last_action_at)
+         VALUES ($1, $2, $3, 0, $4, NOW())
+         ON CONFLICT (user_id, meal_id) DO UPDATE SET
+           score = user_meal_affinity.score + $3,
+           ignored_count = user_meal_affinity.ignored_count + $4,
+           last_action_at = NOW()
+         RETURNING score, chosen_count, ignored_count, last_action_at`,
+        [userId, meal.id, delta, needed]
+      );
+      row = affRes.rows[0];
+    }
+
     const isFavorite = Number(row.chosen_count) >= 2;
     const lowPriority = Number(row.ignored_count) >= 2 && !isFavorite;
 
@@ -811,23 +855,35 @@ export async function recordMealAffinity(userId, meal, action) {
     const histLabel =
       action === 'choose'
         ? `Elegido: ${meal.title} (+2 afinidad${isFavorite ? ', Favorito' : ''})`
-        : `Ignorado: ${meal.title} (-1 afinidad${lowPriority ? ', baja prioridad' : ''})`;
+        : action === 'unignore'
+        ? `Prioridad restaurada: ${meal.title} (+${delta} afinidad)`
+        : `Ignorado: ${meal.title} (${delta} afinidad${lowPriority ? ', baja prioridad' : ''})`;
 
     await client.query(
       `INSERT INTO user_history (user_id, event_type, entity_id, label, delta)
        VALUES ($1, $2, $3, $4, $5)`,
-      [userId, action === 'choose' ? 'meal_choose' : 'meal_ignore', meal.id, histLabel, delta]
+      [
+        userId,
+        action === 'choose' ? 'meal_choose' : action === 'unignore' ? 'meal_unignore' : 'meal_ignore',
+        meal.id,
+        histLabel,
+        delta,
+      ]
     );
 
     const traceRule =
       action === 'choose'
         ? `afinidad_platillo(${meal.id}, +2, elegido=${row.chosen_count}${isFavorite ? ', favorito=true' : ''})`
-        : `afinidad_platillo(${meal.id}, -1, ignorado=${row.ignored_count}${lowPriority ? ', baja_prioridad=true' : ''})`;
+        : action === 'unignore'
+        ? `afinidad_platillo(${meal.id}, +${delta}, prioridad_restaurada=true)`
+        : `afinidad_platillo(${meal.id}, ${delta}, ignorado=${row.ignored_count}${lowPriority ? ', baja_prioridad=true' : ''})`;
 
     const traceReason =
       action === 'choose'
         ? `Incremento +2 puntos (total ${row.score}). ${isFavorite ? 'Alcanzo >=2 elecciones: marcado como Favorito.' : ''}`
-        : `Reduccion -1 punto (total ${row.score}). ${lowPriority ? 'Ignorado >=2 veces: prioridad reducida.' : ''}`;
+        : action === 'unignore'
+        ? `Prioridad restaurada (total ${row.score}). Se quito la marca de baja prioridad.`
+        : `Reduccion ${delta} puntos (total ${row.score}). ${lowPriority ? 'Marcado como baja prioridad.' : ''}`;
 
     await client.query(
       `INSERT INTO logical_traces (user_id, rule, entity_type, entity_id, entity_title, outcome, reason, details)
@@ -856,29 +912,69 @@ export async function recordMealAffinity(userId, meal, action) {
   return { user, affinityRecord: updatedAffinity };
 }
 
-export async function recordWorkoutAffinity(userId, workout, rating, completed = true) {
-  const delta = Number(rating) >= 0 ? 1 : -1;
-  const posInc = delta > 0 ? 1 : 0;
-  const negInc = delta < 0 ? 1 : 0;
-  const compInc = delta > 0 && completed ? 1 : 0;
-
+export async function recordWorkoutAffinity(userId, workout, rating, completed = true, action = null) {
   const updatedAffinity = await withTransaction(async (client) => {
-    const affRes = await client.query(
-      `INSERT INTO user_workout_affinity (user_id, workout_id, score, completed_count, positive_count, negative_count, last_action_at)
-       VALUES ($1, $2, $3, $4, $5, $6, NOW())
-       ON CONFLICT (user_id, workout_id) DO UPDATE SET
-         score = user_workout_affinity.score + $3,
-         completed_count = user_workout_affinity.completed_count + $4,
-         positive_count = user_workout_affinity.positive_count + $5,
-         negative_count = user_workout_affinity.negative_count + $6,
-         last_action_at = NOW()
-       RETURNING score, completed_count, positive_count, negative_count, last_action_at`,
-      [userId, workout.id, delta, compInc, posInc, negInc]
+    const existingRes = await client.query(
+      `SELECT score, completed_count, positive_count, negative_count, last_action_at
+       FROM user_workout_affinity
+       WHERE user_id = $1 AND workout_id = $2`,
+      [userId, workout.id]
     );
+    const existing = existingRes.rows[0];
+    const currentNegative = Number(existing?.negative_count || 0);
 
-    const row = affRes.rows[0];
+    let delta = 0;
+    let row;
 
-    if (delta > 0 && completed) {
+    if (action === 'unmark') {
+      delta = currentNegative;
+      if (existing) {
+        const affRes = await client.query(
+          `UPDATE user_workout_affinity
+           SET score = user_workout_affinity.score + $3,
+               negative_count = 0,
+               last_action_at = NOW()
+           WHERE user_id = $1 AND workout_id = $2
+           RETURNING score, completed_count, positive_count, negative_count, last_action_at`,
+          [userId, workout.id, delta]
+        );
+        row = affRes.rows[0];
+      } else {
+        row = { score: 0, completed_count: 0, positive_count: 0, negative_count: 0, last_action_at: new Date() };
+      }
+    } else if (Number(rating) >= 0) {
+      delta = 1;
+      const compInc = completed ? 1 : 0;
+      const affRes = await client.query(
+        `INSERT INTO user_workout_affinity (user_id, workout_id, score, completed_count, positive_count, negative_count, last_action_at)
+         VALUES ($1, $2, $3, $4, 1, 0, NOW())
+         ON CONFLICT (user_id, workout_id) DO UPDATE SET
+           score = user_workout_affinity.score + $3,
+           completed_count = user_workout_affinity.completed_count + $4,
+           positive_count = user_workout_affinity.positive_count + 1,
+           last_action_at = NOW()
+         RETURNING score, completed_count, positive_count, negative_count, last_action_at`,
+        [userId, workout.id, delta, compInc]
+      );
+      row = affRes.rows[0];
+    } else {
+      // rating < 0: marca baja prioridad en 1 clic de forma idempotente
+      const needed = currentNegative >= 2 ? 0 : 2 - currentNegative;
+      delta = -needed;
+      const affRes = await client.query(
+        `INSERT INTO user_workout_affinity (user_id, workout_id, score, completed_count, positive_count, negative_count, last_action_at)
+         VALUES ($1, $2, $3, 0, 0, $4, NOW())
+         ON CONFLICT (user_id, workout_id) DO UPDATE SET
+           score = user_workout_affinity.score + $3,
+           negative_count = user_workout_affinity.negative_count + $4,
+           last_action_at = NOW()
+         RETURNING score, completed_count, positive_count, negative_count, last_action_at`,
+        [userId, workout.id, delta, needed]
+      );
+      row = affRes.rows[0];
+    }
+
+    if (action !== 'unmark' && delta > 0 && completed) {
       await client.query(
         `INSERT INTO daily_workout_logs (user_id, log_date, workout_id, title, calories_burned, rating)
          VALUES ($1, CURRENT_DATE, $2, $3, $4, $5)`,
@@ -887,9 +983,11 @@ export async function recordWorkoutAffinity(userId, workout, rating, completed =
     }
 
     const histLabel =
-      delta > 0
+      action === 'unmark'
+        ? `Prioridad restaurada: ${workout.title} (+${delta} afinidad)`
+        : delta > 0
         ? `Sesion completada: ${workout.title} (+1 afinidad)`
-        : `Rutina calificada baja: ${workout.title} (-1 afinidad)`;
+        : `Rutina calificada baja: ${workout.title} (${delta} afinidad)`;
 
     await client.query(
       `INSERT INTO user_history (user_id, event_type, entity_id, label, delta)
@@ -902,12 +1000,14 @@ export async function recordWorkoutAffinity(userId, workout, rating, completed =
        VALUES ($1, $2, 'workout', $3, $4, 'affinity', $5, $6::jsonb)`,
       [
         userId,
-        `afinidad_entreno(${workout.id}, ${delta > 0 ? '+1' : '-1'}, total=${row.score})`,
+        `afinidad_entreno(${workout.id}, ${delta >= 0 ? `+${delta}` : delta}, total=${row.score})`,
         workout.id,
         workout.title,
-        delta > 0
+        action === 'unmark'
+          ? `Prioridad restaurada (+${delta}). Afinidad acumulada: ${row.score}.`
+          : delta > 0
           ? `Sesion completada y calificada positivamente (+1). Afinidad acumulada: ${row.score}.`
-          : `Calificacion negativa (-1). Se reduce su prioridad futura (afinidad: ${row.score}).`,
+          : `Calificacion negativa (${delta}). Se reduce su prioridad futura (afinidad: ${row.score}).`,
         JSON.stringify({ groupId: workout.groupId, score: Number(row.score) }),
       ]
     );
@@ -925,33 +1025,96 @@ export async function recordWorkoutAffinity(userId, workout, rating, completed =
   return { user, affinityRecord: updatedAffinity };
 }
 
+export async function removeTodayMealLog(userId, mealId) {
+  await withTransaction(async (client) => {
+    const delRes = await client.query(
+      `DELETE FROM daily_meal_logs
+       WHERE id = (
+         SELECT id FROM daily_meal_logs
+         WHERE user_id = $1 AND meal_id = $2 AND log_date = CURRENT_DATE
+         ORDER BY logged_at DESC, id DESC
+         LIMIT 1
+       )
+       RETURNING title`,
+      [userId, mealId]
+    );
+    if (delRes.rowCount > 0) {
+      await client.query(
+        `UPDATE user_meal_affinity
+         SET score = GREATEST(0, score - 2),
+             chosen_count = GREATEST(0, chosen_count - 1),
+             last_action_at = NOW()
+         WHERE user_id = $1 AND meal_id = $2`,
+        [userId, mealId]
+      );
+      await client.query(
+        `INSERT INTO user_history (user_id, event_type, entity_id, label, delta)
+         VALUES ($1, 'meal_undo', $2, $3, -2)`,
+        [userId, mealId, `Registro deshecho hoy: ${delRes.rows[0].title}`]
+      );
+    }
+  });
+  return getHydratedUser(userId);
+}
+
+export async function removeTodayWorkoutLog(userId, workoutId) {
+  await withTransaction(async (client) => {
+    const delRes = await client.query(
+      `DELETE FROM daily_workout_logs
+       WHERE id = (
+         SELECT id FROM daily_workout_logs
+         WHERE user_id = $1 AND workout_id = $2 AND log_date = CURRENT_DATE
+         ORDER BY logged_at DESC, id DESC
+         LIMIT 1
+       )
+       RETURNING title`,
+      [userId, workoutId]
+    );
+    if (delRes.rowCount > 0) {
+      await client.query(
+        `UPDATE user_workout_affinity
+         SET score = GREATEST(0, score - 1),
+             completed_count = GREATEST(0, completed_count - 1),
+             positive_count = GREATEST(0, positive_count - 1),
+             last_action_at = NOW()
+         WHERE user_id = $1 AND workout_id = $2`,
+        [userId, workoutId]
+      );
+      await client.query(
+        `INSERT INTO user_history (user_id, event_type, entity_id, label, delta)
+         VALUES ($1, 'workout_undo', $2, $3, -1)`,
+        [userId, workoutId, `Sesion deshecha hoy: ${delRes.rows[0].title}`]
+      );
+    }
+  });
+  return getHydratedUser(userId);
+}
+
 export async function getDemoAccounts() {
   const res = await pool.query(
     `SELECT id, name, email, role, status
      FROM users
-     WHERE email IN ('alejandro@samba.app', 'admin@samba.app', 'invitado@samba.app')
-     ORDER BY CASE role WHEN 'usuario' THEN 1 WHEN 'superusuario' THEN 2 ELSE 3 END`
+     WHERE email IN ('admin@gmail.com', 'invitado@gmail.com')
+     ORDER BY CASE role WHEN 'invitado' THEN 1 ELSE 2 END`
   );
   return res.rows.map((u) => ({
     email: u.email,
     name: u.name,
     role: u.role,
     status: u.status,
-    hint:
-      u.email === 'alejandro@samba.app'
-        ? 'Samba2026'
-        : u.email === 'admin@samba.app'
-        ? 'Admin2026'
-        : 'Invitado2026',
+    hint: u.email === 'admin@gmail.com' ? 'admin1234' : 'invitado1234',
   }));
 }
 
 export async function getAdminAuditSummary() {
   const res = await pool.query(
     `SELECT
-       u.id, u.name, u.email, u.role, u.status, u.allergies, u.injuries,
+       u.id, u.name, u.email, u.role, u.status, u.goal, u.activity_level,
+       u.allergies, u.injuries, u.created_at,
        (SELECT COUNT(*)::int FROM user_history h WHERE h.user_id = u.id) AS history_count,
-       (SELECT COUNT(*)::int FROM logical_traces t WHERE t.user_id = u.id) AS traces_count
+       (SELECT COUNT(*)::int FROM logical_traces t WHERE t.user_id = u.id) AS traces_count,
+       (SELECT COUNT(*)::int FROM daily_meal_logs ml WHERE ml.user_id = u.id) AS meal_logs_count,
+       (SELECT COUNT(*)::int FROM daily_workout_logs wl WHERE wl.user_id = u.id) AS workout_logs_count
      FROM users u
      ORDER BY u.created_at ASC`
   );
@@ -962,10 +1125,17 @@ export async function getAdminAuditSummary() {
     email: r.email,
     role: r.role,
     status: r.status,
+    goal: r.goal,
+    activityLevel: r.activity_level,
+    allergies: r.allergies || [],
+    injuries: r.injuries || [],
     allergiesCount: (r.allergies || []).length,
     injuriesCount: (r.injuries || []).length,
     historyCount: r.history_count,
     tracesCount: r.traces_count,
+    mealLogsCount: r.meal_logs_count,
+    workoutLogsCount: r.workout_logs_count,
+    createdAt: r.created_at,
   }));
 }
 
